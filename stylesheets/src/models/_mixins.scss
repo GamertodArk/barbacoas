@@ -1,0 +1,16 @@
+
+// This funtion centers one or more elements 
+@mixin center-flex($align: center, $direction: row) {
+	display: flex;
+	align-items: center;
+	justify-content: $align;
+	flex-direction: $direction;
+}
+
+// This mixin helps to add a background image
+@mixin image-background($name) {
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-image: url('../../img/#{$name}');
+}
