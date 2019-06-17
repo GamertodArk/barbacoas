@@ -117,4 +117,46 @@ body {
 			}
 		}
 	}
+
+	footer {
+		padding: 2em;
+		color: $white;
+		background-color: $dark_grey;
+
+		.footer-content {
+			width: 100%;
+			margin: auto;
+			max-width: 1000px;
+			text-align: center;
+
+			h2 {
+				font-size: 30pt;
+			}
+
+			p {
+				font-size: 11pt;
+				margin: 1em 0px;
+			}
+
+			.social-media {
+				list-style: none;
+
+				li {
+					margin: 0px 1em;
+					display: inline-block;
+
+					a {
+						width: 50px;
+						height: 50px;
+						font-size: 15pt;
+						color: $dark_grey;
+						border-radius: 100%;
+						text-decoration: none;
+						@include center-flex();
+						background-color: $white;
+					}
+				}
+			}
+		}
+	}
 }
