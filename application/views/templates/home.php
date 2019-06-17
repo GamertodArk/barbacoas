@@ -37,6 +37,19 @@
 		</div>
 	</header>
 
+	<main>
+		<div class="main-content">
+			<h2>Lorem ipsum dolor.</h2>
+			<hr>
+
+			<div class="item-wrap">
+				<!-- <div class="item">
+					
+				</div> -->
+			</div>
+		</div>
+	</main>
+
 	<footer>
 		<div class="footer-content">
 			<h2><?php echo APPNAME; ?></h2>
