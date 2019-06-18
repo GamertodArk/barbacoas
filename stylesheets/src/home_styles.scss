@@ -118,6 +118,29 @@ body {
 		}
 	}
 
+	main {
+		padding: 2em 1em;
+		background-color: $grey2;
+
+		.main-content {
+
+			h2 {
+				font-size: 23pt;
+				text-align: center;
+				color: $darker_grey;
+				text-transform: uppercase;
+			}
+
+			hr {
+				width: 90%;
+				margin: 0px auto;
+				display: block;
+				margin: 1em auto;
+			}
+
+		}
+	}
+
 	footer {
 		padding: 2em;
 		color: $white;

@@ -110,6 +110,22 @@ body header nav .nav-content .users li {
 body header nav .nav-content .users li i {
   font-size: 15pt;
 }
+body main {
+  padding: 2em 1em;
+  background-color: #efefef;
+}
+body main .main-content h2 {
+  font-size: 23pt;
+  text-align: center;
+  color: #898989;
+  text-transform: uppercase;
+}
+body main .main-content hr {
+  width: 90%;
+  margin: 0px auto;
+  display: block;
+  margin: 1em auto;
+}
 body footer {
   padding: 2em;
   color: #fff;
