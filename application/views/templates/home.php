@@ -43,9 +43,12 @@
 			<hr>
 
 			<div class="item-wrap">
-				<!-- <div class="item">
-					
-				</div> -->
+				<div class="item">
+					<div class="img"></div>	
+					<div class="item-content">
+						<h3>Lorem ipsum dolor sit.</h3>
+					</div>
+				</div>
 			</div>
 		</div>
 	</main>

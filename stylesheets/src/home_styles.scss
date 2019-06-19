@@ -51,7 +51,7 @@ body {
 				text-decoration: none;
 			}
 
-			.nav-content {
+			.nav-content{
 				width: 100%;
 				margin: auto;
 				padding: 1em 0px;
@@ -136,6 +136,45 @@ body {
 				margin: 0px auto;
 				display: block;
 				margin: 1em auto;
+			}
+
+			.item-wrap {
+				width: 100%;
+				@include center-flex();
+
+				.item {
+					width: 300px;
+					height: 442px;
+					display: flex;
+					align-items: flex-start;
+					flex-direction: column;
+					justify-content: flex-end;
+					background-color: $white;
+
+					.img {
+						width: 100%;
+						height: 150px;
+						background-color: $dark_grey;
+					}
+
+					.item-content {
+						height: 20%;
+						width: 100%;
+						padding: 1em;
+						display: flex;
+						align-items: flex-start;
+						justify-content: center;
+
+						h3 {
+							font-size: 11pt;
+							color: $darker_grey;
+						}
+					}
+
+					&:hover {
+						box-shadow: 0px 2px 5px darken($grey2, 10%);
+					}
+				}
 			}
 
 		}
