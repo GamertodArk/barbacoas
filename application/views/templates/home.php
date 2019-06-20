@@ -43,12 +43,18 @@
 			<hr>
 
 			<div class="item-wrap">
+			<?php for($i = 0; $i < 11; $i++): ?>
 				<div class="item">
-					<div class="img"></div>	
+					<span class="view"><i class="far fa-eye"></i></span>
+
+					<div class="image-wrap">
+						<img src="<?php echo base_url() ?>img/item-test.png" alt="">	
+					</div>
 					<div class="item-content">
-						<h3>Lorem ipsum dolor sit.</h3>
+						<a href="#">Lorem ipsum dolor sit.</a>
 					</div>
 				</div>
+			<?php endfor; ?>
 			</div>
 		</div>
 	</main>

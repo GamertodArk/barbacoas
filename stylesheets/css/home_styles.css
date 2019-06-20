@@ -128,24 +128,51 @@ body main .main-content hr {
 }
 body main .main-content .item-wrap {
   width: 100%;
+  flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+}
+body main .main-content .item-wrap .item {
+  margin: 1em;
+  height: 342px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  flex-direction: column;
+  width: calc(100% / 3.5);
+  align-items: flex-start;
+  justify-content: flex-end;
+  background-color: #fff;
+}
+body main .main-content .item-wrap .item .view {
+  top: 50px;
+  left: -100px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  font-size: 15pt;
+  position: absolute;
+  border-radius: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: row;
-}
-body main .main-content .item-wrap .item {
-  width: 300px;
-  height: 442px;
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  justify-content: flex-end;
   background-color: #fff;
+  transition: 0.2s ease color;
+  transition: 0.2s ease-in left;
+  box-shadow: 0px 5px 10px #000;
 }
-body main .main-content .item-wrap .item .img {
+body main .main-content .item-wrap .item .view:hover {
+  color: #f8ba53;
+}
+body main .main-content .item-wrap .item .image-wrap {
+  height: 80%;
   width: 100%;
-  height: 150px;
-  background-color: #3f3f3f;
+}
+body main .main-content .item-wrap .item .image-wrap img {
+  width: 100%;
 }
 body main .main-content .item-wrap .item .item-content {
   height: 20%;
@@ -155,12 +182,21 @@ body main .main-content .item-wrap .item .item-content {
   align-items: flex-start;
   justify-content: center;
 }
-body main .main-content .item-wrap .item .item-content h3 {
+body main .main-content .item-wrap .item .item-content a {
   font-size: 11pt;
+  font-weight: bold;
   color: #898989;
+  text-decoration: none;
+  transition: 0.3s ease color;
+}
+body main .main-content .item-wrap .item .item-content a:hover {
+  color: #f8ba53;
 }
 body main .main-content .item-wrap .item:hover {
-  box-shadow: 0px 2px 5px #d6d6d6;
+  box-shadow: 0px 2px 10px #d6d6d6;
+}
+body main .main-content .item-wrap .item:hover .view {
+  left: 20px;
 }
 body footer {
   padding: 2em;
