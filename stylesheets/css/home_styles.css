@@ -136,12 +136,12 @@ body main .main-content .item-wrap {
 }
 body main .main-content .item-wrap .item {
   margin: 1em;
-  height: 342px;
+  height: 400px;
   display: flex;
   overflow: hidden;
   position: relative;
   flex-direction: column;
-  width: calc(100% / 3.5);
+  width: calc(100% / 4.5);
   align-items: flex-start;
   justify-content: flex-end;
   background-color: #fff;

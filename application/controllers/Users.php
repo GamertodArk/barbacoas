@@ -1,6 +1,12 @@
 <?php  
 	class Users extends CI_Controller {
 
+		public function __construct()
+		{
+			parent::__construct();
+			$this->load->helper("url");
+		}
+
 		public function index()
 		{
 			echo "You're in the users Controller";
@@ -13,7 +19,13 @@
 
 		public function signup()
 		{
-			echo "This is the singup page";
+			/*
+				Usarname
+				Name
+				Last Name
+				contry, state, city
+			*/
+			$this->load->view("templates/signup.php");
 		}
 	}
 ?>

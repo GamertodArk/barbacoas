@@ -1,0 +1,85 @@
+// import general partials
+@import "partials/base";
+
+html, body, main {
+	height: 100%;
+}
+
+body {
+	// height:100%;
+	// min-height:100%;
+
+	header {
+		// include nav styles
+		@import "partials/nav";
+
+		nav {
+			position: static;
+			background-color: $dark_grey;
+		}
+	}
+
+	main {
+		@include center-flex(center, column);
+
+		h2 {
+			font-size: 25pt;
+			margin-bottom: 1.5em;
+		}
+
+		form {
+			width: 70%;
+			max-width: 1000px;
+
+			input {
+				margin: 1em 0px;
+			}
+
+			input[type=text] {
+				width: 100%;
+				padding: 5px;
+				// margin: 1em 0px;
+			}
+
+			input[type=email],
+			input[type="password"] /*,
+			input[name="username"]*/ {
+				width: 100%;
+				padding: 5px;
+				// margin: 1em 0px;
+			}
+
+			.fullname {
+				width: 100%;
+
+				> div {
+					width: 47%;
+					margin-right:0.5em;
+					display: inline-block;
+				}
+			}
+
+			.location {
+				margin: 1em 0px;
+				@include center-flex(space-around);
+
+				select {
+					padding: 0.5em;
+					margin: 0px 0.5em;
+					width: calc(100% / 3);
+					background-color: transparent;
+				}
+			}
+
+			input[type=submit] {
+				width: 150px;
+				display: block;
+				padding: 0.5em;
+				margin: 1em auto;
+			}
+		}
+	}
+
+	// include footer styles
+	@import "partials/footer";
+}

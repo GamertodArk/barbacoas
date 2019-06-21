@@ -8,7 +8,7 @@
 </head>
 <body>
 	<header>
-		<nav>
+<!-- 		<nav>
 			<div class="nav-content">			
 				<div class="logo">
 					<a href="#">Barbacoas</a>
@@ -21,16 +21,18 @@
 				</ul>
 
 				<ul class="users">
-					<li title="Iniciar Session"><a href="#">
+					<li title="Iniciar Session"><a href="users/login">
 						<i class="fas fa-sign-in-alt"></i>
 					</a></li>
-					<li title="Registrarse"><a href="#">
+					<li title="Registrarse"><a href="users/signup">
 						<i class="fas fa-user-plus"></i>
 					</a></li>
 				</ul>
 			</div>
 		</nav>
-		<div class="header-overlay"></div>
+ -->		
+		<?php include APPPATH . 'views/inc/nav.php' ?>
+ 		<div class="header-overlay"></div>
 		<div class="header-content">
 			<h2>Lorem ipsum dolor sit.</h2>
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores repellendus eos impedit modi harum ratione ullam et tenetur dolore doloribus ex, sit culpa repudiandae nemo unde debitis obcaecati labore, quo!</p>
@@ -59,7 +61,7 @@
 		</div>
 	</main>
 
-	<footer>
+<!-- 	<footer>
 		<div class="footer-content">
 			<h2><?php echo APPNAME; ?></h2>
 			<p>En <?php echo APPNAME; ?> somos buenos porque Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima quos repellendus eveniet esse, omnis nesciunt facilis alias magni dolorem. Praesentium eum blanditiis, rem nam tenetur rerum soluta consectetur quo mollitia.</p>
@@ -74,5 +76,7 @@
 			</ul>
 		</div>
 	</footer>
-</body>
+ -->
+ 	<?php include APPPATH . "views/inc/footer.php" ?>
+	</body>
 </html>
