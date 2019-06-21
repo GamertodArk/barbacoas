@@ -9,7 +9,7 @@ body {
 }
 
 html, body, main {
-  height: 100%;
+  height: 110%;
 }
 
 body header nav {
@@ -80,6 +80,7 @@ body header nav {
   background-color: #3f3f3f;
 }
 body main {
+  padding: 2em;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -93,8 +94,16 @@ body main form {
   width: 70%;
   max-width: 1000px;
 }
-body main form input {
+body main form .username,
+body main form .email,
+body main form .pass,
+body main form .pass2 {
+  width: 100%;
   margin: 1em 0px;
+}
+body main form span[class$=-error] {
+  color: red;
+  font-size: 11pt;
 }
 body main form input[type=text] {
   width: 100%;
@@ -107,17 +116,28 @@ body main form input[type=password] {
 }
 body main form .fullname {
   width: 100%;
+  margin: 1em 0px;
 }
 body main form .fullname > div {
   width: 47%;
   margin-right: 0.5em;
   display: inline-block;
 }
+body main form .fullname > div input {
+  margin: 0px;
+}
+body main form .fullname > div span {
+  color: red;
+  font-size: 11pt;
+}
 body main form .location {
   margin: 1em 0px;
+}
+body main form .location .location-content {
+  width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-direction: row;
 }
 body main form .location select {

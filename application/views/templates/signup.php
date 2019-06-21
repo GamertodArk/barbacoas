@@ -18,35 +18,53 @@
 		<form action="#">
 			<div class="fullname">
 				<div class="name">
+					<span class="name-error">Lorem ipsum dolor.</span>
 					<input type="text" name="name" id="name" placeholder="Nombre">
 				</div>
 
 				<div class="lastname">
+					<span class="lastname-error">Lorem ipsum dolor.</span>
 					<input type="text" name="lastname" id="lastname" placeholder="Apellido">
 				</div>
 			</div>
 
-			<input type="text" name="username" id="username" placeholder="Username">
-
-			<input type="email" name="email" id="email" placeholder="Email">
-
-			<div class="location">
-				<select name="country" class="countries" id="countryId">
-				    <option value="">Selecionar Pais</option>
-				</select>
-				<select name="state" class="states" id="stateId">
-				    <option value="">Selecionar Estado</option>
-				</select>
-				<select name="city" class="cities" id="cityId">
-				    <option value="">Selecionar Ciudad</option>
-				</select>
+			<div class="username">
+				<span class="username-error">Lorem ipsum dolor.</span>
+				<input type="text" name="username" id="username" placeholder="Username">
 			</div>
 
-			<input type="password" name="pass" id="pass" placeholder="Contraseña">
+			<div class="email">
+				<span class="email-error">Lorem ipsum dolor.</span>
+				<input type="email" name="email" id="email" placeholder="Email">
+			</div>
 
-			<input type="password" name="pass2" id="pass2" placeholder="Repetir Contraseña">
+			<div class="location">
+				<span class="location-error">Lorem ipsum dolor.</span>
 
-			<input type="submit" value="Registrarse">
+<div class="location-content">
+								
+								<select name="country" class="countries" id="countryId">
+								    <option value="">Selecionar Pais</option>
+								</select>
+								<select name="state" class="states" id="stateId">
+								    <option value="">Selecionar Estado</option>
+								</select>
+								<select name="city" class="cities" id="cityId">
+								    <option value="">Selecionar Ciudad</option>
+								</select>
+			</div>			</div>
+
+			<div class="pass">
+				<span class="pass-error">Lorem ipsum dolor.</span>
+				<input type="password" name="pass" id="pass" placeholder="Contraseña">
+			</div>
+
+			<div class="pass2">
+				<span class="pass2-error">Lorem ipsum dolor.</span>
+				<input type="password" name="pass2" id="pass2" placeholder="Repetir Contraseña">
+			</div>
+
+			<input id="sub_btn" type="submit" value="Registrarse">
 		</form>
 	</main>
 	
@@ -54,5 +72,7 @@
  	<?php include APPPATH . "views/inc/footer.php" ?>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
 	<script src="//geodata.solutions/includes/countrystatecity.js"></script>
+	<script src="<?php echo base_url() ?>js/generals.js"></script>
+	<script src="<?php echo base_url() ?>js/signup_scripts.js"></script>
 </body>
 </html>
