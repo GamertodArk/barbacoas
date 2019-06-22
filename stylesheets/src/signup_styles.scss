@@ -44,10 +44,12 @@ body {
 				margin: 1em 0px;
 			}
 
-			span[class$="-error"]{
+			span[id$="-error"]{
 				// color: blue !important;
 				color: red;
 				// font-weight: bold;
+				// display: none;
+				opacity: 0;
 				font-size: 11pt;
 
 			}

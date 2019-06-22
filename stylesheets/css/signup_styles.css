@@ -101,8 +101,9 @@ body main form .pass2 {
   width: 100%;
   margin: 1em 0px;
 }
-body main form span[class$=-error] {
+body main form span[id$=-error] {
   color: red;
+  opacity: 0;
   font-size: 11pt;
 }
 body main form input[type=text] {

@@ -18,28 +18,28 @@
 		<form action="#">
 			<div class="fullname">
 				<div class="name">
-					<span class="name-error">Lorem ipsum dolor.</span>
+					<span id="name-error">Lorem ipsum dolor.</span>
 					<input type="text" name="name" id="name" placeholder="Nombre">
 				</div>
 
 				<div class="lastname">
-					<span class="lastname-error">Lorem ipsum dolor.</span>
+					<span id="lastname-error">Lorem ipsum dolor.</span>
 					<input type="text" name="lastname" id="lastname" placeholder="Apellido">
 				</div>
 			</div>
 
 			<div class="username">
-				<span class="username-error">Lorem ipsum dolor.</span>
+				<span id="username-error">Lorem ipsum dolor.</span>
 				<input type="text" name="username" id="username" placeholder="Username">
 			</div>
 
 			<div class="email">
-				<span class="email-error">Lorem ipsum dolor.</span>
+				<span id="email-error">Lorem ipsum dolor.</span>
 				<input type="email" name="email" id="email" placeholder="Email">
 			</div>
 
 			<div class="location">
-				<span class="location-error">Lorem ipsum dolor.</span>
+				<span id="location-error">Lorem ipsum dolor.</span>
 
 <div class="location-content">
 								
@@ -55,12 +55,12 @@
 			</div>			</div>
 
 			<div class="pass">
-				<span class="pass-error">Lorem ipsum dolor.</span>
+				<span id="pass-error">Lorem ipsum dolor.</span>
 				<input type="password" name="pass" id="pass" placeholder="Contraseña">
 			</div>
 
 			<div class="pass2">
-				<span class="pass2-error">Lorem ipsum dolor.</span>
+				<span id="pass2-error">Lorem ipsum dolor.</span>
 				<input type="password" name="pass2" id="pass2" placeholder="Repetir Contraseña">
 			</div>
 
