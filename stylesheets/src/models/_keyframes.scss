@@ -1,0 +1,13 @@
+@keyframes turn {
+	// from { transform: ;  }
+	// to { transform: ;  }
+
+	from { 
+		transform: rotate(0deg);
+		// border-color: green;  
+	}
+	to { 
+		transform: rotate(360deg);
+		// border-color: pink; 
+	}
+}

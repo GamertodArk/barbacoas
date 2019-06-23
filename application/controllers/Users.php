@@ -27,5 +27,13 @@
 			*/
 			$this->load->view("templates/signup.php");
 		}
+
+		public function addUser()
+		{
+			// echo 'Recibido';
+			// var_dump($_POST['data']);
+			$data = json_decode($_POST['data'], true);
+			echo $data['name'];
+		}
 	}
 ?>

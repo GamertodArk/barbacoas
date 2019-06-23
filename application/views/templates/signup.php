@@ -7,6 +7,10 @@
 	<link rel="stylesheet" href="<?php echo base_url(); ?>stylesheets/css/signup_styles.css">
 </head>
 <body>
+	<!-- loading modal -->
+	<div id="loading-modal-wrap" class="loading-modal-wrap">
+		<div class="loading-modal"></div>
+	</div>
 	<header>
 		<!-- Nav -->
 		<?php include APPPATH . 'views/inc/nav.php' ?>
@@ -41,18 +45,18 @@
 			<div class="location">
 				<span id="location-error">Lorem ipsum dolor.</span>
 
-<div class="location-content">
-								
-								<select name="country" class="countries" id="countryId">
-								    <option value="">Selecionar Pais</option>
-								</select>
-								<select name="state" class="states" id="stateId">
-								    <option value="">Selecionar Estado</option>
-								</select>
-								<select name="city" class="cities" id="cityId">
-								    <option value="">Selecionar Ciudad</option>
-								</select>
-			</div>			</div>
+				<div class="location-content">
+					<select name="country" class="countries" id="countryId">
+					    <option value="">Selecionar Pais</option>
+					</select>
+					<select name="state" class="states" id="stateId">
+					    <option value="">Selecionar Estado</option>
+					</select>
+					<select name="city" class="cities" id="cityId">
+					    <option value="">Selecionar Ciudad</option>
+					</select>
+				</div>			
+			</div>
 
 			<div class="pass">
 				<span id="pass-error">Lorem ipsum dolor.</span>
@@ -68,6 +72,7 @@
 		</form>
 	</main>
 	
+
 	<!-- Footer -->
  	<?php include APPPATH . "views/inc/footer.php" ?>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
