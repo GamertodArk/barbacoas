@@ -5,8 +5,6 @@ let loading_modal = __("loading-modal-wrap");
 btn.addEventListener('click', e => {
 	e.preventDefault();
 
-	alert('NOjoda');
-
 	// Show loading modal
 	// loading_modal.style.display = 'flex';
 
@@ -68,26 +66,37 @@ btn.addEventListener('click', e => {
 		}
 	}
 
-	console.log(permisos);
-	console.log(permisos.length);
+	// console.log(permisos);
+	// console.log(permisos.length);
 	if (permisos.length == 10) {
-		console.log('Todo bien');
-		alert('Todo bien');
+		// console.log('Todo bien');
+		// alert('Todo bien');
 
 		
 		// Create json object with data
+		// let json = {
+		// 	name: __("name").value,
+		// 	lastname: __('lastname').value,
+		// 	email: __('email').value,
+		// 	username: __('username').value,
+		// 	password: __('pass').value,
+		// 	location: {
+		// 		country: __('countryId').value,
+		// 		state: __('stateId').value,
+		// 		city: __('cityId').value
+		// 	}
+		// }
+
 		let json = {
-			name: __("name").value,
-			lastname: __('lastname').value,
-			email: __('email').value,
-			username: __('username').value,
-			password: __('pass').value,
-			location: {
-				country: __('countryId').value,
-				state: __('stateId').value,
-				city: __('cityId').value
-			}
-		}
+					name: __("name").value,
+					lastname: __('lastname').value,
+					email: __('email').value,
+					username: __('username').value,
+					password: __('pass').value,
+					country: __('countryId').value,
+					state: __('stateId').value,
+					city: __('cityId').value
+				}
 
 		// Send data to server
 		fetch(`addUser`, {
