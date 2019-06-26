@@ -20,12 +20,6 @@
 
 		public function signup()
 		{
-			/*
-				Usarname
-				Name
-				Last Name
-				contry, state, city
-			*/
 			$this->load->view("templates/signup.php");
 		}
 
@@ -43,7 +37,18 @@
 				$query2 = $this->db->get_where('users', ['username' => $data['username']]);
 				if ($query2->row_array() == NULL) {
 					
-					echo 'Nada en uso';
+					// Isert data to database
+					$this->db->insert('users', $data);
+
+					// Create success message
+					$json = [
+						'error' => false,
+						'field' => NULL,
+						'message' => 'Registrado con exito'
+					];
+
+					echo json_encode($json);
+
 
 				}else {
 					// Send error message
@@ -66,12 +71,6 @@
 
 				echo json_encode($json);
 			}
-
-			// var_dump($query->row_array());
-
-
-			// $this->db->insert('users', $data);
-
 		}
 	}
 ?>
