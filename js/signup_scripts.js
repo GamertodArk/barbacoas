@@ -6,7 +6,7 @@ btn.addEventListener('click', e => {
 	e.preventDefault();
 
 	// Show loading modal
-	// loading_modal.style.display = 'flex';
+	loading_modal.style.display = 'flex';
 
 
 	// This array hold all the inputs permissions
@@ -106,8 +106,16 @@ btn.addEventListener('click', e => {
 				'Content-Type': 'application/x-www-form-urlencoded'
 			}
 		})
-			.then(response => response.text())
-			.then(text => console.log(text))
+			.then(response => response.json())
+			.then(json => {
+				if (json.error) {
+					// console.log(__(`${json.field}-error`));
+					loading_modal.style.display = 'none';
+					__(`${json.field}-error`).style.opacity = 1;
+					__(`${json.field}-error`).innerHTML = json.message;
+
+				}else { window.location = 'dashboard' }
+			})
 			.catch(error => console.log(error.message));
 
 		// console.log(json);
