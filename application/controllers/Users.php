@@ -5,7 +5,8 @@
 		{
 			parent::__construct();
 			$this->load->helper("url");
-			$this->load->database();
+			// $this->load->database();
+			$this->load->model('users_model');
 		}
 
 		public function index()
@@ -26,50 +27,22 @@
 		public function addUser()
 		{
 
-			$data = json_decode($_POST['data'], true);
-			// var_dump($data);
+			$data = json_decode($this->input->post('data'), true);
 
-			// Check for Email availability
-			$query = $this->db->get_where('users', ['email' => $data['email']]);
-			if ($query->row_array() == NULL) {
+			$response = $this->users_model->register_user($data);
+
+			if (! $response['error']) {
 				
-				// Check username availability
-				$query2 = $this->db->get_where('users', ['username' => $data['username']]);
-				if ($query2->row_array() == NULL) {
-					
-					// Isert data to database
-					$this->db->insert('users', $data);
+				$query = $this->db->get_where('users', ['email' => $data['email']], 1);
+				$user_data = $query->row_array();
 
-					// Create success message
-					$json = [
-						'error' => false,
-						'field' => NULL,
-						'message' => 'Registrado con exito'
-					];
+				unset($user_data['password']);
+				$this->session->set_userdata($user_data);
 
-					echo json_encode($json);
+				echo json_encode($response);
 
-
-				}else {
-					// Send error message
-					$json = [
-						'error' => true,
-						'field' => 'username',
-						'message' => 'Username esta en uso'
-					];
-
-					echo json_encode($json);
-				}
-
-			} else {
-				// Send error message
-				$json = [
-					'error' => true,
-					'field' => 'email',
-					'message' => 'Email esta en uso'
-				];
-
-				echo json_encode($json);
+			}else {
+				echo json_encode($response);
 			}
 		}
 	}
