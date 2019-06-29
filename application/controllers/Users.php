@@ -14,6 +14,11 @@
 			echo "You're in the users Controller";
 		}
 
+		public function dashboard()
+		{
+			echo 'This is the users dashboard';
+		}
+
 		public function login()
 		{
 			echo "This is the login page";
