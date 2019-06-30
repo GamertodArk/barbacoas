@@ -19,8 +19,7 @@
 
 		public function login()
 		{
-			// redirect('dashbaord');
-			echo "This is the login page";
+			$this->load->view('templates/login');
 		}
 
 		public function signup()

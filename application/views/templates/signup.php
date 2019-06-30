@@ -3,8 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title><?php echo APPNAME ?></title>
-	<link rel="stylesheet" href="<?php echo base_url(); ?>stylesheets/css/all.css">
 	<link rel="stylesheet" href="<?php echo base_url(); ?>stylesheets/css/signup_styles.css">
+	<?php include APPPATH . 'views/inc/head.php' ?>
 </head>
 <body>
 	<!-- loading modal -->

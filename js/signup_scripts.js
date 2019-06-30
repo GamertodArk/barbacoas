@@ -66,27 +66,9 @@ btn.addEventListener('click', e => {
 		}
 	}
 
-	// console.log(permisos);
-	// console.log(permisos.length);
+	
 	if (permisos.length == 10) {
-		// console.log('Todo bien');
-		// alert('Todo bien');
-
-		
-		// Create json object with data
-		// let json = {
-		// 	name: __("name").value,
-		// 	lastname: __('lastname').value,
-		// 	email: __('email').value,
-		// 	username: __('username').value,
-		// 	password: __('pass').value,
-		// 	location: {
-		// 		country: __('countryId').value,
-		// 		state: __('stateId').value,
-		// 		city: __('cityId').value
-		// 	}
-		// }
-
+	
 		let json = {
 					name: __("name").value,
 					lastname: __('lastname').value,
@@ -109,7 +91,6 @@ btn.addEventListener('click', e => {
 			.then(response => response.json())
 			.then(json => {
 				if (json.error) {
-					// console.log(__(`${json.field}-error`));
 					loading_modal.style.display = 'none';
 					__(`${json.field}-error`).style.opacity = 1;
 					__(`${json.field}-error`).innerHTML = json.message;
@@ -119,7 +100,6 @@ btn.addEventListener('click', e => {
 			.catch(error => console.log(error.message));
 
 	}else {
-		console.log('Algo Mal');
 		loading_modal.style.display = 'none';
 	}
 

@@ -19,5 +19,11 @@
 			$this->load->view('templates/' . strtolower($page), $data);
 		}
 
+		public function logout()
+		{
+			$this->session->sess_destroy();
+			redirect('users/login');
+		}
+
 	}
 ?>
