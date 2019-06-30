@@ -44,28 +44,17 @@ body {
 				margin: 1em 0px;
 			}
 
-			span[id$="-error"]{
-				// color: blue !important;
-				color: red;
-				// font-weight: bold;
-				// display: none;
-				opacity: 0;
-				font-size: 11pt;
-
-			}
+			span[id$="-error"]{ @include field_error(); }
 
 			input[type=text] {
 				width: 100%;
 				padding: 5px;
-				// margin: 1em 0px;
 			}
 
 			input[type=email],
-			input[type="password"] /*,
-			input[name="username"]*/ {
+			input[type="password"] {
 				width: 100%;
 				padding: 5px;
-				// margin: 1em 0px;
 			}
 
 			.fullname {
@@ -84,7 +73,6 @@ body {
 					// span colors
 					span {
 						color: red;
-						// font-weight: bold;
 						font-size: 11pt;
 					}
 				}
@@ -92,7 +80,6 @@ body {
 
 			.location {
 				margin: 1em 0px;
-				// @include center-flex(space-around);
 
 				.location-content {
 					width: 100%;

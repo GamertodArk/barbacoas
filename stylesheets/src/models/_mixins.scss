@@ -14,3 +14,9 @@
 	background-position: center center;
 	background-image: url('../../img/#{$name}');
 }
+
+@mixin field_error() {
+	color: red;
+	opacity: 0;
+	font-size: 11pt;
+}

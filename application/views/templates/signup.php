@@ -77,7 +77,7 @@
  	<?php include APPPATH . "views/inc/footer.php" ?>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
 	<script src="//geodata.solutions/includes/countrystatecity.js"></script>
-	<script src="<?php echo base_url() ?>js/generals.js"></script>
+	<!-- <script src="<?php echo base_url() ?>js/generals.js"></script> -->
 	<script src="<?php echo base_url() ?>js/signup_scripts.js"></script>
 </body>
 </html>

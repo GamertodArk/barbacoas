@@ -1,5 +1,9 @@
 @import 'partials/base';
 
+html, body, main {
+	height: 100%;
+}
+
 body {
 	header { 
 		@import 'partials/nav'; 
@@ -7,6 +11,39 @@ body {
 		nav {
 			position: static;
 			background-color: $dark_grey;
+		}
+	}
+
+	main {
+		padding: 2em;
+		@include center-flex(center, column);
+
+		form {
+			width: 70%;
+
+			.name, .pass {
+				margin: 1em 0px;
+
+				input {
+					width: 100%;
+					padding: 5px;
+				}
+
+				p[id$="-error"] { @include field_error(); }
+
+			}
+
+			input[type="submit"] {
+				width: 150px;
+				display: block;
+				margin: 0.5em auto;
+				padding: 0.5em 0px;
+			}
+		}
+
+		hr {
+			width: 90%;
+			margin: 1em 0px;
 		}
 	}
 

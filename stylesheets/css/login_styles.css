@@ -16,6 +16,10 @@ body {
     transform: rotate(360deg);
   }
 }
+html, body, main {
+  height: 100%;
+}
+
 body header nav {
   top: 0;
   z-index: 3;
@@ -82,6 +86,38 @@ body header nav .nav-content .users li i {
 body header nav {
   position: static;
   background-color: #3f3f3f;
+}
+body main {
+  padding: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+body main form {
+  width: 70%;
+}
+body main form .name, body main form .pass {
+  margin: 1em 0px;
+}
+body main form .name input, body main form .pass input {
+  width: 100%;
+  padding: 5px;
+}
+body main form .name p[id$=-error], body main form .pass p[id$=-error] {
+  color: red;
+  opacity: 0;
+  font-size: 11pt;
+}
+body main form input[type=submit] {
+  width: 150px;
+  display: block;
+  margin: 0.5em auto;
+  padding: 0.5em 0px;
+}
+body main hr {
+  width: 90%;
+  margin: 1em 0px;
 }
 body footer {
   padding: 2em;
