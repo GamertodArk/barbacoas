@@ -114,11 +114,9 @@ btn.addEventListener('click', e => {
 					__(`${json.field}-error`).style.opacity = 1;
 					__(`${json.field}-error`).innerHTML = json.message;
 
-				}else { window.location = 'dashboard' }
+				}else { window.location = 'done' }
 			})
 			.catch(error => console.log(error.message));
-
-		// console.log(json);
 
 	}else {
 		console.log('Algo Mal');

@@ -7,6 +7,9 @@
 			$this->load->helper("url");
 			// $this->load->database();
 			$this->load->model('users_model');
+
+			// Check for sessions
+			if ($this->session->id) { redirect('dashboard'); }
 		}
 
 		public function index()
@@ -14,19 +17,20 @@
 			echo "You're in the users Controller";
 		}
 
-		public function dashboard()
-		{
-			echo 'This is the users dashboard';
-		}
-
 		public function login()
 		{
+			// redirect('dashbaord');
 			echo "This is the login page";
 		}
 
 		public function signup()
 		{
 			$this->load->view("templates/signup.php");
+		}
+
+		public function done()
+		{
+			redirect('dashboard');
 		}
 
 		public function addUser()

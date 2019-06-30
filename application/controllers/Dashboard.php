@@ -11,7 +11,7 @@
 
 		public function index()
 		{
-			echo 'This is Dashboard';
+			echo 'Welcome ' . $this->session->name;
 		}
 	}
 ?>
