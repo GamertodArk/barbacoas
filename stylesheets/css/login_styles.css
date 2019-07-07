@@ -94,6 +94,15 @@ body main {
   justify-content: center;
   flex-direction: column;
 }
+body main .error-message {
+  width: 70%;
+  opacity: 0;
+  color: #FF0000;
+  padding: 0.5em;
+  text-align: center;
+  margin-bottom: 1em;
+  border: 1px solid #FF0000;
+}
 body main form {
   width: 70%;
 }
@@ -118,6 +127,33 @@ body main form input[type=submit] {
 body main hr {
   width: 90%;
   margin: 1em 0px;
+}
+body #loading-modal-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none;
+}
+body #loading-modal-wrap .loading-modal {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  border: 20px solid purple;
+  border-top-style: groove;
+  animation-name: turn;
+  animation-duration: 0.7s;
+  animation-iteration-count: infinite;
+  border-top-color: #e600e6;
 }
 body footer {
   padding: 2em;

@@ -32,6 +32,15 @@
 			redirect('dashboard');
 		}
 
+		public function verify()
+		{
+			$data = json_decode($this->input->post('data'), true);
+			$response = $this->users_model->check_credential($data);
+			// var_dump($data);
+
+			echo json_encode($response);
+			}
+
 		public function addUser()
 		{
 

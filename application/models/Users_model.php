@@ -6,6 +6,28 @@
 			parent::__construct();
 		}
 
+		public function check_credential($data)
+		{
+			$data['password'] = md5($data['password']);
+
+			$query = $this->db->get_where('users', ['email' => $data['email'], 'password' => $data['password']], 1);
+
+			// var_dump($query->row_array());
+			if ($query->row_array()) {
+
+				// Remove password to add user data to session
+				// Set the session
+				unset($query->row_array()['password']);
+
+				// $this->session->set_userdata($query->row_array());
+				$json = ['error' => false];
+			}else {
+				$json = ['error' => true];
+			}
+
+			return $json;
+		}
+
 		public function register_user($data)
 		{
 			// Check for Email availability
