@@ -14,9 +14,13 @@
 				show_404();
 			}
 
-			$data['title'] = ucfirst($page);
 
-			$this->load->view('templates/' . strtolower($page), $data);
+			var_dump($this->session->password);
+
+
+			// $data['title'] = ucfirst($page);
+
+			// $this->load->view('templates/' . strtolower($page), $data);
 		}
 
 		public function logout()

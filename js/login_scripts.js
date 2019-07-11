@@ -46,8 +46,7 @@ btn.addEventListener('click', e => {
 				__('error-message').style.opacity = 1;
 				__('loading-modal-wrap').style.display = 'none';
 			}else {
-				// window.location.href = ''
-				alert('Todo Perfecto');
+				window.location.href = 'done';
 			}
 
 			console.log(json);
