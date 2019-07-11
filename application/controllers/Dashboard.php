@@ -6,7 +6,7 @@
 			parent::__construct();
 
 			// Check for sessions
-			if (! $this->session->id) { redirect('users/login'); }
+			if (! $this->session->logged_in) { redirect('users/login'); }
 		}
 
 		public function index()

@@ -34,11 +34,11 @@ body header nav a {
 body header nav .nav-content {
   width: 100%;
   margin: auto;
-  padding: 1em 0px;
+  padding: 1em;
   max-width: 1000px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-direction: row;
 }
 body header nav .nav-content .logo a {

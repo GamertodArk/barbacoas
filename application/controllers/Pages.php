@@ -13,14 +13,19 @@
 			if (! file_exists(APPPATH . 'views/templates/' . strtolower($page) . '.php')) {
 				show_404();
 			}
+			// var_dump($this->session->password);
 
+			$data['title'] = ucfirst($page);
 
-			var_dump($this->session->password);
+			if ($this->session->logged_in) {
+				$data['id'] = $this->session->id;
+				$data['name'] = $this->session->name;
+				$data['username'] = $this->session->username;
+				$data['lastname'] = $this->session->lastname;
+				$data['email'] = $this->session->name;
+			}
 
-
-			// $data['title'] = ucfirst($page);
-
-			// $this->load->view('templates/' . strtolower($page), $data);
+			$this->load->view('templates/' . strtolower($page), $data);
 		}
 
 		public function logout()

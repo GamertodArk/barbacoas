@@ -9,7 +9,7 @@
 			$this->load->model('users_model');
 
 			// Check for sessions
-			if ($this->session->id) { redirect('dashboard'); }
+			if ($this->session->logged_in) { redirect('home'); }
 		}
 
 		public function index()
@@ -29,7 +29,7 @@
 
 		public function done()
 		{
-			redirect('dashboard');
+			redirect('home');
 		}
 
 		public function verify()
@@ -51,10 +51,15 @@
 			if (! $response['error']) {
 				
 				$query = $this->db->get_where('users', ['email' => $data['email']], 1);
-				$user_data = $query->row_array();
 
-				unset($user_data['password']);
-				$this->session->set_userdata($user_data);
+				$this->session->set_userdata([
+					'logged_in' => true,
+					'id' => $query->row_array()['id'],
+					'email' => $query->row_array['email'],
+					'name' => $query->row_array()['name'],
+					'lastname' => $query->row_array()['name'],
+					'username' => $query->row_array()['username']
+				]);
 
 				echo json_encode($response);
 

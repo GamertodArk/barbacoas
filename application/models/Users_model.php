@@ -15,8 +15,14 @@
 			if ($query->row_array()) {
 
 				// Set the session
-				$this->session->set_userdata($query->row_array());
-				// unset($this->session->password);
+				$this->session->set_userdata([
+					'logged_in' => true,
+					'id' => $query->row_array()['id'],
+					'email' => $query->row_array()['email'],
+					'name' => $query->row_array()['name'],
+					'lastname' => $query->row_array()['name'],
+					'username' => $query->row_array()['username']
+				]);
 
 				$json = ['error' => false];
 			}else {

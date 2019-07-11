@@ -40,9 +40,8 @@ btn.addEventListener('click', e => {
 		})
 		.then(response => response.json())
 		.then(json => {
+
 			if (json.error) {
-				// Mostrar mensaje de error
-				// o redireccionar al usuario
 				__('error-message').style.opacity = 1;
 				__('loading-modal-wrap').style.display = 'none';
 			}else {

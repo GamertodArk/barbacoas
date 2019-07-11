@@ -13,9 +13,9 @@ nav {
 	.nav-content{
 		width: 100%;
 		margin: auto;
-		padding: 1em 0px;
+		padding: 1em;
 		max-width: 1000px;
-		@include center-flex(space-between, row);
+		@include center-flex(space-around, row);
 
 		.logo {
 			a {
@@ -27,7 +27,6 @@ nav {
 		.search {
 			width: 70%;
 			padding: 10px;
-			// background-color: red;
 
 			form {
 				width: 100%;
@@ -38,13 +37,9 @@ nav {
 					border: none;
 					padding: 5px;
 					border-radius: 5px;
-					// border-top-left-radius: 10px;
-					// border-bottom-left-radius: 10px;
-					// border-bottom-left-radius: 10px;
 				}
 
 				button {
-					// width: 10%;
 					padding: 10px;
 					border: none;
 					color: $white;
@@ -134,7 +129,6 @@ nav {
 
 				li {
 					width: 100%;
-					// text-align: center;
 					margin-bottom: 0.5em;
 					padding-bottom: 0.5em;
 					border-bottom: 1px solid $dark_grey;

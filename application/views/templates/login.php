@@ -32,7 +32,7 @@
 		</form>
 
 		<hr>
-		<p>¿No tienes cuenta? <a href="#">Registrate</a></p>
+		<p>¿No tienes cuenta? <a href="<?php echo site_url('users/signup') ?>">Registrate</a></p>
 
 	</main>
 
