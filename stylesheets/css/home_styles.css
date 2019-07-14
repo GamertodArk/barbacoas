@@ -339,6 +339,87 @@ body .product_modal_wrapper {
 body .product_modal_wrapper .product_wrap {
   width: 70%;
   color: #000;
+  padding: 1em;
   height: 460px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  align-items: flex-start;
   background-color: #efefef;
+}
+body .product_modal_wrapper .product_wrap div {
+  flex: 1;
+}
+body .product_modal_wrapper .product_wrap .left {
+  height: 100%;
+  background-color: #fff;
+}
+body .product_modal_wrapper .product_wrap .right {
+  padding: 0px 1em;
+}
+body .product_modal_wrapper .product_wrap .right h2 {
+  color: #646464;
+  font-size: 13pt;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+body .product_modal_wrapper .product_wrap .right .description {
+  border: 1px solid #646464;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  margin: 1.5em 0px;
+  padding: 1.5em 0px;
+  color: #646464;
+}
+body .product_modal_wrapper .product_wrap .right .description h3 {
+  font-size: 11pt;
+}
+body .product_modal_wrapper .product_wrap .right .description p {
+  font-size: 10pt;
+}
+body .product_modal_wrapper .product_wrap .right .amount {
+  width: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+body .product_modal_wrapper .product_wrap .right .amount p {
+  color: #646464;
+  font-size: 10pt;
+}
+body .product_modal_wrapper .product_wrap .right .amount .amount_wrapper {
+  width: 150px;
+  padding: 0.5em;
+  font-size: 10pt;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  border: 1px solid #4b4b4b;
+}
+body .product_modal_wrapper .product_wrap .right .amount .amount_wrapper .counter {
+  color: #646464;
+  font-size: 12pt;
+}
+body .product_modal_wrapper .product_wrap .right .amount .amount_wrapper .more, body .product_modal_wrapper .product_wrap .right .amount .amount_wrapper .less {
+  cursor: pointer;
+}
+body .product_modal_wrapper .product_wrap .right .cesta_btn {
+  border: none;
+  padding: 1em;
+  color: #fff;
+  margin-top: 3em;
+  font-size: 10pt;
+  cursor: pointer;
+  border-radius: 30px;
+  background-color: #f8ba53;
+  transition: 0.3s linear color;
+  transition: 0.3s linear background-color;
+}
+body .product_modal_wrapper .product_wrap .right .cesta_btn:hover {
+  color: #f8ba53;
+  background-color: #fff;
 }
