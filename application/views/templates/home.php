@@ -37,6 +37,7 @@
 			</div>
 		</div>
 	</main>
+ 	<?php include APPPATH . "views/inc/product_modal.php" ?>
  	<?php include APPPATH . "views/inc/footer.php" ?>
 	</body>
 </html>

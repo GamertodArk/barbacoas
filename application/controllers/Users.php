@@ -36,7 +36,6 @@
 		{
 			$data = json_decode($this->input->post('data'), true);
 			$response = $this->users_model->check_credential($data);
-			// var_dump($data);
 
 			echo json_encode($response);
 			}
@@ -55,7 +54,7 @@
 				$this->session->set_userdata([
 					'logged_in' => true,
 					'id' => $query->row_array()['id'],
-					'email' => $query->row_array['email'],
+					'email' => $query->row_array()['email'],
 					'name' => $query->row_array()['name'],
 					'lastname' => $query->row_array()['name'],
 					'username' => $query->row_array()['username']
