@@ -24,7 +24,7 @@
 			<div class="item-wrap">
 			<?php for($i = 0; $i < 11; $i++): ?>
 				<div class="item">
-					<span class="view"><i class="far fa-eye"></i></span>
+					<span id="item_view" class="view view_item_btn"><i class="far fa-eye"></i></span>
 
 					<div class="image-wrap">
 						<img src="<?php echo base_url() ?>img/item-test.png" alt="">	
@@ -37,7 +37,7 @@
 			</div>
 		</div>
 	</main>
- 	<?php include APPPATH . "views/inc/product_modal.php" ?>
  	<?php include APPPATH . "views/inc/footer.php" ?>
+ 	<?php include APPPATH . "views/inc/product_modal.php" ?> 
 	</body>
 </html>
