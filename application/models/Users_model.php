@@ -80,5 +80,18 @@
 				return $json;
 			}
 		}
+
+		public function get_userdata()
+		{
+			$data = [
+				'id' => $this->session->id,
+				'name' => $this->session->name,
+				'username' => $this->session->username,
+				'lastname' => $this->session->lastname,
+				'email' => $this->session->name
+			];
+
+			return $data;
+		}
 	}
 ?>

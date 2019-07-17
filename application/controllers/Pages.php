@@ -5,6 +5,7 @@
 		{
 			parent::__construct();
 			$this->load->helper('url');
+			$this->load->model('users_model');
 		}
 
 		public function view($page = 'home')
@@ -13,17 +14,10 @@
 			if (! file_exists(APPPATH . 'views/templates/' . strtolower($page) . '.php')) {
 				show_404();
 			}
-			// var_dump($this->session->password);
 
+			// Get all userdata from session and pass it to view
+			if ($this->session->logged_in) { $data = $this->users_model->get_userdata(); }
 			$data['title'] = ucfirst($page);
-
-			if ($this->session->logged_in) {
-				$data['id'] = $this->session->id;
-				$data['name'] = $this->session->name;
-				$data['username'] = $this->session->username;
-				$data['lastname'] = $this->session->lastname;
-				$data['email'] = $this->session->name;
-			}
 
 			$this->load->view('templates/' . strtolower($page), $data);
 		}

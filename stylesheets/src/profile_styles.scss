@@ -1,0 +1,72 @@
+@import 'partials/base';
+
+body {
+	header { @import 'partials/nav'; }
+
+	main {
+		background-color: $grey2;
+
+		.user_summary {
+			padding: 2em;
+			@include center-flex();
+			background-color: $white;
+		
+			.content {
+				width: 100%;
+				max-width: 1000px;
+				text-align: center;
+
+				.img {
+					width: 100px;
+					height: 100px;
+					margin: auto;
+					display: block;
+					border-radius: 100%;
+					margin-bottom: 0.5em; 
+					background-color: $dark_grey;
+				}
+
+				h3 {
+					font-size: 17pt;
+					color: $darker_grey;
+				}
+
+				h4 {
+					font-size: 11pt;
+					color: darken($darker_grey, 30%);
+				}
+			}
+		}
+
+		.products {
+			h2 {
+				color: $orange;
+				font-size: 17pt;
+				padding: 0.5em 0px;
+				text-align: center;
+			}
+
+			.products_wrap {
+				width: 70%;
+				margin: auto;
+				padding: 1em;
+				text-align: center;
+				// border: 1px solid red;
+
+				p {
+					color: $dark_grey;
+				}
+			}
+
+		}
+
+		hr {
+			width: 100%;
+			padding: 0px 1em;
+			// padding-bottom: 2em;
+		}
+	}
+
+
+	@import 'partials/footer';
+}

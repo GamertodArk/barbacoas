@@ -42,6 +42,11 @@ body {
 		
 		// include nav styles
 		@import "partials/nav";
+		
+		nav {
+			position: absolute;
+			background-color: transparent;
+		}
 
 		// nav {
 		// 	top: 0;

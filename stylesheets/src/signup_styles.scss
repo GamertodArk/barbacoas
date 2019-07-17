@@ -3,22 +3,10 @@
 
 html, body, main {
 	height: 110%;
-	// min-height: 150%;
 }
 
 body {
-	// height:150%;
-	// min-height:100%;
-
-	header {
-		// include nav styles
-		@import "partials/nav";
-
-		nav {
-			position: static;
-			background-color: $dark_grey;
-		}
-	}
+	header { @import "partials/nav"; }
 
 	main {
 		padding: 2em;

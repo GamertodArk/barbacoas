@@ -60,7 +60,8 @@ body header nav {
   top: 0;
   z-index: 3;
   width: 100%;
-  position: absolute;
+  position: static;
+  background-color: #3f3f3f;
 }
 body header nav a {
   color: #fff;
@@ -193,6 +194,10 @@ body header nav .nav-content .users li {
 }
 body header nav .nav-content .users li i {
   font-size: 15pt;
+}
+body header nav {
+  position: absolute;
+  background-color: transparent;
 }
 body main {
   padding: 2em 1em;

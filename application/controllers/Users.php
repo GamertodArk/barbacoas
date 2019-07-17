@@ -5,7 +5,6 @@
 		{
 			parent::__construct();
 			$this->load->helper("url");
-			// $this->load->database();
 			$this->load->model('users_model');
 
 			// Check for sessions

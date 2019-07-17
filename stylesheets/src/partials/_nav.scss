@@ -2,7 +2,9 @@ nav {
 	top: 0;
 	z-index: 3;
 	width: 100%;
-	position: absolute;
+	// position: absolute;
+	position: static;
+	background-color: $dark_grey;
 	
 	a {
 		color: $white;

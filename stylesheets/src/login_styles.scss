@@ -5,14 +5,7 @@ html, body, main {
 }
 
 body {
-	header { 
-		@import 'partials/nav'; 
-
-		nav {
-			position: static;
-			background-color: $dark_grey;
-		}
-	}
+	header { @import 'partials/nav'; }
 
 	main {
 		padding: 2em;
