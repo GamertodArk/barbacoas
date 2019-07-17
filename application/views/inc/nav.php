@@ -20,8 +20,6 @@
 		<?php endif; ?>
 	
 
-
-
 		<?php if(isset($username)): ?>
 			<ul class="user username">
 				<li>
@@ -29,7 +27,7 @@
 					<ul class="children">
 						<div class="triangle"></div>
 						<li><a href="#">Perfil</a></li>
-						<li><a href="#">Lorem ipsum dolor.</a></li>
+						<li><a href="<?php echo site_url('members/products') ?>">Mis Barbacoas</a></li>
 						<li><a href="<?php echo site_url('logout') ?>">Cerrar Session</a></li>
 					</ul>
 				</li>

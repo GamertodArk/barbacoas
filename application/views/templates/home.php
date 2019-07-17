@@ -23,7 +23,8 @@
 
 			<div class="item-wrap">
 			<?php for($i = 0; $i < 11; $i++): ?>
-				<div class="item">
+				<?php include APPPATH . 'views/inc/item.php'; ?>
+<!-- 				<div class="item">
 					<span id="item_view" class="view view_item_btn"><i class="far fa-eye"></i></span>
 
 					<div class="image-wrap">
@@ -33,7 +34,7 @@
 						<a href="#">Lorem ipsum dolor sit.</a>
 					</div>
 				</div>
-			<?php endfor; ?>
+ -->			<?php endfor; ?>
 			</div>
 		</div>
 	</main>

@@ -3,6 +3,7 @@
 		public function __construct()
 		{
 			parent::__construct();
+<<<<<<< HEAD
 			$this->load->model('users_model');
 
 			// Check for sessions
@@ -30,6 +31,17 @@
 
 		public function profile()
 		{
+=======
+
+			// Check for sessions
+			if (! $this->session->logged_in) { redirect('users/login'); }
+		}
+
+		public function products()
+		{
+			// echo 'products';
+			$this->load->view('templates/products');
+>>>>>>> ba39b2b97031cd19f72fd8baf09d5b209d155490
 		}
 	}
 ?>
