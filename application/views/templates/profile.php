@@ -30,7 +30,7 @@
 
 		<hr>
 
-		<h2>nOjoda</h2>
+		<h2>Nojoda</h2>
 	</main>
 
 	<?php include APPPATH . 'views/inc/footer.php' ?>
