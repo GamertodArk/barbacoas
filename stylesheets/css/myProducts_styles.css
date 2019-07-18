@@ -20,7 +20,8 @@ body header nav {
   top: 0;
   z-index: 3;
   width: 100%;
-  position: absolute;
+  position: static;
+  background-color: #3f3f3f;
 }
 body header nav a {
   color: #fff;
@@ -95,6 +96,7 @@ body header nav .nav-content .links li a:hover:before {
   width: 100%;
 }
 body header nav .nav-content .user {
+  color: #fff;
   list-style: none;
   position: relative;
 }
@@ -116,6 +118,7 @@ body header nav .nav-content .user .children {
   position: absolute;
   background-color: #fff;
   transform: translateX(-50%);
+  box-shadow: 3px 3px 5px #3f3f3f;
 }
 body header nav .nav-content .user .children .triangle {
   left: 50%;
@@ -166,6 +169,7 @@ body main .wrapper {
 }
 body main .wrapper h2 {
   color: #f8ba53;
+  margin: 1em 0px;
   text-transform: uppercase;
 }
 body main .wrapper .barbacoas_wrapper {
@@ -173,6 +177,7 @@ body main .wrapper .barbacoas_wrapper {
   height: 800px;
   flex-wrap: wrap;
   overflow-y: scroll;
+  box-shadow: 3px 3px 7px #3f3f3f;
   display: flex;
   align-items: center;
   justify-content: space-around;

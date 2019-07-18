@@ -92,6 +92,7 @@ nav {
 		}
 
 		.user {
+			color: $white;
 			list-style: none;
 			position: relative;
 
@@ -116,6 +117,7 @@ nav {
 				position: absolute;
 				background-color: $white;
 				transform: translateX(-50%);
+				box-shadow: 3px 3px 5px $dark_grey;
 
 				.triangle {
 					left: 50%;

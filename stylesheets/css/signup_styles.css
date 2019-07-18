@@ -100,6 +100,7 @@ body header nav .nav-content .links li a:hover:before {
   width: 100%;
 }
 body header nav .nav-content .user {
+  color: #fff;
   list-style: none;
   position: relative;
 }
@@ -121,6 +122,7 @@ body header nav .nav-content .user .children {
   position: absolute;
   background-color: #fff;
   transform: translateX(-50%);
+  box-shadow: 3px 3px 5px #3f3f3f;
 }
 body header nav .nav-content .user .children .triangle {
   left: 50%;

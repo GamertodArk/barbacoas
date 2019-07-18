@@ -19,6 +19,7 @@ body {
 
 			h2 {
 				color: $orange;
+				margin: 1em 0px;
 				text-transform: uppercase;
 			}
 
@@ -27,6 +28,7 @@ body {
 				height: 800px;
 				flex-wrap: wrap;
 				overflow-y: scroll;
+				box-shadow: 3px 3px 7px $dark_grey;
 				@include center-flex(space-around);
 
 				

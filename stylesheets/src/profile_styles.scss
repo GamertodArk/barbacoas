@@ -51,7 +51,6 @@ body {
 				margin: auto;
 				padding: 1em;
 				text-align: center;
-				// border: 1px solid red;
 
 				p {
 					color: $dark_grey;
@@ -61,11 +60,11 @@ body {
 		}
 
 		hr {
-			width: 100%;
-			padding: 0px 1em;
+			width: 90%;
+			margin: auto;
+			display: block;
 		}
 	}
-
 
 	@import 'partials/footer';
 }
