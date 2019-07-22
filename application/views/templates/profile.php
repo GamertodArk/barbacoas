@@ -24,13 +24,31 @@
 			<h2>Productos Publicados</h2>
 
 			<div class="products_wrap">
-				<p>No tiene productos actualmente</p>
+				<?php if(true): ?>
+					<?php for($i = 0; $i < 10; $i++): ?>
+						<div class="item_list">
+							<div class="cover_img">
+								<div class="img"></div>
+							</div>
+							<div class="description">
+								<p>Lorem ipsum dolor sit amet.</p>
+							</div>
+							<div class="options">
+								<span class="count">999</span>
+							</div>
+						</div>
+					<?php endfor; ?>
+
+
+				<?php else: ?>
+					<p>No tiene productos actualmente</p>
+				<?php endif; ?>
 			</div>
 		</div>
 
-		<hr>
+		<!-- <hr> -->
 
-		<h2>Nojoda</h2>
+		<!-- <h2>Nojoda</h2> -->
 	</main>
 
 	<?php include APPPATH . 'views/inc/footer.php' ?>

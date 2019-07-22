@@ -13,7 +13,11 @@
 
 	<main>
 		<div class="wrapper">
-			<h2>Mis Barbacoas</h2>
+			<div class="title">
+				<h2>Mis Barbacoas</h2>
+
+				<a href="#">Añadir Producto</a>
+			</div>
 			
 			<?php if(true): ?>
 

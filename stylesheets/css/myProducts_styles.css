@@ -167,7 +167,21 @@ body main {
 body main .wrapper {
   padding: 2em;
 }
-body main .wrapper h2 {
+body main .wrapper .title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+body main .wrapper .title a {
+  font-size: 14pt;
+  color: #f8ba53;
+  text-decoration: none;
+}
+body main .wrapper .title a:hover {
+  text-decoration: underline;
+}
+body main .wrapper .title h2 {
   color: #f8ba53;
   margin: 1em 0px;
   text-transform: uppercase;

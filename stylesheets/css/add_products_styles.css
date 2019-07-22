@@ -160,115 +160,72 @@ body header nav .nav-content .users li {
 body header nav .nav-content .users li i {
   font-size: 15pt;
 }
-body main .user_summary {
+body main .content {
   padding: 2em;
-  height: 350px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-  background-color: #fff;
 }
-body main .user_summary .content {
-  width: 100%;
-  max-width: 1000px;
-  text-align: center;
-}
-body main .user_summary .content .img {
-  width: 100px;
-  height: 100px;
-  background-color: #3f3f3f;
-  margin: auto;
-  display: block;
-  border-radius: 100%;
-  margin-bottom: 0.5em;
-}
-body main .user_summary .content h3 {
-  font-size: 17pt;
-  color: #898989;
-}
-body main .user_summary .content h4 {
-  font-size: 11pt;
-  color: #3d3d3d;
-}
-body main .products h2 {
+body main .content h2 {
   color: #f8ba53;
-  font-size: 17pt;
-  padding: 0.5em 0px;
+  font-size: 20pt;
   text-align: center;
 }
-body main .products .products_wrap {
-  width: 90%;
-  margin: 1em auto;
+body main .content form {
+  width: 100%;
   padding: 1em;
-  height: 400px;
-  position: relative;
-  max-width: 1000px;
-  overflow-y: scroll;
-  text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: row;
   flex-direction: column;
-  border-bottom: 1px solid #ccc;
 }
-body main .products .products_wrap p {
-  color: #3f3f3f;
+body main .content form input[type=text] {
+  width: 70%;
+  padding: 5px;
+  margin: 0.5em 0px;
 }
-body main .products .products_wrap .item_list {
-  width: 100%;
-  padding: 0.5em;
+body main .content form textarea {
+  width: 70%;
+  padding: 5px;
+  height: 100px;
+  max-width: 70%;
+  min-width: 70%;
+  min-height: 50px;
+  max-height: 200px;
+}
+body main .content form .amount_wrap {
+  width: 70%;
+}
+body main .content form .amount {
+  width: 250px;
   margin: 0.5em 0px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   flex-direction: row;
-  border-top: 1px solid #fff;
 }
-body main .products .products_wrap .item_list:hover {
-  background-color: #f4f4f4;
+body main .content form .amount label {
+  color: #646464;
 }
-body main .products .products_wrap .item_list .cover_img {
-  flex-grow: 1;
-}
-body main .products .products_wrap .item_list .cover_img .img {
-  width: 100px;
-  height: 100px;
-  background-color: #3f3f3f;
-}
-body main .products .products_wrap .item_list .description {
-  flex-grow: 17;
-  padding: 0.5em;
-  text-align: left;
-}
-body main .products .products_wrap .item_list .description p {
-  font-size: 11pt;
-  font-weight: bold;
-  color: #898989;
-}
-body main .products .products_wrap .item_list .options {
-  flex-grow: 1;
-  width: 100px;
-  height: 100px;
+body main .content form .amount .amount_wrapper {
+  width: 150px;
+  font-size: 10pt;
+  padding: 0px 0.5em;
+  background-color: #fff;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   flex-direction: row;
+  border: 1px solid #ccc;
 }
-body main .products .products_wrap .item_list .options .count {
-  padding: 0.5em 1em;
+body main .content form .amount .amount_wrapper input[type=text] {
+  margin: 0px;
+  border: none;
+  color: #646464;
+  font-size: 12pt;
+  text-align: center;
   background-color: #fff;
-  border: 1px solid #898989;
 }
-body main .products .products_wrap .item_list .options ul {
-  height: 100%;
-  list-style: none;
-}
-body main hr {
-  width: 90%;
-  margin: auto;
-  display: block;
+body main .content form .amount .amount_wrapper .more, body main .content form .amount .amount_wrapper .less {
+  cursor: pointer;
 }
 body footer {
   padding: 2em;

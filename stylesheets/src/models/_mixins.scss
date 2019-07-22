@@ -47,3 +47,18 @@
 		border-top-color: lighten(purple, 20%);
 	}
 }
+
+@mixin img($w: 100px, $h: 100px) {
+	width: $w;
+	height: $h;
+	background-color: $dark_grey;
+}
+
+@mixin link-styles() {
+	color: $orange;
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}

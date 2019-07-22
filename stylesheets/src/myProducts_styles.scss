@@ -17,10 +17,19 @@ body {
 		.wrapper {
 			padding: 2em;
 
-			h2 {
-				color: $orange;
-				margin: 1em 0px;
-				text-transform: uppercase;
+			.title {
+				@include center-flex(space-between);
+				
+				a { 
+					font-size: 14pt;
+					@include link-styles;
+				}
+
+				h2 {
+					color: $orange;
+					margin: 1em 0px;
+					text-transform: uppercase;
+				}
 			}
 
 			.barbacoas_wrapper { 

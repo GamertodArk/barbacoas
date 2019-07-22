@@ -1,13 +1,16 @@
 @import 'partials/base';
 
 body {
+	background-color: $grey2;
+
 	header { @import 'partials/nav'; }
 
 	main {
-		background-color: $grey2;
+		// padding: 1em;
 
 		.user_summary {
 			padding: 2em;
+			height: 350px;
 			@include center-flex();
 			background-color: $white;
 		
@@ -17,13 +20,14 @@ body {
 				text-align: center;
 
 				.img {
-					width: 100px;
-					height: 100px;
+					@include img();
+					// width: 100px;
+					// height: 100px;
 					margin: auto;
 					display: block;
 					border-radius: 100%;
 					margin-bottom: 0.5em; 
-					background-color: $dark_grey;
+					// background-color: $dark_grey;
 				}
 
 				h3 {
@@ -39,6 +43,8 @@ body {
 		}
 
 		.products {
+			// margin: 1em 0px;
+
 			h2 {
 				color: $orange;
 				font-size: 17pt;
@@ -47,13 +53,72 @@ body {
 			}
 
 			.products_wrap {
-				width: 70%;
-				margin: auto;
+				width: 90%;
+				margin: 1em auto;
 				padding: 1em;
+				height: 400px;
+				position: relative;
+				max-width: 1000px; 
+				overflow-y: scroll;
 				text-align: center;
+				@include center-flex();
+				// align-items: flex-start;
+				flex-direction: column;
+				border-bottom: 1px solid $grey;
 
 				p {
 					color: $dark_grey;
+				}
+
+				.item_list {
+					width: 100%;
+					padding: 0.5em;
+					margin: 0.5em 0px;
+					@include center-flex();
+					// align-items: flex-start;
+					border-top: 1px solid $white;
+
+					&:hover {
+						background-color: lighten($grey2, 2%);
+					}
+
+					.cover_img {
+						flex-grow: 1;
+
+						.img {
+							@include img();
+						}
+					}
+
+					.description {
+						flex-grow: 17;
+						padding: 0.5em;
+						text-align: left;
+
+						p {
+							font-size: 11pt;
+							font-weight: bold;
+							color: $darker_grey;
+						}
+					}
+
+					.options {
+						flex-grow: 1;
+						width: 100px;
+						height: 100px;
+						@include center-flex();
+
+						.count {
+							padding: 0.5em 1em;
+							background-color: $white;
+							border:1px solid $darker_grey;
+						}
+
+						ul {
+							height: 100%;
+							list-style: none;
+						}
+					}
 				}
 			}
 
