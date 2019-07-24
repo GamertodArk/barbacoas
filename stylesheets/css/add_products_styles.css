@@ -180,7 +180,7 @@ body main .content form {
 body main .content form input[type=text] {
   width: 70%;
   padding: 5px;
-  margin: 0.5em 0px;
+  margin: 1em 0px;
 }
 body main .content form textarea {
   width: 70%;
@@ -196,7 +196,7 @@ body main .content form .amount_wrap {
 }
 body main .content form .amount {
   width: 250px;
-  margin: 0.5em 0px;
+  margin: 1em 0px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -225,6 +225,80 @@ body main .content form .amount .amount_wrapper input[type=text] {
   background-color: #fff;
 }
 body main .content form .amount .amount_wrapper .more, body main .content form .amount .amount_wrapper .less {
+  cursor: pointer;
+}
+body main .content form .dropzone {
+  width: 70%;
+  height: 300px;
+  margin: 1em 0px;
+  color: #3f3f3f;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-direction: column;
+  border: 2px dashed #ccc;
+}
+body main .content form .dropzone .gallery_wrap {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  background-color: #fff;
+}
+body main .content form .dropzone .gallery_wrap .thumnail {
+  margin: 1em;
+  width: 150px;
+  height: 150px;
+  padding: 0.5em;
+  border: 2px dashed #ccc;
+}
+body main .content form .dropzone h3 {
+  font-size: 13pt;
+}
+body main .content form .dropzone p {
+  font-size: 10pt;
+}
+body main .content form .dropzone.dragover {
+  color: #3f3f3f;
+  border-color: #3f3f3f;
+}
+body main .content form .dropzone .input-wrap {
+  width: 200px;
+  height: 50px;
+  color: #ccc;
+  margin: 1em 0px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  background-color: #3f3f3f;
+}
+body main .content form .dropzone .input-wrap:hover {
+  color: #fff;
+  cursor: pointer;
+}
+body main .content form .dropzone .input-wrap input[type=file] {
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  opacity: 0;
+  right: 0px;
+  bottom: 0px;
+  position: absolute;
+}
+body main .content form .dropzone .input-wrap input[type=file]:hover {
   cursor: pointer;
 }
 body footer {

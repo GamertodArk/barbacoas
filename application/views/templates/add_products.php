@@ -42,22 +42,22 @@
 					</div>
 				</div>
 
-				<!-- <div class="counter">
-					<label for="counter">Cantidad:</label>
-					<span class="counter_wrapper">
+				<div id="dropzone" class="dropzone">
 
-						<span id="more_btn" class="more">
-							<i class="fas fa-plus"></i>
-						</span>
-
-						<input type="text" input="text" value="1">
-
-						<span id="less_btn" class="less">
-							<i class="fas fa-minus"></i>
-						</span>
-
-					</span>
-				</div> -->
+<!-- 					<div id="gallery_wrap" class="gallery_wrap">
+						<div class="thumnail"></div>
+						<div class="thumnail"></div>
+						<div class="thumnail"></div>
+						<div class="thumnail"></div>
+					</div>
+ -->
+					<h3>Arrastra la imagenes aqui</h3>
+					<p>Maximo 5 megabytes por imagen</p>
+					<div class="input-wrap">
+						<input type="file" name="file" id="file">
+						<p>Selecionar Archivos</p>
+					</div>
+				</div>
 			</form>
 
 		</div>

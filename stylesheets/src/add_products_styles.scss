@@ -24,7 +24,7 @@ body{
 				input[type=text] {
 					width: 70%;
 					padding: 5px;
-					margin: 0.5em 0px;
+					margin: 1em 0px;
 
 				}
 
@@ -44,7 +44,7 @@ body{
 
 				.amount {
 					width: 250px;
-					margin: 0.5em 0px;
+					margin: 1em 0px;
 					@include center-flex(space-between);
 
 					label {
@@ -71,7 +71,83 @@ body{
 						 }
 
 						 .more, .less { cursor: pointer; }
-					}	
+					}
+				}
+
+				.dropzone {
+					width: 70%;
+					height: 300px;
+					margin: 1em 0px;
+					color: $dark_grey;
+					position: relative;
+					@include center-flex();
+					flex-direction: column;
+					border: 2px dashed $grey;
+
+					.gallery_wrap {
+						top: 0;
+						left: 0;
+						right: 0;
+						bottom: 0;
+						z-index: 5;
+						width: 100%;
+						height: 100%;
+						position: absolute;
+						@include center-flex();
+						background-color: $white;
+
+						.thumnail {
+							margin: 1em;
+							width: 150px;
+							height: 150px;
+							padding: 0.5em;
+							border: 2px dashed $grey;
+						}
+					}
+
+					h3 {
+						font-size: 13pt;
+					}
+
+					p {
+						font-size: 10pt;
+					}
+
+					&.dragover {
+						color: $dark_grey;
+						border-color: $dark_grey;
+					}
+
+
+					.input-wrap {
+						width: 200px;
+						height: 50px;
+						color: $grey;
+						margin: 1em 0px;
+						position: relative;
+						@include center-flex();
+						background-color: $dark_grey;
+
+						&:hover {
+							color: $white;
+							cursor: pointer;
+						}
+
+						input[type=file] {
+							width: 100%;
+							height: 100%;
+							top: 0px;
+							left: 0px;
+							opacity: 0;
+							right: 0px;
+							bottom: 0px;
+							position: absolute;
+
+							&:hover {
+								cursor: pointer;
+							}
+						}
+					}
 				}
 			}
 		}
