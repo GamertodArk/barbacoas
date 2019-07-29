@@ -1,4 +1,5 @@
 1.- Eliminar espacios en blanco cuando el usuario registre su usuario
 
+2.- hacer un media query para "add_product" para hacer mas grande el dropzone en las laptops
 
 pnfiduwlian.blogspot.cOM

@@ -62,3 +62,20 @@
 		text-decoration: underline;
 	}
 }
+
+@mixin button {
+	width: 200px;
+	border: none;
+	padding: 1em;
+	cursor: pointer;
+	color: $dark_grey;
+	border-radius: 5px;
+	background-color: $orange;
+	transition: 0.3s ease color;
+	transition: 0.3s ease background-color;
+
+	&:hover {
+		color: $orange;
+		background-color: $dark_grey;
+	}
+}

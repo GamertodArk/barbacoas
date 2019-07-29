@@ -258,9 +258,18 @@ body main .content form .dropzone .gallery_wrap {
 body main .content form .dropzone .gallery_wrap .thumnail {
   margin: 1em;
   width: 150px;
-  height: 150px;
+  height: 200px;
   padding: 0.5em;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
   border: 2px dashed #ccc;
+}
+body main .content form .dropzone .gallery_wrap .thumnail img {
+  width: 100%;
+  max-height: 100%;
 }
 body main .content form .dropzone h3 {
   font-size: 13pt;
@@ -300,6 +309,22 @@ body main .content form .dropzone .input-wrap input[type=file] {
 }
 body main .content form .dropzone .input-wrap input[type=file]:hover {
   cursor: pointer;
+}
+body main .content form input[type=submit] {
+  margin: 1em 0px;
+  width: 200px;
+  border: none;
+  padding: 1em;
+  cursor: pointer;
+  color: #3f3f3f;
+  border-radius: 5px;
+  background-color: #f8ba53;
+  transition: 0.3s ease color;
+  transition: 0.3s ease background-color;
+}
+body main .content form input[type=submit]:hover {
+  color: #f8ba53;
+  background-color: #3f3f3f;
 }
 body footer {
   padding: 2em;
