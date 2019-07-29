@@ -44,13 +44,13 @@
 
 				<div id="dropzone" class="dropzone">
 
-<!-- 					<div id="gallery_wrap" class="gallery_wrap">
+					<div id="gallery_wrap" class="gallery_wrap">
 						<div class="thumnail"></div>
+<!-- 						<div class="thumnail"></div>
 						<div class="thumnail"></div>
-						<div class="thumnail"></div>
-						<div class="thumnail"></div>
+						<div class="thumnail"></div> -->
 					</div>
- -->
+
 					<h3>Arrastra la imagenes aqui</h3>
 					<p>Maximo 5 megabytes por imagen</p>
 					<div class="input-wrap">

@@ -61,7 +61,7 @@ dropzone.addEventListener('drop', e => {
 	dropzone.classList.remove('dragover');
 
 	insert_thumnail_wrapper(dropzone);
-	// load_preview(e.dataTransfer.files);
+	load_preview(e.dataTransfer.files);
 });
 
 dropzone.addEventListener('dragover', e => {
