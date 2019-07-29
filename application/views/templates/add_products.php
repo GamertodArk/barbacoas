@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 	<meta charset="UTF-8">
 	<title>Agrega productos - <?=APPNAME?></title>
@@ -16,14 +16,13 @@
 		<div class="content">
 			<h2>Agregar Producto</h2>
 
-			<form action="">
+			<form method="POST" enctype="mmultipart/form-data" action="<?php echo base_url('members/register_product') ?>">
 				<input type="text" name="title" id="title" placeholder="Titulo">
 
 				<textarea name="description" id="description" cols="30" rows="10" placeholder="Description"></textarea>
 
 				<div class="amount_wrap">
 					<div class="amount">
-						<!-- <p>Cantidad:</p> -->
 						<label for="<?php echo site_url('members/add_products') ?>">Cantidad:</label>
 
 						<span class="amount_wrapper">
@@ -45,12 +44,26 @@
 				<div id="dropzone" class="dropzone">
 
 <!-- 					<div id="gallery_wrap" class="gallery_wrap">
-						<div class="thumnail"></div>
-						<div class="thumnail"></div>
-						<div class="thumnail"></div>
-						<div class="thumnail"></div>
-					</div>
- -->
+						<div class="thumnail">
+							<img src="<?php echo base_url('img/products/') ?>pic_14_big.jpg" alt="">
+						</div>
+						<div class="thumnail">
+							<img src="<?php echo base_url('img/products/') ?>pic_14_big.jpg" alt="">
+						</div>
+						<div class="thumnail">
+							<img src="<?php echo base_url('img/products/') ?>pic_14_big.jpg" alt="">
+						</div>
+						
+						<div class="thumnail">
+							<img src="<?php echo base_url('img/products/') ?>pic_14_big.jpg" alt="">
+						</div>
+						
+						
+ -->						<!-- <div class="thumnail"></div> -->
+						<!-- <div class="thumnail"></div> -->
+						<!-- <div class="thumnail"></div> -->
+					<!-- </div> -->
+
 					<h3>Arrastra la imagenes aqui</h3>
 					<p>Maximo 5 megabytes por imagen</p>
 					<div class="input-wrap">
@@ -58,6 +71,8 @@
 						<p>Selecionar Archivos</p>
 					</div>
 				</div>
+
+				<input type="submit" value="Agregar">
 			</form>
 
 		</div>

@@ -2,6 +2,8 @@ let count = __('count');
 let decrese = __('less_btn');
 let increse = __('more_btn');
 let dropzone = __('dropzone');
+let galleryName = 'gallery_wrap';
+var counter = 1;
 
 decrese.addEventListener('click', e => {
 	if (count.value != 0) {
@@ -18,39 +20,46 @@ increse.addEventListener('click', e => {
 });
  
 function insert_thumnail_wrapper(parent) {
-	let div = document.createElement('div');
-	div.setAttribute('id', 'gallery_wrap');
-	div.classList.add('gallery_wrap');
-	parent.appendChild(div);
+	if (! __(galleryName)) {
+		let div = document.createElement('div');
+		div.setAttribute('id', galleryName);
+		div.classList.add(galleryName);
+		parent.appendChild(div);
+	}
 }
 
 function load_preview(files) {
 
 	for (var i = 0; i < files.length; i++) {
 
-		// Image
-		let img = new Image();
-		img.style.width = '100%';
-		// img.height = 100;
-		// img.width = 100;
+		if (counter <= 4)  {
+			counter++;
+			console.log(counter);
+
+			// Image
+			let img = new Image();
+			img.style.width = '100%';
+			// img.height = 100;
+			// img.width = 100;
+
+			// Thumnail
+			let thumnail = document.createElement('div');
+			thumnail.setAttribute('id', 'thumnail');
+			thumnail.classList.add('thumnail');
 
 
-		// Thumnail
-		let thumnail = document.createElement('div');
-		thumnail.setAttribute('id', 'thumnail');
-		thumnail.classList.add('thumnail');
+			var reader  = new FileReader();
 
+			reader.addEventListener("load", function () {
+				img.src = reader.result;
+			}, false);
 
-		var reader  = new FileReader();
-
-		reader.addEventListener("load", function () {
-			img.src = reader.result;
-		}, false);
-
-		if (files[i]) {
-			reader.readAsDataURL(files[i]);
-			thumnail.appendChild(img);
-			__('gallery_wrap').appendChild(thumnail);
+			if (files[i]) {
+				reader.readAsDataURL(files[i]);
+				thumnail.appendChild(img);
+				__(galleryName).appendChild(thumnail);
+				// dropzone.appendChild
+			}
 		}
 	}
 }
@@ -61,7 +70,7 @@ dropzone.addEventListener('drop', e => {
 	dropzone.classList.remove('dragover');
 
 	insert_thumnail_wrapper(dropzone);
-	// load_preview(e.dataTransfer.files);
+	load_preview(e.dataTransfer.files);
 });
 
 dropzone.addEventListener('dragover', e => {

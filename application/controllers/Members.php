@@ -12,6 +12,12 @@
 		public function page($page = NULL)
 		{
 
+
+			// if ($this->session->flashdata('test')) {
+			// 	echo $this->session->flashdata('test');
+			// 	die();
+			// }
+
 			// Check if template exists
 			if (! file_exists(APPPATH . 'views/templates/' . strtolower($page) . '.php')) {
 				show_404();
@@ -21,6 +27,13 @@
 			if ($this->session->logged_in) { $data = $this->users_model->get_userdata(); }
 
 			$this->load->view('templates/' . strtolower($page), $data);
+		}
+
+		public function register_product()
+		{
+			// var_dump($this->input->post());
+			$this->session->set_flashdata('test', 'This is a test message');
+			redirect('members/add_products');
 		}
 	}
 ?>
