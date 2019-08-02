@@ -16,7 +16,7 @@
 			<div class="title">
 				<h2>Mis Barbacoas</h2>
 
-				<a href="#">Añadir Producto</a>
+				<a href="<?php echo base_url('members/add_products') ?>">Añadir Producto</a>
 			</div>
 			
 			<?php if(true): ?>
