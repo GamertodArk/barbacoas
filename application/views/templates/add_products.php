@@ -17,10 +17,14 @@
 			<h2>Agregar Producto</h2>
 
 			<form method="POST" enctype="mmultipart/form-data" action="<?php echo base_url('members/register_product') ?>">
+
+				<p id="title-error">Lorem ipsum dolor.</p>
 				<input type="text" name="title" id="title" placeholder="Titulo">
 
-				<textarea name="description" id="description" cols="30" rows="10" placeholder="Description"></textarea>
+				<p id="description-error">Lorem ipsum dolor.</p>
+				<textarea name="description" id="description" placeholder="Description"></textarea>
 
+				<p id="amount-error">Lorem ipsum dolor.</p>
 				<div class="amount_wrap">
 					<div class="amount">
 						<label for="<?php echo site_url('members/add_products') ?>">Cantidad:</label>
@@ -41,16 +45,17 @@
 					</div>
 				</div>
 
+				<p id="dropzone-error">Lorem ipsum dolor.</p>
 				<div id="dropzone" class="dropzone">
 					<h3>Arrastra la imagenes aqui</h3>
 					<p>Maximo 5 megabytes por imagen</p>
 					<div class="input-wrap">
-						<input type="file" name="file" id="file">
+						<input multiple="" type="file" name="file" id="file">
 						<p>Selecionar Archivos</p>
 					</div>
 				</div>
 
-				<input type="submit" value="Agregar">
+				<input id="submit_btn" type="submit" value="Agregar">
 			</form>
 
 		</div>
