@@ -35,5 +35,12 @@
 			$this->session->set_flashdata('test', 'This is a test message');
 			redirect('members/add_products');
 		}
+
+		public function upload_picture()
+		{
+			// echo 'Hi there';
+			// var_dump($this->input->post());
+			var_dump($_FILES);
+		}
 	}
 ?>

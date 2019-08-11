@@ -16,7 +16,7 @@
 		<div class="content">
 			<h2>Agregar Producto</h2>
 
-			<form method="POST" enctype="mmultipart/form-data" action="<?php echo base_url('members/register_product') ?>">
+			<form method="POST" enctype="multipart/form-data" action="<?php echo base_url('members/register_product') ?>">
 				<input type="text" name="title" id="title" placeholder="Titulo">
 
 				<textarea name="description" id="description" cols="30" rows="10" placeholder="Description"></textarea>
@@ -45,7 +45,7 @@
 					<h3>Arrastra la imagenes aqui</h3>
 					<p>Maximo 5 megabytes por imagen</p>
 					<div class="input-wrap">
-						<input type="file" name="file" id="file">
+						<input multiple="" type="file" name="file" id="file">
 						<p>Selecionar Archivos</p>
 					</div>
 				</div>
