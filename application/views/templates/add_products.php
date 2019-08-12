@@ -47,8 +47,8 @@
 
 				<p id="dropzone-error">Lorem ipsum dolor.</p>
 				<div id="dropzone" class="dropzone">
-					<h3>Arrastra la imagenes aqui</h3>
-					<p>Maximo 5 megabytes por imagen</p>
+					<!-- <h3>Arrastra la imagenes aqui</h3>
+					<p>Maximo 5 megabytes por imagen</p> -->
 					<div class="input-wrap">
 						<input multiple="" type="file" name="file" id="file">
 						<p>Selecionar Archivos</p>
