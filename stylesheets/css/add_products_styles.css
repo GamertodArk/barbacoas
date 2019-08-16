@@ -176,6 +176,7 @@ body main .content h2 {
 }
 body main .content p[id$=-error] {
   color: red;
+  opacity: 0;
   width: 100%;
   font-size: 11pt;
   text-align: left;
@@ -338,6 +339,11 @@ body main .content form input[type=submit] {
 }
 body main .content form input[type=submit]:hover {
   color: #f8ba53;
+  background-color: #3f3f3f;
+}
+body main .content form input[type=submit].disable {
+  cursor: auto;
+  color: #898989;
   background-color: #3f3f3f;
 }
 body footer {

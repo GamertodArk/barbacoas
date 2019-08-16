@@ -20,6 +20,7 @@ body{
 
 			p[id$="-error"] {
 				color: red;
+				opacity: 0;
 				width: 100%;
 				font-size: 11pt;
 				text-align: left;
@@ -179,7 +180,13 @@ body{
 				input[type=submit] {
 					margin: 1em 0px;
 					@include button();
-				} 
+				}
+
+				input[type=submit].disable {
+					cursor: auto;
+					color: $darker_grey;
+					background-color: $dark_grey;
+				}
 			}
 		}
 	}

@@ -8,6 +8,7 @@ let submitBtn = __('submit_btn');
 let galleryName = 'gallery_wrap';
 // let descInput = __('description');
 let disableBtn = true;
+let enable_permission = [];
 let files;
 var counter = 1;
 var success = [];
@@ -89,6 +90,34 @@ function hide_error(input) {
 // }
 
 
+function enable_btn(permission) {
+
+	if (! enable_permission.includes(permission)) {
+		enable_permission.push(permission);
+	}
+
+	if (enable_permission.length == 3) {
+		// console.log('enable');
+		disableBtn = false;
+		submitBtn.classList.remove('disable');
+	}
+
+	// if (enable_permission.length == 3) {
+	// 	console.log('Boton permitido');
+	// }else {
+	// 	// if (! enable_permission[permission]) {
+	// 	// 	enable_permission.push(permission);
+	// 	// 	console.log(enable_permission);
+	// 	// }
+	// 	if (enable_permission.includes(permission)) {
+	// 		console.log('si esta');
+	// 	}else {
+	// 		enable_permission.push(permission);
+	// 		console.log('no estaba');
+	// 	}
+	// 	// console.log(enable_permission[permission]);
+	// }
+}
 
 
 /**
@@ -157,14 +186,15 @@ function load_preview(files) {
 inputFile.addEventListener('change', e => {
 	if (e.target.files.length > 4) {
 		inputFile.value = '';
-		console.log(inputFile.value);
-		console.log(inputFile.files);
+		// console.log(inputFile.value);
+		// console.log(inputFile.files);
 		// alert('Solo puedes elegir hasta un maximo de 4 imagenes');
 		show_error('dropzone-error','Solo puedes elegir hasta un maximo de 4 imagenes');
 	}else {
 		insert_thumnail_wrapper(dropzone);
 		load_preview(e.target.files);
-		hide_error('dropzone-error');	
+		hide_error('dropzone-error');
+		enable_btn('files-success');
 	}
 });
 
@@ -205,6 +235,7 @@ inputFile.addEventListener('change', e => {
 				// Hide error inputs
 				}else {
 					hide_error(`${elem}-error`);
+					enable_btn(`${elem}-success`);
 				}
 
 			}
@@ -224,6 +255,15 @@ inputFile.addEventListener('change', e => {
 		// }
 
 	});
+
+submitBtn.addEventListener('click', e => {
+		
+	// e.preventDefault();
+
+	// if (disableBtn) {
+	// 	console.log('disable');
+	// }else {console.log('enable');}
+});
 
 // submitBtn.addEventListener('click', e => {
 // 	e.preventDefault();
