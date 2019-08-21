@@ -257,12 +257,10 @@ inputFile.addEventListener('change', e => {
 	});
 
 submitBtn.addEventListener('click', e => {
-		
-	// e.preventDefault();
-
-	// if (disableBtn) {
-	// 	console.log('disable');
-	// }else {console.log('enable');}
+	if (disableBtn) {
+		e.preventDefault();
+		console.log('disable');
+	}
 });
 
 // submitBtn.addEventListener('click', e => {

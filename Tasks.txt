@@ -2,4 +2,5 @@
 
 2.- hacer un media query para "add_product" para hacer mas grande el dropzone en las laptops
 
+3.- Añadir un "resgisted_on" y "created_on" en las tablas de usuarios y barbacoas
 pnfiduwlian.blogspot.cOM
