@@ -13,6 +13,16 @@
 
 	<main>
 		<div class="wrapper">
+			<?php if($this->session->flashdata('success')): ?>
+				<div class="success-message">
+					<h3>Producto Añadido satisfactoriamente</h3>
+
+					<span onclick="this.parentNode.parentNode.removeChild(this.parentNode)" id="close_btn">
+						<i class="fas fa-times"></i>
+					</span>
+				</div>
+			<?php endif; ?>
+
 			<div class="title">
 				<h2>Mis Barbacoas</h2>
 

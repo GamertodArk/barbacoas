@@ -18,10 +18,21 @@
 
 			<form method="POST" enctype="multipart/form-data" action="<?php echo base_url('members/register_product') ?>">
 
-				<p id="title-error">Lorem ipsum dolor.</p>
+				<?php if($this->session->flashdata('title')): ?>
+					<p style="opacity: 1;" id="title-error">
+						<?=$this->session->flashdata('title')?>
+					</p>
+				<?php else: ?> <p id="title-error"></p> <?php endif; ?>
 				<input type="text" name="title" id="title" placeholder="Titulo">
 
-				<p id="description-error">Lorem ipsum dolor.</p>
+
+				<?php if($this->session->flashdata('title')): ?>
+					<p style="opacity: 1;" id="description-error">
+						<?=$this->session->flashdata('description')?>
+					</p>
+				<?php else: ?> <p id="description-error"></p> <?php endif; ?>
+
+				<!-- <p id="description-error">Lorem ipsum dolor.</p> -->
 				<textarea name="description" id="description" placeholder="Description"></textarea>
 
 				<p id="amount-error">Lorem ipsum dolor.</p>

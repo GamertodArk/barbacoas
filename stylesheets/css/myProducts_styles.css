@@ -167,6 +167,24 @@ body main {
 body main .wrapper {
   padding: 2em;
 }
+body main .wrapper .success-message {
+  width: 100%;
+  color: green;
+  font-size: 11pt;
+  padding: 1em 0px;
+  position: relative;
+  text-align: center;
+  border: 2px solid green;
+}
+body main .wrapper .success-message #close_btn {
+  top: 50%;
+  right: 0.7em;
+  cursor: pointer;
+  font-size: 12.5pt;
+  color: #3f3f3f;
+  position: absolute;
+  transform: translateY(-50%);
+}
 body main .wrapper .title {
   display: flex;
   align-items: center;

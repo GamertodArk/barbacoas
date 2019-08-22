@@ -4,6 +4,7 @@
 		{
 			parent::__construct();
 			$this->load->model('users_model');
+			$this->load->model('products_model');
 
 			// Check for sessions
 			if (! $this->session->logged_in) { redirect('users/login'); }
@@ -30,20 +31,22 @@
 
 			// Check title/description
 			$fields = [
-				$this->input->post('title'),
-				$this->input->post('description')
+				// $this->input->post('title'),
+				// $this->input->post('description')
+				'title',
+				'description'
 			];
 
 			foreach ($fields as $field) {
 				$min = ($field == 'title' ? 6 : 15);
 				$max = ($field == 'title' ? 110 : 500);
 
-				if (strlen($field) < $min) {
+				if (strlen($this->input->post($field)) < $min) {
 					$errors[] = [
 						'field' => $field,
 						'msg' => "The $field is too short"
 					];
-				}elseif (strlen($field) > $max) {
+				}elseif (strlen($this->input->post($field)) > $max) {
 					$errors[] = [
 						'field' => $field,
 						'msg' => "The $field is too big"
@@ -82,10 +85,8 @@
 						$image_path = __DIR__ . '\..\..\img\products\\';
 
 						move_uploaded_file($file_ary[$i]['tmp_name'], $image_path . $image_name);
-						$product_names[] = $image_name;
+						$image_names[] = $image_name;
 
-						// Continue from here
-						var_dump($product_names);
 
 					}else { continue; }
 
@@ -93,12 +94,30 @@
 			}
 
 
-			// var_dump($this->input->post());
-			// echo '<br> <br>';
+			// Check if there's any errors
+			if (count($errors) == 0) {
 
-			// foreach ($_FILES['file'] as $key => $value) {
-			// 	# code...
-			// }
+				$product = [
+					'amount' => $product_amount,
+					'title' => $this->input->post('title'),
+					'description' => $this->input->post('description'),
+					'images' => implode(';', $image_names)
+				];
+
+				// Save producto to database
+				$this->products_model->add_product($product);
+
+				// Set a success message and redirect the user to the products page
+				$this->session->set_flashdata('success', 1);
+				redirect('members/products');
+			}else {
+
+				foreach ($errors as $item) {
+					$this->session->set_flashdata($item['field'], $item['msg']);
+				}
+
+				redirect('members/add_products');
+			}
 		}
 	}
 ?>

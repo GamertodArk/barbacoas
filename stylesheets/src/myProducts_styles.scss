@@ -17,6 +17,26 @@ body {
 		.wrapper {
 			padding: 2em;
 
+			.success-message {
+				width: 100%;
+				color: green;
+				font-size: 11pt;
+				padding: 1em 0px;
+				position: relative;
+				text-align: center;
+				border: 2px solid green;
+
+				#close_btn {
+					top: 50%;
+					right: 0.7em;
+					cursor: pointer;
+					font-size: 12.5pt;
+					color: $dark_grey;
+					position: absolute;
+					transform: translateY(-50%);
+				}
+			}
+
 			.title {
 				@include center-flex(space-between);
 				
