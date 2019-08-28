@@ -178,7 +178,8 @@ body{
 				}
 
 				input[type=submit] {
-					margin: 1em 0px;
+					margin: 1em auto;
+					display: block;
 					@include button();
 				}
 

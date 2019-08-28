@@ -326,7 +326,8 @@ body main .content form .dropzone .input-wrap input[type=file]:hover {
   cursor: pointer;
 }
 body main .content form input[type=submit] {
-  margin: 1em 0px;
+  margin: 1em auto;
+  display: block;
   width: 200px;
   border: none;
   padding: 1em;
