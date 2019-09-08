@@ -21,6 +21,11 @@
 			// Get all userdata from session and pass it to view
 			if ($this->session->logged_in) { $data = $this->users_model->get_userdata(); }
 
+			// Get products data
+			$this->db->select('id, title, images');
+			$products = $this->db->get('products');
+
+			$data['products'] = $products->result();
 			$this->load->view('templates/' . strtolower($page), $data);
 		}
 
@@ -72,17 +77,31 @@
 
 			// Start uploading files to server
 			for ($i = 0; $i < count($file_ary) ; $i++) { 
-				// $file_ary
 
+				// var_dump($file_ary[0]);
+			/*
+				// Get type file
+				if ($file_ary[$i]['type']) {
+					preg_match('/(jpg|jpeg|png|gif)/', $file_ary[$i]['type'], $extension);
+					$extension = $extension[0];
+				}else {
+					$split_name = explode('.', $file_ary[$i]['name']);
+					$extension = end( $split_name );
+				}
+			*/
 				// Check file type
-				if (preg_match('/(jpg|jpeg|png|gif)/', $file_ary[$i]['type'], $matches)) {
+				// if (preg_match('/(jpg|jpeg|png|gif)/', $extension, $ext)) {
+				if (preg_match('/(jpg|jpeg|png|gif)/', $file_ary[$i]['type'], $ext)) {
 
 					// Check Image size
 					if ($file_ary[$i]['size'] != 0 || $file_ary[$i]['size'] < 5000000) {
 						
 						// Move file to server and hold image name to push it to database
-						$image_name = $this->session->id . '-' . md5(time()) . '.' . $matches[0];
-						$image_path = __DIR__ . '\..\..\img\products\\';
+						$image_name = $this->session->id . '-' . md5(time()) . '.' . $ext[0];
+						// $image_path = __DIR__ . '/../../img/products/';
+						$image_path = dirname(dirname(__DIR__)) . '/img/products/';
+
+						// var_dump($file_ary[$i]['tmp_name']);
 
 						move_uploaded_file($file_ary[$i]['tmp_name'], $image_path . $image_name);
 						$image_names[] = $image_name;
@@ -103,6 +122,8 @@
 					'description' => $this->input->post('description'),
 					'images' => implode(';', $image_names)
 				];
+
+
 
 				// Save producto to database
 				$this->products_model->add_product($product);

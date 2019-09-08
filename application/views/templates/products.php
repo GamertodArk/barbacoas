@@ -32,9 +32,7 @@
 			<?php if(true): ?>
 
 				<div class="barbacoas_wrapper">
-					<?php for($i = 0; $i < 11; $i++): ?>
-						<?php include APPPATH . 'views/inc/item.php'; ?>
-					<?php endfor; ?>
+					<?php include APPPATH . 'views/inc/item.php'; ?>
 				</div>
 
 
