@@ -48,6 +48,18 @@
 	}
 }
 
+@mixin loading-circle {
+	width: 100px;
+	height: 100px;
+	border-radius: 100%;
+	border: 20px solid purple;
+	border-top-style: groove;
+	animation-name: turn;
+	animation-duration: 0.7s;
+	animation-iteration-count: infinite;
+	border-top-color: lighten(purple, 20%);	
+}
+
 @mixin img($w: 100px, $h: 100px) {
 	width: $w;
 	height: $h;

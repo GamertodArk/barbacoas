@@ -3,43 +3,119 @@ let moreBtn = __('more_btn');
 let lessBtn = __('less_btn');
 let closeBtn = __('close_btn');
 let productWrap = __('product_wrap');
-let productWrapper = __('product_wrapper');
-let viewBtn = document.getElementsByClassName('view_item_btn');
 
-// // Show product modal
-for (var i = 0; i < viewBtn.length; i++) {
-	
-	viewBtn[i].addEventListener('click', e => {
-		productWrap.classList.add('show');
-		productWrap.classList.remove('hide');
-		productWrapper.style.display = 'flex';
+
+let modalWrap = __('modal-background');
+let modalLoadingBox = __('loading-wrap')
+let viewBtns = [...document.getElementsByClassName('view_item_btn')];
+
+// Loop through all item btns
+viewBtns.forEach(elem => {
+	elem.addEventListener('click', e => {
+
+		// Show the modal wrap
+		modalWrap.style.display = 'flex';
+
+		// Get the clicked product id
+		let product_id = parseInt(elem.parentNode.getAttribute('data-product-id'));
+
+		// Prepare fetch get the clicked product info
+		let url = `http://127.0.0.1/barbacoas/products/get_product_data/${product_id}`;
+		let fetchInit = {
+			method: 'POST',
+			body: 'data=test',
+			headers:{
+				'Content-Type': 'application/x-www-form-urlencoded'
+			}
+		}
+
+		fetch(url, fetchInit)
+			.then(response => response.text())
+			.then(text => {
+				// Hide loading box
+				modalLoadingBox.classList.add('hide');
+				modalLoadingBox.addEventListener('transitionend', e => {
+					modalLoadingBox.style.display = 'none';
+				});
+			});
+
+		
 	});
-}
+});
+
+// Show product modal
+
+// [].forEach
+
+// console.log(viewBtn);
+
+// viewBtn.forEach(btn => {
+// 	btn.addEventListener('click', function(e){
+// 		productWrap.classList.add('show');
+// 		productWrap.classList.remove('hide');
+// 		productWrapper.style.display = 'flex';
+
+// 		// console.log(this);
+
+// 	});	
+// });
+
+
+// for (var i = 0; i < viewBtn.length; i++) {
+	
+// 	viewBtn[i].addEventListener('click', function(e){
+// 		// productWrap.classList.add('show');
+// 		// productWrap.classList.remove('hide');
+// 		// productWrapper.style.display = 'flex';
+
+// 		let modalBG = document.getElementById('modal-background');
+// 		modalBG.style.display = 'flex';
+
+// 		// Send request to the server to get product information
+// 		fetch
+
+// 		// console.log('Nojoda2');
+
+// 		// console.log(this.parentNode);
+
+// 		// let product_id = parseInt(this.parentNode.getAttribute('data-product-id'));
+// 		// console.log(product_id);
+
+// 	});
+
+// 	// viewBtn[i]
+// }
+
 
 // Close the product modal
 closeBtn.addEventListener('click', e => {
-	productWrap.classList.add('hide');
-	productWrap.classList.remove('show');
-	productWrapper.style.display = 'none';
+	modalLoadingBox.classList.remove('hide');
+	modalLoadingBox.style.display = 'flex';
+	modalWrap.style.display = 'none';
+
+
+	// productWrap.classList.add('hide');
+	// productWrap.classList.remove('show');
+	// productWrapper.style.display = 'none';
 });
 
 // Increase counter
-moreBtn.addEventListener('click', e => {
-	let currentCounter = parseInt(counter.getAttribute('data-counter'));
-	if (currentCounter <= 998) {}
-	let newCounter = (currentCounter + 1);
-	console.log(newCounter);
-	counter.setAttribute('data-counter', newCounter);
-	counter.innerHTML = newCounter;
-});
+// moreBtn.addEventListener('click', e => {
+// 	let currentCounter = parseInt(counter.getAttribute('data-counter'));
+// 	if (currentCounter <= 998) {}
+// 	let newCounter = (currentCounter + 1);
+// 	console.log(newCounter);
+// 	counter.setAttribute('data-counter', newCounter);
+// 	counter.innerHTML = newCounter;
+// });
 
-// Decrease counter
-lessBtn.addEventListener('click', e => {
-	let currentCounter = parseInt(counter.getAttribute('data-counter'));
-	if (currentCounter != 0) {
-		let newCounter = (currentCounter - 1);
-		console.log(newCounter);
-		counter.setAttribute('data-counter', newCounter);
-		counter.innerHTML = newCounter;
-	}
-});
+// // Decrease counter
+// lessBtn.addEventListener('click', e => {
+// 	let currentCounter = parseInt(counter.getAttribute('data-counter'));
+// 	if (currentCounter != 0) {
+// 		let newCounter = (currentCounter - 1);
+// 		console.log(newCounter);
+// 		counter.setAttribute('data-counter', newCounter);
+// 		counter.innerHTML = newCounter;
+// 	}
+// });

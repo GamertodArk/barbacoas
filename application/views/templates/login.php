@@ -37,9 +37,10 @@
 	</main>
 
 	<!-- loading modal -->
-	<div id="loading-modal-wrap" class="loading-modal-wrap">
+	<!-- <div id="loading-modal-wrap" class="loading-modal-wrap">
 		<div class="loading-modal"></div>
-	</div>
+	</div> -->
+	<?php include APPPATH . 'views/inc/loading_structure.php' ?>
 
  	<?php include APPPATH . "views/inc/footer.php" ?>
  	<script src="<?php echo base_url() ?>js/login_scripts.js"></script>

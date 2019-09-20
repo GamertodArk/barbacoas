@@ -1,12 +1,36 @@
+
+<div id="modal-background">
+	<div class="info-wrap">
+		
+		<div id="loading-wrap" class="loading-wrap">
+			<div class="loading"></div>
+		</div>
+
+		<div class="item-details">
+			 <span id="close_btn">
+				<i class="fas fa-times"></i>
+			</span>
+			
+			<h2>Hello World</h2>
+		</div>
+	</div>
+</div>
+
+<!-- 
 <div id="product_wrapper" class="product_modal_wrapper">
 
 
 	<div id="product_wrap" class="product_wrap">
 
-		<span id="close_btn">
-			<i class="fas fa-times"></i>
-		</span>
+		<div id="loading-modal-wrap" class="loading-modal-wrap">
+			<div class="loading-modal"></div>
+		</div>
 
+		
+ 		<div class="loading-indicator">
+			<?php include APPPATH . 'views/inc/loading_structure.php' ?>
+		</div>
+ --><!--
 		<div class="left"></div>
 		<div class="right">
 			<h2>Lorem ipsum dolor.</h2>
@@ -32,7 +56,8 @@
 			</div>
 
 			<button class="cesta_btn">AÑADIR A LA CESTA</button>
-		</div>
+		</div> 
 	</div>
 </div>
+-->
 <script src="<?php echo base_url(); ?>js/product_modal_wrap.js"></script>

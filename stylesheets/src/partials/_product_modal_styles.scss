@@ -1,3 +1,73 @@
+
+#modal-background {
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 20;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	@include center-flex();
+	background-color: rgba(0,0,0, 0.80);
+	display: none; // hidden by default
+
+	.info-wrap {
+		width: 70%;
+		color: #000;
+		// padding: 1em;
+		height: 460px;
+		// margin: auto;
+		position: relative;
+		// @include center-flex();
+		// align-items: flex-start;
+		background-color: $grey2;
+		// transition: 0.5s linear opacity;
+
+		
+		.item-details {
+			width: 100%;
+			height: 100%;
+			position: relative;
+			background-color: pink;
+
+			#close_btn {
+				top: 0.7em;
+				right: 0.7em;
+				font-size: 14pt;
+				cursor: pointer;
+				position: absolute;
+			}
+
+		}
+
+		
+		.loading-wrap {
+			width: 100%;
+			height: 100%;
+			z-index: 10;
+			position: absolute;
+			@include center-flex();
+			background-color: $grey2;
+			transition: opacity 0.5s ease 0.1s;
+			// transition: display 0.5s ease 3.3s;
+
+
+			.loading {
+				@include loading-circle;
+			}
+		}
+
+		.hide {
+			opacity: 0;
+			// display: none;
+			// animation: smooth-disappier 0.5s ease 0.1s 1;
+		}
+
+	}
+}
+
+/*
 .product_modal_wrapper {
 	top: 0px;
 	left: 0px;
@@ -18,7 +88,7 @@
 		padding: 1em;
 		height: 460px;
 		position: relative;
-		@include center-flex();
+		// @include center-flex();
 		align-items: flex-start;
 		background-color: $grey2;
 		transition: 0.5s linear opacity;
@@ -26,7 +96,7 @@
 		&.hide { opacity: 0; }
 		&.show { opacity: 1; }
 
-		div { flex: 1; }
+		// div { flex: 1; }
 
 		#close_btn {
 			top: 0.7em;
@@ -111,7 +181,21 @@
 					background-color: $white;
 				}
 			}
+
+			.loading-modal-wrap {
+				.loading-modal {
+					// @include loading-circle;
+					width: 100px;
+					height: 100px !important;
+					display: block;
+					border: 1px solid #000;
+				}
+			}
+			// .loading-indicator {
+			// 	@include loading-modal();
+			// }
 		}
 	}
 
 }
+*/
