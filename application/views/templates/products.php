@@ -45,5 +45,6 @@
 	</main>
 
 	<?php include APPPATH . 'views/inc/footer.php' ?>
+ 	<?php include APPPATH . "views/inc/product_modal.php" ?> 
 </body>
 </html>

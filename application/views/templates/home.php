@@ -21,10 +21,8 @@
 			<h2>Lorem ipsum dolor.</h2>
 			<hr>
 
-			<div class="item-wrap">
-			<?php //for($i = 0; $i < 11; $i++): ?>
+			<div class="item-wrap">			
 				<?php include APPPATH . 'views/inc/item.php'; ?>
- 			<?php //endfor; ?>
 			</div>
 		</div>
 	</main>
