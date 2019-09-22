@@ -13,6 +13,16 @@
 
 	<main>
 		<div class="wrapper">
+			<?php if($this->session->flashdata('success')): ?>
+				<div class="success-message">
+					<h3>Producto Añadido satisfactoriamente</h3>
+
+					<span onclick="this.parentNode.parentNode.removeChild(this.parentNode)" id="close_btn">
+						<i class="fas fa-times"></i>
+					</span>
+				</div>
+			<?php endif; ?>
+
 			<div class="title">
 				<h2>Mis Barbacoas</h2>
 
@@ -22,9 +32,7 @@
 			<?php if(true): ?>
 
 				<div class="barbacoas_wrapper">
-					<?php for($i = 0; $i < 11; $i++): ?>
-						<?php include APPPATH . 'views/inc/item.php'; ?>
-					<?php endfor; ?>
+					<?php include APPPATH . 'views/inc/item.php'; ?>
 				</div>
 
 
@@ -37,5 +45,6 @@
 	</main>
 
 	<?php include APPPATH . 'views/inc/footer.php' ?>
+ 	<?php include APPPATH . "views/inc/product_modal.php" ?> 
 </body>
 </html>

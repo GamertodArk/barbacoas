@@ -16,6 +16,6 @@ application/logs/*
 !application/logs/.htaccess
 /vendor/
 
-#Custom
-application/config/database.php
+# Custom 
 img/products/*
+application/config/database.php

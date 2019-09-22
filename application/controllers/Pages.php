@@ -10,6 +10,7 @@
 
 		public function view($page = 'home')
 		{
+
 			// Check if template exists
 			if (! file_exists(APPPATH . 'views/templates/' . strtolower($page) . '.php')) {
 				show_404();
@@ -17,6 +18,12 @@
 
 			// Get all userdata from session and pass it to view
 			if ($this->session->logged_in) { $data = $this->users_model->get_userdata(); }
+
+			// Get products data
+			$this->db->select('id, title, images, amount');
+			$products = $this->db->get('products');
+
+			$data['products'] = $products->result();
 			$data['title'] = ucfirst($page);
 
 			$this->load->view('templates/' . strtolower($page), $data);
