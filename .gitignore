@@ -18,3 +18,4 @@ application/logs/*
 
 #Custom
 application/config/database.php
+img/products/*
