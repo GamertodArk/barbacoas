@@ -3,6 +3,7 @@
 		function __construct()
 		{
 			parent::__construct();
+			$this->load->model('products_model');
 
 			// Only accept post requests
 			if (! $_POST) {
@@ -14,8 +15,10 @@
 
 		function get_product_data($id)
 		{
-			sleep(1);
-			echo 'ok';
+			$id = intval($id);
+			$product_data = $this->products_model->get_product_data($id);
+			$product_data['images'] = explode(';', $product_data['images']);
+			echo json_encode($product_data);
 		}
 	}
 ?>

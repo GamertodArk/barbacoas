@@ -20,7 +20,7 @@
 			if ($this->session->logged_in) { $data = $this->users_model->get_userdata(); }
 
 			// Get products data
-			$this->db->select('id, title, images');
+			$this->db->select('id, title, images, amount');
 			$products = $this->db->get('products');
 
 			$data['products'] = $products->result();

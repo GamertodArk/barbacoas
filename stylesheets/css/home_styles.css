@@ -272,6 +272,7 @@ body main .main-content .item-wrap .item .item-content {
   display: flex;
   align-items: flex-start;
   justify-content: center;
+  background-color: #fff;
 }
 body main .main-content .item-wrap .item .item-content a {
   font-size: 11pt;

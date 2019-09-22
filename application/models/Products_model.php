@@ -11,5 +11,11 @@
 			$product['created_on'] = date('d/m/Y');
 			$this->db->insert('products', $product);
 		}
+
+		public function get_product_data($id)
+		{
+			$query = $this->db->get_where('products', ['id' => $id]);
+			return $query->row_array();
+		}
 	}
 ?>

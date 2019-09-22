@@ -14,10 +14,10 @@
 			<div class="left"></div>
 
 			<div class="right">
-				<h2>Lorem ipsum dolor.</h2>
+				<h2 id="product_title">Lorem ipsum dolor.</h2>
 				<div class="description">
-					<h3>Lorem ipsum dolor.</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat quibusdam, hic cumque deserunt porro expedita voluptatibus, sed similique sit praesentium.</p>
+					<h3>Descripcion</h3>
+					<p id="product_desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat quibusdam, hic cumque deserunt porro expedita voluptatibus, sed similique sit praesentium.</p>
 				</div>	
 
 				<div class="amount">

@@ -262,6 +262,7 @@ body main .wrapper .barbacoas_wrapper .item .item-content {
   display: flex;
   align-items: flex-start;
   justify-content: center;
+  background-color: #fff;
 }
 body main .wrapper .barbacoas_wrapper .item .item-content a {
   font-size: 11pt;
