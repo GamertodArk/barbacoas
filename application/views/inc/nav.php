@@ -40,6 +40,28 @@
 				<li title="Registrarse"><a href="<?php echo base_url('users/signup') ?>">
 					<i class="fas fa-user-plus"></i>
 				</a></li>
+
+				<li id="shopping-basket" class="shopping-wrap">
+					<i id="shopping-basket-icon" class="fas fa-shopping-basket"></i>
+
+					<div id="basket_triangle" class="triangle"></div>
+
+					<div id="basket_items_wrap" class="items">
+					
+					
+						<?php for($i = 0; $i < 6; $i++): ?>
+
+							<div class="shopping-item">
+								<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, ratione.</h3>
+								<span class="remove-item">
+									<i class="fas fa-times"></i>
+								</span>
+							</div>
+
+						<?php endfor; ?>
+
+					</div>
+				</li>
 			</ul>
 		<?php endif; ?>
 
