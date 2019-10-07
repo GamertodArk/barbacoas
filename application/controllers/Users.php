@@ -36,6 +36,9 @@
 			$data = json_decode($this->input->post('data'), true);
 			$response = $this->users_model->check_credential($data);
 
+			// Shopping basket data
+			$_SESSION['products'] = [];
+
 			echo json_encode($response);
 			}
 

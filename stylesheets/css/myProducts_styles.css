@@ -502,6 +502,19 @@ body #modal-background .info-wrap .item-details div.right .cesta_btn:hover {
   color: #f8ba53;
   background-color: #fff;
 }
+body #modal-background .info-wrap .item-details div.right #error-msg-wrap {
+  width: 100%;
+  padding: 1em;
+  font-size: 11pt;
+  margin-top: 1em;
+  position: relative;
+  text-align: center;
+  background-color: red;
+  display: none;
+}
+body #modal-background .info-wrap .item-details div.right #error-msg-wrap #close_btn {
+  font-size: 10pt;
+}
 body #modal-background .info-wrap .item-details #close_btn {
   top: 0.7em;
   right: 0.7em;

@@ -36,7 +36,15 @@
 					</span>
 				</div>
 
-				<button class="cesta_btn">AÑADIR A LA CESTA</button>
+				<button id="add_cesta_btn" class="cesta_btn">AÑADIR A LA CESTA</button>
+
+				<div id="error-msg-wrap">
+					<span onclick="this.parentNode.style.display = 'none'" id="close_btn">
+						<i class="fas fa-times"></i>
+					</span>
+
+					<p id="error-msg">Tienes que iniciar sesion para añadir productos a la cesta de compra</p>
+				</div>
 
 			</div>
 		</div>
