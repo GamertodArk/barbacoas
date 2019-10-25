@@ -22,7 +22,9 @@
 
 		<?php if(isset($username)): ?>
 			<ul class="user username">
-				<li>
+				<?php include 'shoping_basket_nav.php'; ?>
+
+				<li class="user_btn">
 					<?=$username?>
 					<ul class="children">
 						<div class="triangle"></div>
@@ -41,7 +43,9 @@
 					<i class="fas fa-user-plus"></i>
 				</a></li>
 
-				<li id="shopping-basket" class="shopping-wrap">
+				<?php //include 'shoping_basket_nav.php'; ?>
+
+<!-- 				<li id="shopping-basket" class="shopping-wrap">
 					<i id="shopping-basket-icon" class="fas fa-shopping-basket"></i>
 
 					<div id="basket_triangle" class="triangle"></div>
@@ -62,7 +66,7 @@
 
 					</div>
 				</li>
-			</ul>
+ -->			</ul>
 		<?php endif; ?>
 
 

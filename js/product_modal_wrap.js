@@ -1,3 +1,5 @@
+const site_url = 'http://127.0.0.1/barbacoas/';
+
 let counter = __('counter');
 let moreBtn = __('more_btn');
 let lessBtn = __('less_btn');
@@ -7,11 +9,37 @@ let productWrap = __('product_wrap');
 
 let error_msg = __('error-msg');
 let error_msg_wrap = __('error-msg-wrap');
+// let basket_empty_msg = __('basket_empty_msg');
 
 let modalWrap = __('modal-background');
 let modalLoadingBox = __('loading-wrap')
 let viewBtns = [...document.getElementsByClassName('view_item_btn')];
 
+
+function insert_product_to_basket_dom(data) {
+	let i = document.createElement('i');
+	let h3 = document.createElement('h3');
+	let div = document.createElement('div');
+	let span = document.createElement('span');
+	let wrapper = document.getElementById('basket_items_wrap');
+	let product_title = document.createTextNode(data.product_title);
+
+	div.classList.add('shopping-item');
+	div.setAttribute('data-product-id', data.product_id);
+
+	span.classList.add('remove-item');
+	span.setAttribute('onclick', 'delete_from_basket(this)');
+
+	i.classList.add('fas');
+	i.classList.add('fa-times');
+
+	span.appendChild(i);
+	h3.appendChild(product_title);
+	div.appendChild(h3);
+	div.appendChild(span);
+
+	wrapper.appendChild(div);
+}
 
 function insert_data_to_modal(data) {
 	let productTitle = __('product_title');
@@ -32,6 +60,8 @@ viewBtns.forEach(elem => {
 		// Show the modal wrap
 		modalWrap.style.display = 'flex';
 
+		cestaBtn.innerHTML = 'AÑADIR A LA CESTA';
+
 		// Get the clicked product id
 		let product_id = parseInt(elem.parentNode.getAttribute('data-product-id'));
 
@@ -48,6 +78,7 @@ viewBtns.forEach(elem => {
 		fetch(url, fetchInit)
 			.then(response => response.json())
 			.then(json => {
+
 				// Updata data in modal
 				insert_data_to_modal(json);
 
@@ -101,6 +132,10 @@ cestaBtn.addEventListener('click', function (e) {
 	fetch(url, fetchInit)
 		.then(response => response.json())
 		.then(json => {
+
+			console.log(json);
+			// return false;
+
 			if (json.error) {
 				if (json.code == 0) {
 					// User not logged in
@@ -115,7 +150,12 @@ cestaBtn.addEventListener('click', function (e) {
 				}
 			}else {
 				if (json.code == 2) {
+					if (__('basket_empty_msg')) { __('basket_empty_msg').style.display = 'none'; }
 					// Product added successfully
+					// console.log(json);
+					// insert_data_to_modal(json);
+					// basket_empty_msg.style.display = 'none';
+					insert_product_to_basket_dom(json);
 					cestaBtn.innerHTML = 'Producto Añadido a la cesta';
 				}else {
 					// Product added successfully
@@ -124,3 +164,23 @@ cestaBtn.addEventListener('click', function (e) {
 			}
 		})
 });
+
+function delete_from_basket(btn) {
+	let id = btn.parentNode.getAttribute('data-product-id');
+	// let id btn
+	let url = `http://127.0.0.1/barbacoas/products/delete_from_basket/${id}`;
+	let fetchInit = {
+		method: 'POST',
+		body: 'data=test',
+		headers:{
+			'Content-Type': 'application/x-www-form-urlencoded'
+		}
+	}
+
+	fetch(url, fetchInit)
+		.then(response => response.text())
+		.then(text => {
+			console.log(text);
+			btn.parentNode.parentNode.removeChild(btn.parentNode);
+		})
+}

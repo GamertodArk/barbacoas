@@ -7,11 +7,13 @@ let hidden = true;
 
 // Hide/Show shopping basket list in nav
 shoppingBasket.addEventListener('click', e => {
+	console.log(e);
+
 	if (hidden) {
 		hidden = false;
 		basketTriangle.style.display = 'block';
 		basketItemsWrap.style.display = 'block';
-	}else {
+	}else if(e.target.id == 'shopping-basket-icon' && !hidden) {
 		hidden = true;
 		basketTriangle.style.display = 'none';
 		basketItemsWrap.style.display = 'none';
@@ -19,14 +21,14 @@ shoppingBasket.addEventListener('click', e => {
 });
 
 // When the user clicks anywhere in the page, hide the shipping basket list
-window.addEventListener('click', e => {
-	try {	
-		if (e.target.id != 'shopping-basket-icon') {
-			hidden = true;
-			basketTriangle.style.display = 'none';
-			basketItemsWrap.style.display = 'none';
-		}
-	}catch (e) {
-		// Do nothing
-	}
-});
+// window.addEventListener('click', e => {
+// 	try {	
+// 		if (e.target.id != 'shopping-basket-icon') {
+// 			hidden = true;
+// 			basketTriangle.style.display = 'none';
+// 			basketItemsWrap.style.display = 'none';
+// 		}
+// 	}catch (e) {
+// 		// Do nothing
+// 	}
+// });

@@ -141,10 +141,90 @@ body header nav .nav-content .user {
   position: relative;
 }
 body header nav .nav-content .user li {
+  margin: 0px 0.5em;
   font-weight: bold;
+  display: inline-block;
 }
 body header nav .nav-content .user li:hover .children {
   display: block;
+}
+body header nav .nav-content .user li.user_btn {
+  font-size: 10pt;
+}
+body header nav .nav-content .user li.shopping-wrap {
+  position: relative;
+}
+body header nav .nav-content .user li.shopping-wrap i.fa-shopping-basket {
+  cursor: pointer;
+}
+body header nav .nav-content .user li.shopping-wrap div.triangle {
+  width: 0px;
+  height: 0px;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  border-right: 9px solid transparent;
+  border-left: 9px solid transparent;
+  border-bottom: 9px solid #fff;
+  display: none;
+}
+body header nav .nav-content .user li.shopping-wrap div.items {
+  left: 20%;
+  height: 260px;
+  width: 450px;
+  bottom: -269px;
+  overflow-y: scroll;
+  color: #3f3f3f;
+  padding: 1em 0.5em;
+  position: absolute;
+  background-color: #fff;
+  transform: translateX(-80%);
+  display: none;
+}
+body header nav .nav-content .user li.shopping-wrap div.items p.empty {
+  width: 100%;
+  font-size: 11pt;
+  text-align: center;
+}
+body header nav .nav-content .user li.shopping-wrap div.items div.shopping-item {
+  width: 100%;
+  margin-bottom: 1em;
+  padding-bottom: 1em;
+  border-bottom: 1px solid #3f3f3f;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+body header nav .nav-content .user li.shopping-wrap div.items div.shopping-item:nth-last-child(1) {
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  border-bottom: none;
+}
+body header nav .nav-content .user li.shopping-wrap div.items div.shopping-item h3 {
+  width: 90%;
+  font-size: 10.5pt;
+}
+body header nav .nav-content .user li.shopping-wrap div.items div.shopping-item .remove-item {
+  width: 28px;
+  height: 30px;
+  cursor: pointer;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  border: 2px solid #f8ba53;
+  transition: 0.3s ease-out background-color;
+}
+body header nav .nav-content .user li.shopping-wrap div.items div.shopping-item .remove-item:hover {
+  background-color: #f8ba53;
+}
+body header nav .nav-content .user li.shopping-wrap div.items div.shopping-item .remove-item:hover i {
+  color: #fff;
+}
+body header nav .nav-content .user li.shopping-wrap div.items div.shopping-item .remove-item i {
+  font-size: 10pt;
 }
 body header nav .nav-content .user .children {
   left: 50%;
@@ -227,6 +307,11 @@ body header nav .nav-content .users li.shopping-wrap div.items {
   transform: translateX(-80%);
   display: none;
 }
+body header nav .nav-content .users li.shopping-wrap div.items p.empty {
+  width: 100%;
+  font-size: 11pt;
+  text-align: center;
+}
 body header nav .nav-content .users li.shopping-wrap div.items div.shopping-item {
   width: 100%;
   margin-bottom: 1em;
@@ -243,10 +328,11 @@ body header nav .nav-content .users li.shopping-wrap div.items div.shopping-item
   border-bottom: none;
 }
 body header nav .nav-content .users li.shopping-wrap div.items div.shopping-item h3 {
+  width: 90%;
   font-size: 10.5pt;
 }
 body header nav .nav-content .users li.shopping-wrap div.items div.shopping-item .remove-item {
-  width: 35px;
+  width: 28px;
   height: 30px;
   cursor: pointer;
   border-radius: 100%;

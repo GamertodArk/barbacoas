@@ -23,10 +23,22 @@
 
 		private function add_to_basket($id)
 		{
-			if (in_array($id, $_SESSION['products'])) {
+			if (/*in_array($id, $_SESSION['products'])*/ array_key_exists($id, $_SESSION['products'])) {
 				return false;
 			}else {
-				array_push($_SESSION['products'], $id);
+				$basketData = $this->products_model->get_product_data($id);
+				// $basketDataStructure = [$id => [
+				// 	'id' => $id,
+				// 	'title' =>  $basketData['title']					
+				// ]];
+				// array_push($_SESSION['products'], $basketDataStructure);
+
+				// $_SESSION['products'][] = 
+
+				$_SESSION['products'][$id] = [
+					'id' => $id,
+					'title' =>  $basketData['title']
+				];
 				return true;
 			}
 		}
@@ -37,12 +49,29 @@
 				if ($this->session->logged_in) {
 
 					if ($this->add_to_basket($id)) {
-						$json = ['error' => false, 'code' => 2];
+		
+						// echo $_SESSION['products'][$id];
+						// var_dump($_SESSION['products']);
+						// exit();
+
+						// $proData = $this->products_model->get_product_data($id);
+						$json = [
+							'error' => false, 
+							'code' => 2,
+							'product_id' => $_SESSION['products'][$id]['id'],
+							'product_title' => $_SESSION['products'][$id]['title']
+						];
+
+						// $json = 'testing';
+
 					}else {
 						$json = ['error' => false, 'code' => 3];
 					}
 
-					echo json_encode($json);						
+					echo json_encode($json);
+					// echo array_key_exists(10, $_SESSION['products']) ? 'true' : 'false';
+					// var_dump($json);
+
 
 				}else {
 					$json = ['error' => 'true', 'code' => 0];
@@ -52,6 +81,12 @@
 					$json = ['error' => 'true', 'code' => 1, 'error_msg' => $e->getMessage()];
 					echo json_encode($json);				
 			}
+		}
+
+		function delete_from_basket($id)
+		{
+			unset($_SESSION['products'][$id]);
+			echo $id;
 		}
 	}
 ?>
