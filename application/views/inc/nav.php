@@ -30,6 +30,7 @@
 						<div class="triangle"></div>
 						<li><a href="#">Perfil</a></li>
 						<li><a href="<?php echo site_url('members/products') ?>">Mis Barbacoas</a></li>
+						<li><a href="<?php echo site_url('members/shopping_basket') ?>">Ver la cesta de compra</a></li>
 						<li><a href="<?php echo site_url('logout') ?>">Cerrar Session</a></li>
 					</ul>
 				</li>
@@ -41,32 +42,8 @@
 				</a></li>
 				<li title="Registrarse"><a href="<?php echo base_url('users/signup') ?>">
 					<i class="fas fa-user-plus"></i>
-				</a></li>
-
-				<?php //include 'shoping_basket_nav.php'; ?>
-
-<!-- 				<li id="shopping-basket" class="shopping-wrap">
-					<i id="shopping-basket-icon" class="fas fa-shopping-basket"></i>
-
-					<div id="basket_triangle" class="triangle"></div>
-
-					<div id="basket_items_wrap" class="items">
-					
-					
-						<?php for($i = 0; $i < 6; $i++): ?>
-
-							<div class="shopping-item">
-								<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, ratione.</h3>
-								<span class="remove-item">
-									<i class="fas fa-times"></i>
-								</span>
-							</div>
-
-						<?php endfor; ?>
-
-					</div>
-				</li>
- -->			</ul>
+				</a></li>				
+			</ul>
 		<?php endif; ?>
 
 

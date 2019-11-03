@@ -21,58 +21,53 @@
 			echo json_encode($product_data);
 		}
 
-		private function add_to_basket($id)
+		private function add_to_basket($data)
 		{
-			if (/*in_array($id, $_SESSION['products'])*/ array_key_exists($id, $_SESSION['products'])) {
+
+			// echo 'hi';
+			// var_dump($this->input->post('data'));
+			// var_dump(json_decode($this->input->post('data')));
+			// exit();
+
+			if (array_key_exists($data->id, $_SESSION['products'])) {
 				return false;
 			}else {
-				$basketData = $this->products_model->get_product_data($id);
-				// $basketDataStructure = [$id => [
-				// 	'id' => $id,
-				// 	'title' =>  $basketData['title']					
-				// ]];
-				// array_push($_SESSION['products'], $basketDataStructure);
+				$basketData = $this->products_model->get_product_data($data->id);
 
-				// $_SESSION['products'][] = 
-
-				$_SESSION['products'][$id] = [
-					'id' => $id,
-					'title' =>  $basketData['title']
+				$_SESSION['products'][$data->id] = [
+					'id' => $data->id,
+					'amount' => $data->amount,
+					'title' =>  $basketData['title'],
+					'thumnail' => explode(';', $basketData['images'])[0]
 				];
+
 				return true;
 			}
 		}
 
 		function add_product_to_basket($id)
 		{
+			$data = json_decode($this->input->post('data'));
+			
 			try{
 				if ($this->session->logged_in) {
 
-					if ($this->add_to_basket($id)) {
-		
-						// echo $_SESSION['products'][$id];
-						// var_dump($_SESSION['products']);
-						// exit();
-
-						// $proData = $this->products_model->get_product_data($id);
+					if ($this->add_to_basket($data)) {
+	
 						$json = [
 							'error' => false, 
 							'code' => 2,
 							'product_id' => $_SESSION['products'][$id]['id'],
-							'product_title' => $_SESSION['products'][$id]['title']
+							'product_title' => $_SESSION['products'][$id]['title'],
+							'thumnail_title' => $_SESSION['products'][$id]['thumnail']
 						];
-
-						// $json = 'testing';
 
 					}else {
 						$json = ['error' => false, 'code' => 3];
 					}
 
 					echo json_encode($json);
-					// echo array_key_exists(10, $_SESSION['products']) ? 'true' : 'false';
-					// var_dump($json);
-
-
+					// var_dump($_SESSION['products']);
 				}else {
 					$json = ['error' => 'true', 'code' => 0];
 					echo json_encode($json);

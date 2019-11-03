@@ -79,6 +79,8 @@ viewBtns.forEach(elem => {
 			.then(response => response.json())
 			.then(json => {
 
+				// console.log(json);
+
 				// Updata data in modal
 				insert_data_to_modal(json);
 
@@ -119,11 +121,18 @@ lessBtn.addEventListener('click', e => {
 
 // Add product to the shopping basket btn
 cestaBtn.addEventListener('click', function (e) {
+
 	let id = this.getAttribute('data-product-id');
 	let url = `http://127.0.0.1/barbacoas/products/add_product_to_basket/${id}`;
+
+	let data = {
+		'id': id,
+		'amount': counter.value
+	};
+
 	let fetchInit = {
 		method: 'POST',
-		body: 'data=test',
+		body: `data=${JSON.stringify(data)}`,
 		headers:{
 			'Content-Type': 'application/x-www-form-urlencoded'
 		}
@@ -133,8 +142,7 @@ cestaBtn.addEventListener('click', function (e) {
 		.then(response => response.json())
 		.then(json => {
 
-			console.log(json);
-			// return false;
+			// console.log(json);
 
 			if (json.error) {
 				if (json.code == 0) {
@@ -152,35 +160,12 @@ cestaBtn.addEventListener('click', function (e) {
 				if (json.code == 2) {
 					if (__('basket_empty_msg')) { __('basket_empty_msg').style.display = 'none'; }
 					// Product added successfully
-					// console.log(json);
-					// insert_data_to_modal(json);
-					// basket_empty_msg.style.display = 'none';
 					insert_product_to_basket_dom(json);
 					cestaBtn.innerHTML = 'Producto Añadido a la cesta';
 				}else {
-					// Product added successfully
+					// Product aready in basket
 					cestaBtn.innerHTML = 'Producto ya esta en la cesta';					
 				}
 			}
 		})
 });
-
-function delete_from_basket(btn) {
-	let id = btn.parentNode.getAttribute('data-product-id');
-	// let id btn
-	let url = `http://127.0.0.1/barbacoas/products/delete_from_basket/${id}`;
-	let fetchInit = {
-		method: 'POST',
-		body: 'data=test',
-		headers:{
-			'Content-Type': 'application/x-www-form-urlencoded'
-		}
-	}
-
-	fetch(url, fetchInit)
-		.then(response => response.text())
-		.then(text => {
-			console.log(text);
-			btn.parentNode.parentNode.removeChild(btn.parentNode);
-		})
-}

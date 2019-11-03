@@ -1,0 +1,193 @@
+@import 'partials/base';
+
+body {
+	header {
+		@import 'partials/nav';
+	}
+
+	main {
+		padding: 2em;
+		@include center-flex();
+		align-items: flex-start;
+		background-color: $grey2;
+
+		.wrapper {
+			width: 70%;
+			flex-grow: 3;
+			flex-shrink: 0;
+
+			h1 {
+				color: $orange;
+				font-weight: lighter;
+			}
+
+			.products_wrap {
+				margin-top: 1em;
+
+				h2 {
+					width: 100%;
+					text-align: left;
+					color: $darker_grey;
+					padding-bottom: 0.5em;
+					border-bottom: 2px solid $white;
+				}
+
+				.items-wrap {
+					width: 100%;
+
+					.product {
+						padding: 0.5em;
+						@include center-flex();
+						border-bottom: 2px solid $white;
+						
+						&:nth-last-child(1) {
+							border-bottom: none;
+						}
+
+						&:hover {
+							background-color: lighten($grey2, 1.5%);
+						}
+				
+
+						div {
+							height: 100%;
+						}
+
+						div.left {
+							width: 70%;
+							@include center-flex();
+
+							.img {
+								flex-grow: 1;
+								width: 110px;
+								height: 110px;
+								flex-shrink: 0;
+								@include center-flex();
+								background-color: white;
+
+								img {
+									width: 70%;
+									height: 100%;
+								}
+							}
+
+							h3 {
+								flex-grow: 10;
+								font-size: 11pt;
+								color: $darker_grey;
+								padding:0px 0.5em;
+							}
+						}
+						div.right {
+							width: 30%;
+							height: 100%;
+							@include center-flex(space-around);
+
+							.amount {
+								width: 50px;
+								height: 30px;
+								@include center-flex();
+								background-color: $white;
+								border: 1px solid $darker_grey;
+							}
+
+							.trash-icon {
+								cursor: pointer;
+								font-size: 13pt;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.sidebar {
+			width: 30%;
+			height: 100%;
+			padding: 0.5em;
+			flex-grow: 1;
+			flex-shrink: 10;
+			min-height: 400px;
+			@include center-flex(space-between, column);
+
+			%p-styles {
+				width: 100%;
+				margin: 1em 0px;
+				font-size: 10.5pt;
+				color: $darker_grey;
+				text-align: center;
+			}
+
+			div {margin: 2em 0px;}
+
+			.widget-1 {
+				padding: 2em 1em;
+				border: 1px solid $grey;
+				background-color: $white;
+
+				h2 {
+					width: 100%;
+					color: $orange;
+					font-size: 12pt;
+					text-align: center;
+					font-weight: bolder;
+					text-transform: uppercase;
+					border-bottom:1px solid $grey;
+				}
+
+				p { @extend %p-styles; }
+
+				h3 {
+					width: 100%;
+					color: $orange;
+					font-size: 11pt;
+					text-align: center;
+					text-transform: uppercase;
+				}
+			}
+
+			.rent {
+				padding: 2em;
+				background-color: $white;
+				border: 1px solid $orange;
+
+				h2 {
+					width: 100%;
+					color: $orange;
+					font-size: 10pt;
+					text-align: center;
+					text-transform: uppercase;
+					border-bottom:1px solid $grey;
+				}
+
+				p { @extend %p-styles; }
+
+				a {
+					width: 130px;
+					color: $white;
+					padding: 0.5em;
+					display: block;
+					font-size: 11pt;
+					margin: 1em auto;
+					text-align: center;
+					border-radius: 20px;
+					font-weight: bolder;
+					text-decoration: none;
+					border: 1px solid $orange;
+					text-transform: uppercase;
+					background-color: $orange;
+					transition: 0.2s ease all;
+
+
+					&:hover {
+						color: $orange;
+						border-color: $grey;
+						background-color: $white;
+					}
+				}
+			}
+		}
+	}
+
+	@import 'partials/footer';
+}
