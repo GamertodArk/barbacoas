@@ -24,9 +24,9 @@
 			<ul class="user username">
 				<?php include 'shoping_basket_nav.php'; ?>
 
-				<li class="user_btn">
+				<li id="user_btn" class="user_btn">
 					<?=$username?>
-					<ul class="children">
+					<ul id="user_btn_children" class="children">
 						<div class="triangle"></div>
 						<li><a href="#">Perfil</a></li>
 						<li><a href="<?php echo site_url('members/products') ?>">Mis Barbacoas</a></li>

@@ -145,11 +145,9 @@ body header nav .nav-content .user li {
   font-weight: bold;
   display: inline-block;
 }
-body header nav .nav-content .user li:hover .children {
-  display: block;
-}
 body header nav .nav-content .user li.user_btn {
   font-size: 10pt;
+  cursor: pointer;
 }
 body header nav .nav-content .user li.shopping-wrap {
   position: relative;
@@ -227,7 +225,7 @@ body header nav .nav-content .user li.shopping-wrap div.items div.shopping-item 
   font-size: 10pt;
 }
 body header nav .nav-content .user .children {
-  left: 50%;
+  left: 45%;
   color: #000;
   width: 150%;
   display: none;
@@ -237,16 +235,16 @@ body header nav .nav-content .user .children {
   list-style: none;
   position: absolute;
   background-color: #fff;
-  transform: translateX(-50%);
+  transform: translateX(-55%);
   box-shadow: 3px 3px 5px #3f3f3f;
 }
 body header nav .nav-content .user .children .triangle {
-  left: 50%;
+  left: 63%;
   top: -7px;
   width: 0px;
   height: 0px;
   position: absolute;
-  transform: translateX(-50%);
+  transform: translateX(-37%);
   border-right: 7px solid transparent;
   border-left: 7px solid transparent;
   border-bottom: 7px solid #fff;
