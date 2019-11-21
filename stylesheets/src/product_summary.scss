@@ -197,6 +197,31 @@ body {
 				}
 			}
 		}
+
+		.other-products {
+			padding: 2em;
+
+			h2 {
+				font-size: 16pt;
+				color: $darker_grey;
+				text-transform: uppercase;
+			}
+
+			hr {
+				width: 10%;
+				height: 3px;
+				border: none;
+				color: $orange;
+				margin-top: 0.5em;
+				background-color: $orange;
+			}
+
+			.products-wrap {
+				@include center-flex();
+
+				@import 'partials/items_styles';
+			}
+		}
 	}
 
 	@import 'partials/footer';

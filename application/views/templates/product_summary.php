@@ -60,7 +60,6 @@
 			</div>
 
 			<div class="sidebar">
-				<!-- <h2>sidebar</h2> -->
 				<div class="feature feature-1">
 					<div class="feature-content">						
 						<i class="fas fa-hand-holding-usd"></i>
@@ -70,7 +69,6 @@
 
 				<div class="feature feature-1">
 					<div class="feature-content">						
-						<!-- <i class="fas fa-hand-holding-usd"></i> -->
 						<i class="fas fa-utensils"></i>
 						<h3>DEVOLUCIÓN DE LA VAJILLA SIN LAVAR</h3>
 					</div>
@@ -78,7 +76,6 @@
 
 				<div class="feature feature-1">
 					<div class="feature-content">						
-						<!-- <i class="fas fa-hand-holding-usd"></i> -->
 						<i class="fas fa-truck"></i>
 						<h3>ENTREGAS EN TODA EUROPA</h3>
 					</div>
@@ -98,6 +95,27 @@
 					</div>
 
 				</div>
+			</div>
+		</div>
+		<div class="other-products">
+			<h2>Productos que te pueden interesar</h2>
+			<hr>
+
+			<div class="products-wrap">
+
+				<?php for ($i=0; $i < 4; $i++): ?>
+					<div data-product-id="" class="item">
+						<span id="item_view" class="view view_item_btn"><i class="far fa-eye"></i></span>
+
+						<div class="image-wrap">
+							<img src="<?php echo base_url() ?>img/products/pic_14_big.jpg" alt="">
+						</div>
+						<div class="item-content">
+							<a href="#">Lorem ipsum dolor sit amet, consectetur</a>
+						</div>
+					</div>
+				<?php endfor; ?>
+
 			</div>
 		</div>
 	</main>
