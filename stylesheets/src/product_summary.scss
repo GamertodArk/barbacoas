@@ -1,0 +1,203 @@
+@import 'partials/base';
+
+%icon-styles {
+	width: 40px;
+	height: 40px;
+	margin: 0px 0.5em;
+	border-radius: 100%;
+	display: inline-block;
+	@include center-flex();
+	background-color: $white;
+	transition: 0.3s all ease;
+
+	// i {
+	// 	color: $orange;
+	// }
+
+	// &:hover {
+	// 	cursor: pointer;
+	// 	background-color: $orange;
+	// 	i { color: $white; }
+	// }
+}
+
+body {
+	background-color: $grey2;
+	header { @import 'partials/nav'; }
+
+	main {
+		.wrapper {
+			width: 100%;
+			padding: 1em;
+			@include center-flex();
+
+			.main {
+				width: 70%;
+
+				.product_data {
+					width: 100%;
+					padding: 1em;
+					height: 400px;
+					@include center-flex(space-between);
+
+					.img {
+						width: 45%;
+						height: 100%;
+						background-color: $white;
+					}
+
+					.data {
+						width: 55%;
+						height: 100%;
+						padding: 0.5em;
+
+						h2 {
+							width: 100%;
+							font-size: 14pt;
+							text-align: left;
+							color: $darker_grey;
+							font-weight: lighter;
+						}
+
+						.description {
+							margin: 1em 0px;
+							padding: 1.5em 0.5em;
+							border-top: 1px solid $grey;
+							border-bottom: 1px solid $grey;
+
+							h3 {
+								font-size: 11pt;
+								color: $grey3;
+							}
+
+							p {
+								width: 100%;
+								font-size: 10pt;
+								color: $dark_grey;
+							}
+						}
+
+						// Amount controls styles
+						@import 'partials/amount_controls_styles';
+
+						.cesta_share {
+							margin-top: 3em;
+							@include center-flex(space-around);
+
+							.btn { 
+								width: 200px;
+								// font-weight: bold;
+								@include add_to_basket_btn;
+							}
+
+							.share {
+								@include center-flex();
+
+
+								.icon-wrap {
+
+									@extend %icon-styles;
+
+									i {
+										color: $orange;
+									}
+
+									&:hover {
+										cursor: pointer;
+										background-color: $orange;
+										i { color: $white; }
+									}
+
+									// width: 40px;
+									// height: 40px;
+									// margin: 0px 0.5em;
+									// border-radius: 100%;
+									// display: inline-block;
+									// @include center-flex();
+									// background-color: $white;
+									// transition: 0.3s all ease;
+
+									// i {
+									// 	color: $orange;
+									// }
+
+									// &:hover {
+									// 	cursor: pointer;
+									// 	background-color: $orange;
+									// 	i { color: $white; }
+									// }
+								}
+							}
+						}
+					}
+				}
+			}
+
+			.sidebar {
+				width: 30%;
+
+				.feature {
+					width: 100%;
+					height: 100px;
+					padding: 0.1em;
+					margin: 1em 0px;
+					border: 1px solid $grey;
+
+					.feature-content {
+						width: 100%;
+						height: 100%;
+						color: $darker_grey;
+						@include center-flex();
+						background-color: $white;
+						border: 1px solid $grey;
+
+						h3 {
+							width: 60%;
+							font-size: 10pt;
+						}
+
+						i {
+							font-size: 20pt;
+							margin-right: 1em;
+						}
+					}
+				}
+
+				.social-media {
+					@include center-flex(space-around);
+
+					.icon-wrap {
+						@extend %icon-styles;
+						border: 1px solid $dark_grey;
+	
+						i {
+							color: $dark_grey;
+						}
+
+						&:hover { cursor: pointer; }
+					}
+
+					.icon-wrap.facebook:hover {
+						border-color: #3b5998;
+
+						i {color: #3b5998;}
+					}
+
+					.icon-wrap.twitter:hover {
+						border-color: #c92228;
+
+						i {color: #c92228;}
+					}
+
+					.icon-wrap.linkedin:hover {
+						border-color: #0e76a8;
+
+						i {color: #0e76a8;}
+					}
+				}
+			}
+		}
+	}
+
+	@import 'partials/footer';
+}

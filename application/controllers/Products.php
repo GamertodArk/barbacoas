@@ -13,6 +13,11 @@
 			}
 		}
 
+		function summary($id)
+		{
+			echo $id;
+		}
+
 		function get_product_data($id)
 		{
 			$id = intval($id);

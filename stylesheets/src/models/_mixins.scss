@@ -91,3 +91,23 @@
 		background-color: $dark_grey;
 	}
 }
+
+@mixin add_to_basket_btn {
+	border:none;
+	padding: 1em;
+	width: 200px;
+	color: $white;
+	// margin-top: 3em;
+	font-size: 10pt;
+	cursor: pointer;
+	font-weight: bold;
+	border-radius: 30px;
+	background-color: $orange;
+	transition: 0.3s linear color;
+	transition: 0.3s linear background-color;
+
+	&:hover {
+		color: $orange;
+		background-color: $white;
+	}
+}

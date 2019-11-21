@@ -10,6 +10,16 @@
 			if (! $this->session->logged_in) { redirect('users/login'); }
 		}
 
+		function product_summary($id)
+		{
+
+			// Get all userdata from session and pass it to view
+			if ($this->session->logged_in) { $data = $this->users_model->get_userdata(); }
+
+			$this->load->view('templates/product_summary', $data);
+
+		}
+
 		public function page($page = NULL)
 		{
 

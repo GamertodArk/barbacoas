@@ -573,10 +573,11 @@ body #modal-background .info-wrap .item-details div.right .amount .amount_wrappe
 body #modal-background .info-wrap .item-details div.right .cesta_btn {
   border: none;
   padding: 1em;
+  width: 200px;
   color: #fff;
-  margin-top: 3em;
   font-size: 10pt;
   cursor: pointer;
+  font-weight: bold;
   border-radius: 30px;
   background-color: #f8ba53;
   transition: 0.3s linear color;
