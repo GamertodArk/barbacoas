@@ -8,7 +8,7 @@
 				<img src="<?php echo base_url() ?>img/products/<?=$images[0]?>" alt="">
 			</div>
 			<div class="item-content">
-				<a href="#"><?=$product->title?></a>
+				<a href="<?=site_url()?>products/review/<?=$product->id?>"><?=$product->title?></a>
 			</div>
 		</div>
 	<?php endforeach; ?>

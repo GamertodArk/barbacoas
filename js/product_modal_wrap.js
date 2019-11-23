@@ -102,11 +102,16 @@ closeBtn.addEventListener('click', e => {
 
 // Increase counter
 moreBtn.addEventListener('click', e => {
-	let maxCounter = moreBtn.getAttribute('data-max-amount');
-	let currentCounter = counter.value != '' ? parseInt(counter.value) : 0;
-	if (currentCounter < maxCounter) {
-		let newCounter = (currentCounter + 1);
-		counter.value = newCounter;
+	// let maxCounter = moreBtn.getAttribute('data-max-amount');
+	// let currentCounter = counter.value != '' ? parseInt(counter.value) : 0;
+	// if (currentCounter < maxCounter) {
+	// 	let newCounter = (currentCounter + 1);
+	// 	counter.value = newCounter;
+	// }
+	// console.log();
+	let result = increase_product_amount(moreBtn, counter);
+	if (false != result) {
+		counter.value = result;
 	}
 });
 

@@ -574,6 +574,7 @@ body #modal-background .info-wrap .item-details div.right .amount .amount_wrappe
   cursor: pointer;
 }
 body #modal-background .info-wrap .item-details div.right .cesta_btn {
+  margin-top: 3em;
   border: none;
   padding: 1em;
   width: 200px;

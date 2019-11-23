@@ -18,18 +18,18 @@
 				<div class="product_data">
 					<div class="img"></div>
 					<div class="data">
-						<h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, fuga!</h2>
+						<h2><?=$product->title?></h2>
 
 						<div class="description">
 							<h3>Descripcion</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam rerum optio unde reiciendis eligendi suscipit placeat iusto, earum animi ad mollitia omnis harum, ducimus commodi doloribus sequi, eum, facilis eveniet.</p>
+							<p><?=$product->description?></p>
 						</div>
 
 						<div class="amount">
 							<p>Cantidad:</p>
 
 							<span class="amount_wrapper">
-								<span id="more_btn" class="more">
+								<span data-max-amount="<?=$product->amount?>" id="more_btn" class="more">
 									<i class="fas fa-plus"></i>
 								</span>
 
@@ -121,5 +121,6 @@
 	</main>
 
 	<?php include APPPATH . 'views/inc/footer.php' ?>
+	<script src="<?=base_url()?>js/product_summary.js"></script>
 </body>
 </html>

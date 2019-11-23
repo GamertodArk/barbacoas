@@ -16,6 +16,11 @@
 			// Get all userdata from session and pass it to view
 			if ($this->session->logged_in) { $data = $this->users_model->get_userdata(); }
 
+			// Get products data
+			// $this->db->select('id, title, images, amount');
+			$products = $this->db->get_where('products', ['id' => $id]);
+			$data['product'] = $products->result()[0];
+
 			$this->load->view('templates/product_summary', $data);
 
 		}

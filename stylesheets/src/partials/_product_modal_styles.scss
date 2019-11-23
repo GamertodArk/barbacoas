@@ -65,13 +65,12 @@
 				@import 'amount_controls_styles';
 
 				.cesta_btn {
-
+					margin-top: 3em;
 					@include add_to_basket_btn;
 
 					// border:none;
 					// padding: 1em;
 					// color: $white;
-					// margin-top: 3em;
 					// font-size: 10pt;
 					// cursor: pointer;
 					// border-radius: 30px;
