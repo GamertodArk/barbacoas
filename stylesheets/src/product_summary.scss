@@ -76,12 +76,17 @@ body {
 
 							.btn { 
 								width: 200px;
-								// font-weight: bold;
 								@include add_to_basket_btn;
 							}
 
 							.share {
 								@include center-flex();
+
+								.heart.disable {
+									background-color: $orange;
+									i {color: $white;}
+									&:hover {cursor: auto;}
+								}
 
 								.icon-wrap {
 									@extend %icon-styles;
@@ -194,4 +199,5 @@ body {
 	}
 
 	@import 'partials/footer';
+	@import 'partials/product_modal_styles';
 }

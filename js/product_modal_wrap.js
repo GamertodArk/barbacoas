@@ -1,5 +1,3 @@
-const site_url = 'http://127.0.0.1/barbacoas/';
-
 let counter = __('counter');
 let moreBtn = __('more_btn');
 let lessBtn = __('less_btn');
@@ -16,30 +14,30 @@ let modalLoadingBox = __('loading-wrap')
 let viewBtns = [...document.getElementsByClassName('view_item_btn')];
 
 
-function insert_product_to_basket_dom(data) {
-	let i = document.createElement('i');
-	let h3 = document.createElement('h3');
-	let div = document.createElement('div');
-	let span = document.createElement('span');
-	let wrapper = document.getElementById('basket_items_wrap');
-	let product_title = document.createTextNode(data.product_title);
+// function insert_product_to_basket_dom(data) {
+// 	let i = document.createElement('i');
+// 	let h3 = document.createElement('h3');
+// 	let div = document.createElement('div');
+// 	let span = document.createElement('span');
+// 	let wrapper = document.getElementById('basket_items_wrap');
+// 	let product_title = document.createTextNode(data.product_title);
 
-	div.classList.add('shopping-item');
-	div.setAttribute('data-product-id', data.product_id);
+// 	div.classList.add('shopping-item');
+// 	div.setAttribute('data-product-id', data.product_id);
 
-	span.classList.add('remove-item');
-	span.setAttribute('onclick', 'delete_from_basket(this)');
+// 	span.classList.add('remove-item');
+// 	span.setAttribute('onclick', 'delete_from_basket(this)');
 
-	i.classList.add('fas');
-	i.classList.add('fa-times');
+// 	i.classList.add('fas');
+// 	i.classList.add('fa-times');
 
-	span.appendChild(i);
-	h3.appendChild(product_title);
-	div.appendChild(h3);
-	div.appendChild(span);
+// 	span.appendChild(i);
+// 	h3.appendChild(product_title);
+// 	div.appendChild(h3);
+// 	div.appendChild(span);
 
-	wrapper.appendChild(div);
-}
+// 	wrapper.appendChild(div);
+// }
 
 function insert_data_to_modal(data) {
 	let productTitle = __('product_title');
@@ -126,51 +124,66 @@ lessBtn.addEventListener('click', e => {
 
 // Add product to the shopping basket btn
 cestaBtn.addEventListener('click', function (e) {
-
 	let id = this.getAttribute('data-product-id');
-	let url = `http://127.0.0.1/barbacoas/products/add_product_to_basket/${id}`;
 
 	let data = {
-		'id': id,
-		'amount': counter.value
-	};
-
-	let fetchInit = {
-		method: 'POST',
-		body: `data=${JSON.stringify(data)}`,
-		headers:{
-			'Content-Type': 'application/x-www-form-urlencoded'
+		'product': {
+			'id': id,
+			'amount': counter.value
+		},
+		'message': {
+			'error_msg_wrap': error_msg_wrap
+		},
+		'dom': {
+			'cesta_btn': cestaBtn
 		}
 	}
 
-	fetch(url, fetchInit)
-		.then(response => response.json())
-		.then(json => {
+	add_to_basket(data);
 
-			// console.log(json);
+	// let url = `${site_url}products/add_product_to_basket/${id}`;
 
-			if (json.error) {
-				if (json.code == 0) {
-					// User not logged in
-					// Show error warning
-					error_msg_wrap.style.display = 'block';
-					error_msg.innerHTML = 'Tienes que iniciar sesion para añadir productos a la cesta de compra';
-				}else if(json.code == 1) {
-					// Some unknown error
-					console.log(json.error_msg);
-					error_msg_wrap.style.display = 'block';
-					error_msg.innerHTML = 'Ocurrio un error, intente de nuevo';					
-				}
-			}else {
-				if (json.code == 2) {
-					if (__('basket_empty_msg')) { __('basket_empty_msg').style.display = 'none'; }
-					// Product added successfully
-					insert_product_to_basket_dom(json);
-					cestaBtn.innerHTML = 'Producto Añadido a la cesta';
-				}else {
-					// Product aready in basket
-					cestaBtn.innerHTML = 'Producto ya esta en la cesta';					
-				}
-			}
-		})
+	// let data = {
+	// 	'id': id,
+	// 	'amount': 
+	// };
+
+	// let fetchInit = {
+	// 	method: 'POST',
+	// 	body: `data=${JSON.stringify(data.product)}`,
+	// 	headers:{
+	// 		'Content-Type': 'application/x-www-form-urlencoded'
+	// 	}
+	// }
+
+	// fetch(url, fetchInit)
+	// 	.then(response => response.json())
+	// 	.then(json => {
+
+	// 		// console.log(json);
+
+	// 		if (json.error) {
+	// 			if (json.code == 0) {
+	// 				// User not logged in
+	// 				// Show error warning
+	// 				error_msg_wrap.style.display = 'block';
+	// 				error_msg.innerHTML = 'Tienes que iniciar sesion para añadir productos a la cesta de compra';
+	// 			}else if(json.code == 1) {
+	// 				// Some unknown error
+	// 				console.log(json.error_msg);
+	// 				error_msg_wrap.style.display = 'block';
+	// 				error_msg.innerHTML = 'Ocurrio un error, intente de nuevo';					
+	// 			}
+	// 		}else {
+	// 			if (json.code == 2) {
+	// 				if (__('basket_empty_msg')) { __('basket_empty_msg').style.display = 'none'; }
+	// 				// Product added successfully
+	// 				insert_product_to_basket_dom(json);
+	// 				cestaBtn.innerHTML = 'Producto Añadido a la cesta';
+	// 			}else {
+	// 				// Product aready in basket
+	// 				cestaBtn.innerHTML = 'Producto ya esta en la cesta';					
+	// 			}
+	// 		}
+	// 	})
 });

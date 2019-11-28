@@ -3,6 +3,8 @@
 		public function __construct()
 		{
 			parent::__construct();
+
+			$this->load->helper('cookie');
 			$this->load->model('users_model');
 			$this->load->model('products_model');
 
@@ -17,12 +19,47 @@
 			if ($this->session->logged_in) { $data = $this->users_model->get_userdata(); }
 
 			// Get products data
-			// $this->db->select('id, title, images, amount');
 			$products = $this->db->get_where('products', ['id' => $id]);
-			$data['product'] = $products->result()[0];
+			$data['productData'] = $products->result()[0];
+
+			// Other products data
+			$this->db->select('id, title, images, amount');
+			$query = $this->db->get('products', 4);
+			$data['products'] = $query->result();
+
+			// Check if this product is in the favorite list
+			$favP = $this->input->cookie('fav_products', true);
+			$list_fav_p = explode(';', $favP);
+			$data['isInFav'] = in_array(intval($id), $list_fav_p) ? true : false; 
+
 
 			$this->load->view('templates/product_summary', $data);
 
+		}
+
+		public function add_to_favorites($id)
+		{
+
+
+			// If the cookie is already initialized, take the new product id
+			// and put it together with the other products, else, initialize the cookie with that product
+			if ($this->input->cookie('fav_products')) {
+				$cookie_value = $this->input->cookie('fav_products') . intval($id) . ';';
+			}else {
+				$cookie_value = intval($id) . ';';
+			}
+
+			// Cookie data
+			$cookie = [
+				'name' => 'fav_products',
+				'value' => $cookie_value,
+				'expire' => (time() + (60 * 60 * 24))
+			];
+
+			$this->input->set_cookie($cookie);
+
+			// Response to the fetch request
+			echo 1;
 		}
 
 		public function page($page = NULL)
@@ -39,8 +76,9 @@
 			// Get products data
 			$this->db->select('id, title, images');
 			$products = $this->db->get('products');
-
 			$data['products'] = $products->result();
+
+
 			$this->load->view('templates/' . strtolower($page), $data);
 		}
 

@@ -1,3 +1,7 @@
+<?php 
+	// var_dump($isInFav);
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,9 +11,9 @@
 	<link rel="stylesheet" href="<?php echo base_url('stylesheets/css/')?>product_summary.css">
 	<?php include APPPATH . 'views/inc/head.php' ?>
 </head>
-<body>
+<body>	
 	<header>
-		<?php include APPPATH . 'views/inc/nav.php' ?>
+		<?php include APPPATH . 'views/inc/nav.php'; ?>
 	</header>
 
 	<main>
@@ -18,24 +22,26 @@
 				<div class="product_data">
 					<div class="img"></div>
 					<div class="data">
-						<h2><?=$product->title?></h2>
+						<!-- <h2><?= $product['title'] ?></h2> -->
+						<h2><?=$productData->title?></h2>
 
 						<div class="description">
 							<h3>Descripcion</h3>
-							<p><?=$product->description?></p>
+							<!-- <p><?= $product['description'] ?></p> -->
+							<p><?=$productData->description?></p>
 						</div>
 
 						<div class="amount">
 							<p>Cantidad:</p>
 
 							<span class="amount_wrapper">
-								<span data-max-amount="<?=$product->amount?>" id="more_btn" class="more">
+								<span data-max-amount="<?=$productData->amount?>" id="increase_amount" class="more">
 									<i class="fas fa-plus"></i>
 								</span>
 
-								<input type="text" class="counter" name="counter" id="counter" value="1" placeholder="1">
+								<input type="text" class="counter" name="counter" id="amount_counter" value="1" placeholder="1">
 
-								<span id="less_btn" class="less">
+								<span id="decrease_amount" class="less">
 									<i class="fas fa-minus"></i>
 								</span>
 							</span>
@@ -43,16 +49,22 @@
 
 
 						<div class="cesta_share">
-							<button class="btn">AÑADIR A LA CESTA</button>
+							<button data-product-id="<?=$productData->id?>" id="basket_btn" class="btn">AÑADIR A LA CESTA</button>
 
 							<div class="share">							
 								<span class="icon-wrap email">
 									<i class="fas fa-envelope"></i>
 								</span>
 
-								<span class="icon-wrap heart">
-									<i class="fas fa-heart"></i>
-								</span>
+								<?php if($isInFav): ?>
+									<span id="heart-disable" data-product-id="<?=$productData->id?>" class="icon-wrap heart disable">
+										<i class="fas fa-heart"></i>
+									</span>
+								<?php else: ?>
+									<span id="heart" data-product-id="<?=$productData->id?>" class="icon-wrap heart">
+										<i class="fas fa-heart"></i>
+									</span>
+								<?php endif; ?>
 							</div>
 						</div>
 					</div>
@@ -102,7 +114,28 @@
 			<hr>
 
 			<div class="products-wrap">
+				<!-- <?php include 'views/inc/item.php'; ?> -->
+				<?php include APPPATH . 'views/inc/item.php'; ?>
 
+				<!-- 
+				<?php foreach ($otherProducts as $productRelated): ?>
+
+					<?php $images = explode(';', $productRelated['images']); ?>
+
+					<div data-product-id="<?= $productRelated['id'] ?>" class="item">
+						<span id="item_view" class="view view_item_btn"><i class="far fa-eye"></i></span>
+
+						<div class="image-wrap">
+							<img src="<?= base_url('img/products/') . $images[0] ?>" alt="">
+						</div>
+						<div class="item-content">
+							<a href="<?= site_url('products/review/') . $productRelated['id']?>"><?= $productRelated['title'] ?></a>
+						</div>
+					</div>					
+				<?php endforeach; ?>
+				-->
+				
+				<!-- 
 				<?php for ($i=0; $i < 4; $i++): ?>
 					<div data-product-id="" class="item">
 						<span id="item_view" class="view view_item_btn"><i class="far fa-eye"></i></span>
@@ -115,12 +148,13 @@
 						</div>
 					</div>
 				<?php endfor; ?>
+				-->
 
 			</div>
 		</div>
 	</main>
-
 	<?php include APPPATH . 'views/inc/footer.php' ?>
+ 	<?php include APPPATH . "views/inc/product_modal.php" ?> 
 	<script src="<?=base_url()?>js/product_summary.js"></script>
 </body>
 </html>
