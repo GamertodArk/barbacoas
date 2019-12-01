@@ -1,0 +1,21 @@
+@import '../vendor/variables';
+@import '../vendor/glide.core';
+@import '../vendor/glide.theme';
+
+.#{$glide-class}{
+
+	$this: &;
+
+	$se: $glide-element-separator;
+	$sm: $glide-modifier-separator;
+
+	&#{$se}slides {
+		#{#{$this}$se}slide {
+			img {width: 100%;}
+		}
+	}
+
+	&#{$se}arrow {
+		background-color: grey;
+	}
+}

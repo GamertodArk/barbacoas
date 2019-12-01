@@ -1,13 +1,8 @@
-<?php 
-	// var_dump($isInFav);
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
 	<title><?=APPNAME?></title>
-	<!-- <link rel="stylesheet" href="product_summary.css"> -->
 	<link rel="stylesheet" href="<?php echo base_url('stylesheets/css/')?>product_summary.css">
 	<?php include APPPATH . 'views/inc/head.php' ?>
 </head>
@@ -20,7 +15,9 @@
 		<div class="wrapper">
 			<div class="main">
 				<div class="product_data">
-					<div class="img"></div>
+					<div class="img">
+						<?php include APPPATH . 'views/inc/product_preview_gallery.php' ?>
+					</div>
 					<div class="data">
 						<!-- <h2><?= $product['title'] ?></h2> -->
 						<h2><?=$productData->title?></h2>
@@ -156,5 +153,9 @@
 	<?php include APPPATH . 'views/inc/footer.php' ?>
  	<?php include APPPATH . "views/inc/product_modal.php" ?> 
 	<script src="<?=base_url()?>js/product_summary.js"></script>
+	<script src="<?=base_url()?>js/glide.js"></script>
+	<script>
+		new Glide('.glide').mount();
+	</script>
 </body>
 </html>
