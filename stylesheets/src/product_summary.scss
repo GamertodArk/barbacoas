@@ -33,6 +33,7 @@ body {
 					.img {
 						width: 45%;
 						height: 100%;
+						@include center-flex();
 						background-color: $white;
 
 						@import 'partials/preview_gallery';

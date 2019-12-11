@@ -10,12 +10,27 @@
 	$sm: $glide-modifier-separator;
 
 	&#{$se}slides {
-		#{#{$this}$se}slide {
+		.#{$glide-class}#{$se}slide {
 			img {width: 100%;}
 		}
 	}
 
 	&#{$se}arrow {
-		background-color: grey;
+		border: none; // Eliminate the border
+		background-color: grey; // Change the default background
+	}
+
+	&:hover {
+		.#{$glide-class}#{$se}arrow#{$sm}left{
+			left: 2em;
+		}
+
+		.#{$glide-class}#{$se}arrow#{$sm}right{
+			right: 2em;
+		}
+
+		.#{$glide-class}#{$se}bullets {
+			bottom: 2em;
+		}
 	}
 }

@@ -30,12 +30,13 @@
     &:hover { border-color: $orange; color: $orange;}
 
     &#{$sm}left {
-      // left: -2em;
-      left: 2em;
+      left: -3em; // Hide the arrow by default
+      transition: left 100ms ease-in; // Transition the hide animation
     }
 
     &#{$sm}right {
-      right: 2em;
+      right: -3em; // Hide the arrow by defauly
+      transition: right 100ms ease-in; // Transition the hide animation
     }
 
     &#{$sm}disabled {
@@ -57,7 +58,9 @@
   &#{$se}bullets {
     position: absolute;
     z-index: 2;
-    bottom: 2em;
+    bottom: -2em; // Hide by default
+    transition: bottom 100ms ease-in; // Transitioning the animation
+    // bottom: 2em;
     left: 50%;
     display: inline-flex;
     list-style: none;

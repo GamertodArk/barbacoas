@@ -350,6 +350,10 @@ body main .wrapper .main .product_data {
 body main .wrapper .main .product_data .img {
   width: 45%;
   height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
   background-color: #fff;
 }
 body main .wrapper .main .product_data .img .glide {
@@ -434,10 +438,12 @@ body main .wrapper .main .product_data .img .glide__arrow:hover {
   color: #f8ba53;
 }
 body main .wrapper .main .product_data .img .glide__arrow--left {
-  left: 2em;
+  left: -3em;
+  transition: left 100ms ease-in;
 }
 body main .wrapper .main .product_data .img .glide__arrow--right {
-  right: 2em;
+  right: -3em;
+  transition: right 100ms ease-in;
 }
 body main .wrapper .main .product_data .img .glide__arrow--disabled {
   opacity: 0.33;
@@ -445,7 +451,8 @@ body main .wrapper .main .product_data .img .glide__arrow--disabled {
 body main .wrapper .main .product_data .img .glide__bullets {
   position: absolute;
   z-index: 2;
-  bottom: 2em;
+  bottom: -2em;
+  transition: bottom 100ms ease-in;
   left: 50%;
   display: inline-flex;
   list-style: none;
@@ -479,11 +486,21 @@ body main .wrapper .main .product_data .img .glide--dragging {
   cursor: -moz-grabbing;
   cursor: -webkit-grabbing;
 }
-body main .wrapper .main .product_data .img .glide__slides body main .wrapper .main .product_data .img .glide __slide img {
+body main .wrapper .main .product_data .img .glide__slides .glide__slide img {
   width: 100%;
 }
 body main .wrapper .main .product_data .img .glide__arrow {
+  border: none;
   background-color: grey;
+}
+body main .wrapper .main .product_data .img .glide:hover .glide__arrow--left {
+  left: 2em;
+}
+body main .wrapper .main .product_data .img .glide:hover .glide__arrow--right {
+  right: 2em;
+}
+body main .wrapper .main .product_data .img .glide:hover .glide__bullets {
+  bottom: 2em;
 }
 body main .wrapper .main .product_data .data {
   width: 55%;
