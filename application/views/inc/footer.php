@@ -13,5 +13,6 @@
 		</ul>
 	</div>
 </footer>
+<script src="<?=base_url()?>js/glide.js"></script>
 <script src="<?php echo base_url() ?>js/generals.js"></script>
 <script src="<?php echo base_url() ?>js/nav_scripts.js"></script>

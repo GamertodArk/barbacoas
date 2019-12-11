@@ -26,16 +26,22 @@
 			position: relative;
 
 			div { 
-				flex: 1;
+				// flex: 1;
 			}
 
 			div.left {
 				height: 100%;
+				width: 45%;
+				@include center-flex();
 				background-color: $white;
+
+				// glide gallery styles
+				@import 'preview_gallery';
 			}
 
 			div.right {
 				padding:0px 1em;
+				width: 55%;
 
 				h2 {
 					color: $grey3;

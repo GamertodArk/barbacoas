@@ -11,7 +11,9 @@
 				<i class="fas fa-times"></i>
 			</span>
 			
-			<div class="left"></div>
+			<div class="left">
+				<?php include APPPATH . 'views/inc/product_preview_gallery.php' ?>
+			</div>
 
 			<div class="right">
 				<h2 id="product_title">Lorem ipsum dolor.</h2>
@@ -51,3 +53,7 @@
 	</div>
 </div>
 <script src="<?php echo base_url(); ?>js/product_modal_wrap.js"></script>
+<!-- <script src="<?=base_url()?>js/glide.js"></script> -->
+<script>
+	// new Glide('.glide').mount();
+</script>

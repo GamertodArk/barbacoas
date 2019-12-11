@@ -87,6 +87,9 @@ viewBtns.forEach(elem => {
 				modalLoadingBox.addEventListener('transitionend', e => {
 					modalLoadingBox.style.display = 'none';
 				});
+
+				// Start the glidejs gallery
+				new Glide('.glide').mount();
 			});
 	});
 });

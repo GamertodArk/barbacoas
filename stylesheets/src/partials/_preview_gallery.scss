@@ -2,6 +2,8 @@
 @import '../vendor/glide.core';
 @import '../vendor/glide.theme';
 
+// $glide-class: 'test';
+
 .#{$glide-class}{
 
 	$this: &;

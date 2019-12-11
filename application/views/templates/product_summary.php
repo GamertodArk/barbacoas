@@ -16,6 +16,7 @@
 			<div class="main">
 				<div class="product_data">
 					<div class="img">
+						<?php $glide = 'static'; ?>
 						<?php include APPPATH . 'views/inc/product_preview_gallery.php' ?>
 					</div>
 					<div class="data">
@@ -153,9 +154,21 @@
 	<?php include APPPATH . 'views/inc/footer.php' ?>
  	<?php include APPPATH . "views/inc/product_modal.php" ?> 
 	<script src="<?=base_url()?>js/product_summary.js"></script>
-	<script src="<?=base_url()?>js/glide.js"></script>
 	<script>
-		new Glide('.glide').mount();
+	
+		let options = {
+			slider: 'static--slider',
+			carousel: 'static--carousel',
+			swipeable: 'static--swipeable',
+			dragging: 'static--dragging',
+			cloneSlide: 'static__slide--clone',
+			activeNav: 'static__bullet--active',
+			activeSlide: 'static__slide--active',
+			disabledArrow: 'static__arrow--disabled'
+		}
+
+	 	new Glide('.static', options).mount();
+		// new Glide('#glide').mount();
 	</script>
 </body>
 </html>
