@@ -30,7 +30,6 @@
 
 						<div class="description">
 							<h3>Descripcion</h3>
-							<!-- <p><?= $product['description'] ?></p> -->
 							<p><?=$productData->description?></p>
 						</div>
 

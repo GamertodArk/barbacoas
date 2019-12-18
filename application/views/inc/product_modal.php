@@ -53,7 +53,3 @@
 	</div>
 </div>
 <script src="<?php echo base_url(); ?>js/product_modal_wrap.js"></script>
-<!-- <script src="<?=base_url()?>js/glide.js"></script> -->
-<script>
-	// new Glide('.glide').mount();
-</script>

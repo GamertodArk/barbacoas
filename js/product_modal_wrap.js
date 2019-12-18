@@ -91,14 +91,12 @@ function glide_structure(div_class = 'glide', imgs = null) {
 
 	track.appendChild(slides);
 
-
 	// Remove old glide class if exists
 	if (__(div_class)) {__(div_class).parentNode.removeChild(__(div_class));}
 
 	// Insert glide div in dom
 	__('product_modal_left_data').appendChild(glide);
 }
-// glide_structure('glide', [1,2,3,4,5]);
 
 function insert_data_to_modal(data) {
 	let productTitle = __('product_title');
@@ -165,13 +163,6 @@ closeBtn.addEventListener('click', e => {
 
 // Increase counter
 moreBtn.addEventListener('click', e => {
-	// let maxCounter = moreBtn.getAttribute('data-max-amount');
-	// let currentCounter = counter.value != '' ? parseInt(counter.value) : 0;
-	// if (currentCounter < maxCounter) {
-	// 	let newCounter = (currentCounter + 1);
-	// 	counter.value = newCounter;
-	// }
-	// console.log();
 	let result = increase_product_amount(moreBtn, counter);
 	if (false != result) {
 		counter.value = result;
@@ -205,50 +196,4 @@ cestaBtn.addEventListener('click', function (e) {
 	}
 
 	add_to_basket(data);
-
-	// let url = `${site_url}products/add_product_to_basket/${id}`;
-
-	// let data = {
-	// 	'id': id,
-	// 	'amount': 
-	// };
-
-	// let fetchInit = {
-	// 	method: 'POST',
-	// 	body: `data=${JSON.stringify(data.product)}`,
-	// 	headers:{
-	// 		'Content-Type': 'application/x-www-form-urlencoded'
-	// 	}
-	// }
-
-	// fetch(url, fetchInit)
-	// 	.then(response => response.json())
-	// 	.then(json => {
-
-	// 		// console.log(json);
-
-	// 		if (json.error) {
-	// 			if (json.code == 0) {
-	// 				// User not logged in
-	// 				// Show error warning
-	// 				error_msg_wrap.style.display = 'block';
-	// 				error_msg.innerHTML = 'Tienes que iniciar sesion para añadir productos a la cesta de compra';
-	// 			}else if(json.code == 1) {
-	// 				// Some unknown error
-	// 				console.log(json.error_msg);
-	// 				error_msg_wrap.style.display = 'block';
-	// 				error_msg.innerHTML = 'Ocurrio un error, intente de nuevo';					
-	// 			}
-	// 		}else {
-	// 			if (json.code == 2) {
-	// 				if (__('basket_empty_msg')) { __('basket_empty_msg').style.display = 'none'; }
-	// 				// Product added successfully
-	// 				insert_product_to_basket_dom(json);
-	// 				cestaBtn.innerHTML = 'Producto Añadido a la cesta';
-	// 			}else {
-	// 				// Product aready in basket
-	// 				cestaBtn.innerHTML = 'Producto ya esta en la cesta';					
-	// 			}
-	// 		}
-	// 	})
 });
