@@ -28,12 +28,7 @@
 
 		private function add_to_basket($data)
 		{
-
-			// echo 'hi';
-			// var_dump($this->input->post('data'));
-			// var_dump(json_decode($this->input->post('data')));
-			// exit();
-
+			
 			if (array_key_exists($data->id, $_SESSION['products'])) {
 				return false;
 			}else {

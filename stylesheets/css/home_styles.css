@@ -520,61 +520,6 @@ body #modal-background .info-wrap .item-details div.left {
   flex-direction: row;
   background-color: #fff;
 }
-body #modal-background .info-wrap .item-details div.left .glide {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  box-sizing: border-box;
-}
-body #modal-background .info-wrap .item-details div.left .glide * {
-  box-sizing: inherit;
-}
-body #modal-background .info-wrap .item-details div.left .glide__track {
-  overflow: hidden;
-}
-body #modal-background .info-wrap .item-details div.left .glide__slides {
-  position: relative;
-  width: 100%;
-  list-style: none;
-  backface-visibility: hidden;
-  transform-style: preserve-3d;
-  touch-action: pan-Y;
-  overflow: hidden;
-  padding: 0;
-  white-space: nowrap;
-  display: flex;
-  flex-wrap: nowrap;
-  will-change: transform;
-}
-body #modal-background .info-wrap .item-details div.left .glide__slides--dragging {
-  user-select: none;
-}
-body #modal-background .info-wrap .item-details div.left .glide__slide {
-  width: 100%;
-  height: 100%;
-  flex-shrink: 0;
-  white-space: normal;
-  user-select: none;
-  -webkit-touch-callout: none;
-  -webkit-tap-highlight-color: transparent;
-}
-body #modal-background .info-wrap .item-details div.left .glide__slide a {
-  user-select: none;
-  -webkit-user-drag: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-}
-body #modal-background .info-wrap .item-details div.left .glide__arrows {
-  -webkit-touch-callout: none;
-  user-select: none;
-}
-body #modal-background .info-wrap .item-details div.left .glide__bullets {
-  -webkit-touch-callout: none;
-  user-select: none;
-}
-body #modal-background .info-wrap .item-details div.left .glide--rtl {
-  direction: rtl;
-}
 body #modal-background .info-wrap .item-details div.left .glide__arrow {
   position: absolute;
   display: block;
