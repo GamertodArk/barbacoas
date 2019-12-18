@@ -19,25 +19,25 @@
 						<?php
 							// Set glide class and split all product images
 							$glide = 'static';
-							$productImgs = $productData->images;
+							$productImgs = $productData['product']['images'];
 							$productImgs = explode(';', $productImgs);
 						?>
 
 						<?php include APPPATH . 'views/inc/product_preview_gallery.php' ?>
 					</div>
 					<div class="data">
-						<h2><?=$productData->title?></h2>
+						<h2><?=$productData['product']['title']?></h2>
 
 						<div class="description">
 							<h3>Descripcion</h3>
-							<p><?=$productData->description?></p>
+							<p><?=$productData['product']['description']?></p>
 						</div>
 
 						<div class="amount">
 							<p>Cantidad:</p>
 
 							<span class="amount_wrapper">
-								<span data-max-amount="<?=$productData->amount?>" id="increase_amount" class="more">
+								<span data-max-amount="<?=$productData['product']['amount']?>" id="increase_amount" class="more">
 									<i class="fas fa-plus"></i>
 								</span>
 
@@ -49,9 +49,10 @@
 							</span>
 						</div>
 
+						<span class="seller">Vendedor: <a href="#"><?= $productData['seller']['username'] ?></a></span>
 
 						<div class="cesta_share">
-							<button data-product-id="<?=$productData->id?>" id="basket_btn" class="btn">AÑADIR A LA CESTA</button>
+							<button data-product-id="<?=$productData['product']['id']?>" id="basket_btn" class="btn">AÑADIR A LA CESTA</button>
 
 							<div class="share">							
 								<span class="icon-wrap email">
@@ -59,11 +60,11 @@
 								</span>
 
 								<?php if($isInFav): ?>
-									<span id="heart-disable" data-product-id="<?=$productData->id?>" class="icon-wrap heart disable">
+									<span id="heart-disable" data-product-id="<?=$productData['product']['id']?>" class="icon-wrap heart disable">
 										<i class="fas fa-heart"></i>
 									</span>
 								<?php else: ?>
-									<span id="heart" data-product-id="<?=$productData->id?>" class="icon-wrap heart">
+									<span id="heart" data-product-id="<?=$productData['product']['id']?>" class="icon-wrap heart">
 										<i class="fas fa-heart"></i>
 									</span>
 								<?php endif; ?>

@@ -18,7 +18,7 @@ function glide_structure(div_class = 'glide', imgs = null) {
 	// Main div
 	let glide = document.createElement('div');
 	glide.classList.add(div_class);
-	glide.setAttribute('id', div_class);
+	glide.setAttribute('id', `${div_class}--modal`);
 
 	// Arrows
 	let arrows = document.createElement('div');
@@ -92,7 +92,7 @@ function glide_structure(div_class = 'glide', imgs = null) {
 	track.appendChild(slides);
 
 	// Remove old glide class if exists
-	if (__(div_class)) {__(div_class).parentNode.removeChild(__(div_class));}
+	if (__(`${div_class}--modal`)) {__(`${div_class}--modal`).parentNode.removeChild(__(`${div_class}--modal`));}
 
 	// Insert glide div in dom
 	__('product_modal_left_data').appendChild(glide);
@@ -102,15 +102,16 @@ function insert_data_to_modal(data) {
 	let productTitle = __('product_title');
 	let productDesc = __('product_desc');
 	let moreBtnMaxAmount = __('more_btn');
+	let seller_btn = __('product_modal_seller_link');
 
 
-	productTitle.innerHTML = data.title;
-	productDesc.innerHTML = data.description;
-	cestaBtn.setAttribute('data-product-id', data.id);
-	moreBtnMaxAmount.setAttribute('data-max-amount', data.amount);
+	seller_btn.innerHTML = data.seller.username;
+	productTitle.innerHTML = data.product.title;
+	productDesc.innerHTML = data.product.description;
+	cestaBtn.setAttribute('data-product-id', data.product.id);
+	moreBtnMaxAmount.setAttribute('data-max-amount', data.product.amount);
 
-	// console.log(data.images);
-	glide_structure('glide', data.images);
+	glide_structure('glide', data.product.images);
 }
 
 
@@ -138,6 +139,8 @@ viewBtns.forEach(elem => {
 		fetch(url, fetchInit)
 			.then(response => response.json())
 			.then(json => {
+
+				// console.log(json);
 
 				// Updata data in modal
 				insert_data_to_modal(json);

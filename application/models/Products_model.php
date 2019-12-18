@@ -12,10 +12,21 @@
 			$this->db->insert('products', $product);
 		}
 
+		public function get_seller_data($id)
+		{
+			$this->db->select('id, username');
+			$query = $this->db->get_where('users', ['id' => $id]);
+			return $query->row_array();
+		}
+
 		public function get_product_data($id)
 		{
 			$query = $this->db->get_where('products', ['id' => $id]);
-			return $query->row_array();
+			$data['product'] = $query->row_array();
+			$data['seller'] = $this->get_seller_data($data['product']['user_id']);
+
+			return $data;
 		}
+
 	}
 ?>
