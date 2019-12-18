@@ -21,8 +21,10 @@
 		function get_product_data($id)
 		{
 			$id = intval($id);
+
+			// Product data
 			$product_data = $this->products_model->get_product_data($id);
-			$product_data['images'] = explode(';', $product_data['images']);
+			$product_data['product']['images'] = explode(';', $product_data['product']['images']);
 			echo json_encode($product_data);
 		}
 

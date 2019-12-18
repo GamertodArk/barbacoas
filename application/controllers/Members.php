@@ -18,13 +18,8 @@
 			// Get all userdata from session and pass it to view
 			if ($this->session->logged_in) { $data = $this->users_model->get_userdata(); }
 
-			// Get products data
-			$products = $this->db->get_where('products', ['id' => $id]);
-			$data['productData'] = $products->result()[0];
-
-			// Check if there's more than one image
-			$productImgs = $data['productData']->images;
-			$data['productImgs'] = explode(';', $productImgs);
+			// Get product and seller data
+			$data['productData'] = $this->products_model->get_product_data($id);
 
 			// Other products data
 			$this->db->select('id, title, images, amount');
@@ -43,7 +38,6 @@
 
 		public function add_to_favorites($id)
 		{
-
 
 			// If the cookie is already initialized, take the new product id
 			// and put it together with the other products, else, initialize the cookie with that product
@@ -93,8 +87,6 @@
 
 			// Check title/description
 			$fields = [
-				// $this->input->post('title'),
-				// $this->input->post('description')
 				'title',
 				'description'
 			];

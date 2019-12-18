@@ -38,6 +38,8 @@
 					</span>
 				</div>
 
+				<span class="seller">Vendedor: <a href="#" id="product_modal_seller_link"></a></span>
+
 				<button id="add_cesta_btn" class="cesta_btn">AÑADIR A LA CESTA</button>
 
 				<div id="error-msg-wrap">

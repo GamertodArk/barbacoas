@@ -571,8 +571,15 @@ body main .wrapper .main .product_data .data .amount .amount_wrapper .counter {
 body main .wrapper .main .product_data .data .amount .amount_wrapper .more, body main .wrapper .main .product_data .data .amount .amount_wrapper .less {
   cursor: pointer;
 }
+body main .wrapper .main .product_data .data span.seller {
+  display: block;
+  margin: 2.5em 0px;
+  font-size: 10pt;
+}
+body main .wrapper .main .product_data .data span.seller a {
+  color: #f8ba53;
+}
 body main .wrapper .main .product_data .data .cesta_share {
-  margin-top: 3em;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -1059,8 +1066,15 @@ body #modal-background .info-wrap .item-details div.right .amount .amount_wrappe
 body #modal-background .info-wrap .item-details div.right .amount .amount_wrapper .more, body #modal-background .info-wrap .item-details div.right .amount .amount_wrapper .less {
   cursor: pointer;
 }
+body #modal-background .info-wrap .item-details div.right span.seller {
+  display: block;
+  margin: 2.5em 0px;
+  font-size: 10pt;
+}
+body #modal-background .info-wrap .item-details div.right span.seller a {
+  color: #f8ba53;
+}
 body #modal-background .info-wrap .item-details div.right .cesta_btn {
-  margin-top: 3em;
   border: none;
   padding: 1em;
   width: 200px;

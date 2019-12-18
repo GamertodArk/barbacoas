@@ -729,8 +729,15 @@ body #modal-background .info-wrap .item-details div.right .amount .amount_wrappe
 body #modal-background .info-wrap .item-details div.right .amount .amount_wrapper .more, body #modal-background .info-wrap .item-details div.right .amount .amount_wrapper .less {
   cursor: pointer;
 }
+body #modal-background .info-wrap .item-details div.right span.seller {
+  display: block;
+  margin: 2.5em 0px;
+  font-size: 10pt;
+}
+body #modal-background .info-wrap .item-details div.right span.seller a {
+  color: #f8ba53;
+}
 body #modal-background .info-wrap .item-details div.right .cesta_btn {
-  margin-top: 3em;
   border: none;
   padding: 1em;
   width: 200px;
