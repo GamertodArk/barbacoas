@@ -4,5 +4,6 @@
 
 3.- Añadir un "resgisted_on" y "created_on" en las tablas de usuarios y barbacoas
 
+4.- Añadir "Producto no encontrado" cuando el id del producto no existe en products/review
 
 pnfiduwlian.blogspot.com

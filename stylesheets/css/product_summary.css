@@ -341,7 +341,7 @@ body main .wrapper .main {
 body main .wrapper .main .product_data {
   width: 100%;
   padding: 1em;
-  height: 400px;
+  height: 500px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -486,8 +486,18 @@ body main .wrapper .main .product_data .img .static--dragging {
   cursor: -moz-grabbing;
   cursor: -webkit-grabbing;
 }
+body main .wrapper .main .product_data .img .static {
+  height: 100%;
+}
+body main .wrapper .main .product_data .img .static__track {
+  height: 100%;
+}
+body main .wrapper .main .product_data .img .static__slides {
+  height: 100%;
+}
 body main .wrapper .main .product_data .img .static__slides .static__slide img {
   width: 100%;
+  height: 100%;
 }
 body main .wrapper .main .product_data .img .static__arrow {
   border: none;
@@ -967,8 +977,18 @@ body #modal-background .info-wrap .item-details div.left .glide--dragging {
   cursor: -moz-grabbing;
   cursor: -webkit-grabbing;
 }
+body #modal-background .info-wrap .item-details div.left .glide {
+  height: 100%;
+}
+body #modal-background .info-wrap .item-details div.left .glide__track {
+  height: 100%;
+}
+body #modal-background .info-wrap .item-details div.left .glide__slides {
+  height: 100%;
+}
 body #modal-background .info-wrap .item-details div.left .glide__slides .glide__slide img {
   width: 100%;
+  height: 100%;
 }
 body #modal-background .info-wrap .item-details div.left .glide__arrow {
   border: none;

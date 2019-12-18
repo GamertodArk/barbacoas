@@ -11,8 +11,8 @@
 				<i class="fas fa-times"></i>
 			</span>
 			
-			<div class="left">
-				<?php include APPPATH . 'views/inc/product_preview_gallery.php' ?>
+			<div id="product_modal_left_data" class="left">
+				<!-- <?php include APPPATH . 'views/inc/product_preview_gallery.php' ?> -->
 			</div>
 
 			<div class="right">

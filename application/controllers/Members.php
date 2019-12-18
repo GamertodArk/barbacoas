@@ -22,6 +22,10 @@
 			$products = $this->db->get_where('products', ['id' => $id]);
 			$data['productData'] = $products->result()[0];
 
+			// Check if there's more than one image
+			$productImgs = $data['productData']->images;
+			$data['productImgs'] = explode(';', $productImgs);
+
 			// Other products data
 			$this->db->select('id, title, images, amount');
 			$query = $this->db->get('products', 4);

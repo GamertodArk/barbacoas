@@ -16,11 +16,16 @@
 			<div class="main">
 				<div class="product_data">
 					<div class="img">
-						<?php $glide = 'static'; ?>
+						<?php
+							// Set glide class and split all product images
+							$glide = 'static';
+							$productImgs = $productData->images;
+							$productImgs = explode(';', $productImgs);
+						?>
+
 						<?php include APPPATH . 'views/inc/product_preview_gallery.php' ?>
 					</div>
 					<div class="data">
-						<!-- <h2><?= $product['title'] ?></h2> -->
 						<h2><?=$productData->title?></h2>
 
 						<div class="description">
@@ -112,42 +117,7 @@
 			<hr>
 
 			<div class="products-wrap">
-				<!-- <?php include 'views/inc/item.php'; ?> -->
 				<?php include APPPATH . 'views/inc/item.php'; ?>
-
-				<!-- 
-				<?php foreach ($otherProducts as $productRelated): ?>
-
-					<?php $images = explode(';', $productRelated['images']); ?>
-
-					<div data-product-id="<?= $productRelated['id'] ?>" class="item">
-						<span id="item_view" class="view view_item_btn"><i class="far fa-eye"></i></span>
-
-						<div class="image-wrap">
-							<img src="<?= base_url('img/products/') . $images[0] ?>" alt="">
-						</div>
-						<div class="item-content">
-							<a href="<?= site_url('products/review/') . $productRelated['id']?>"><?= $productRelated['title'] ?></a>
-						</div>
-					</div>					
-				<?php endforeach; ?>
-				-->
-				
-				<!-- 
-				<?php for ($i=0; $i < 4; $i++): ?>
-					<div data-product-id="" class="item">
-						<span id="item_view" class="view view_item_btn"><i class="far fa-eye"></i></span>
-
-						<div class="image-wrap">
-							<img src="<?php echo base_url() ?>img/products/pic_14_big.jpg" alt="">
-						</div>
-						<div class="item-content">
-							<a href="#">Lorem ipsum dolor sit amet, consectetur</a>
-						</div>
-					</div>
-				<?php endfor; ?>
-				-->
-
 			</div>
 		</div>
 	</main>
@@ -168,7 +138,6 @@
 		}
 
 	 	new Glide('.static', options).mount();
-		// new Glide('#glide').mount();
 	</script>
 </body>
 </html>
