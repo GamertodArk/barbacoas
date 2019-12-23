@@ -16,7 +16,7 @@
 		{
 
 			// Get all userdata from session and pass it to view
-			if ($this->session->logged_in) { $data = $this->users_model->get_userdata(); }
+			if ($this->session->logged_in) { $data['session_data'] = $this->users_model->get_userdata(); }
 
 			// Get product and seller data
 			$data['productData'] = $this->products_model->get_product_data($id);

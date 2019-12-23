@@ -28,5 +28,11 @@
 			return $data;
 		}
 
+		public function get_product_data_of_seller($userId)
+		{
+			$query = $this->db->get_where('products', ['user_id' => $userId]);
+			return $query->result_array();
+		}
+
 	}
 ?>

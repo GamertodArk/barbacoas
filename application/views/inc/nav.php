@@ -4,7 +4,7 @@
 			<a href="<?php echo base_url('home') ?>">Barbacoas</a>
 		</div>
 
-		<?php if(isset($username)): ?>
+		<?php if(isset($session_data['username'])): ?>
 			<div class="search">
 				<form action="#">	
 					<input type="text" name="search" id="search" placeholder="Buscar">
@@ -20,15 +20,15 @@
 		<?php endif; ?>
 	
 
-		<?php if(isset($username)): ?>
+		<?php if(isset($session_data['username'])): ?>
 			<ul class="user username">
 				<?php include 'shoping_basket_nav.php'; ?>
 
 				<li id="user_btn" class="user_btn">
-					<?=$username?>
+					<?=$session_data['username']?>
 					<ul id="user_btn_children" class="children">
 						<div class="triangle"></div>
-						<li><a href="#">Perfil</a></li>
+						<li><a href="<?php echo site_url('perfil/') ?>">Perfil</a></li>
 						<li><a href="<?php echo site_url('members/products') ?>">Mis Barbacoas</a></li>
 						<li><a href="<?php echo site_url('members/shopping_basket') ?>">Ver la cesta de compra</a></li>
 						<li><a href="<?php echo site_url('logout') ?>">Cerrar Session</a></li>

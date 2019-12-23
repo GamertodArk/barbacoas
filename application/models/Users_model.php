@@ -93,5 +93,13 @@
 
 			return $data;
 		}
+
+		public function get_userdata_from_db($id)
+		{
+			$id = intval($id);
+
+			$query = $this->db->get_where('users', ['id' => $id]);
+			return $query->row_array();
+		}
 	}
 ?>

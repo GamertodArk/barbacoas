@@ -106,6 +106,8 @@ function insert_data_to_modal(data) {
 
 
 	seller_btn.innerHTML = data.seller.username;
+	seller_btn.setAttribute('href', `${site_url}perfil/${data.seller.id}`);
+	
 	productTitle.innerHTML = data.product.title;
 	productDesc.innerHTML = data.product.description;
 	cestaBtn.setAttribute('data-product-id', data.product.id);

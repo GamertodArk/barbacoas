@@ -327,10 +327,9 @@ body main .user_summary .content {
   max-width: 1000px;
   text-align: center;
 }
-body main .user_summary .content .img {
-  width: 100px;
-  height: 100px;
-  background-color: #3f3f3f;
+body main .user_summary .content img {
+  width: 150px;
+  height: 150px;
   margin: auto;
   display: block;
   border-radius: 100%;
@@ -354,7 +353,7 @@ body main .products .products_wrap {
   width: 90%;
   margin: 1em auto;
   padding: 1em;
-  height: 400px;
+  height: 540px;
   position: relative;
   max-width: 1000px;
   overflow-y: scroll;
@@ -380,15 +379,14 @@ body main .products .products_wrap .item_list {
   border-top: 1px solid #fff;
 }
 body main .products .products_wrap .item_list:hover {
-  background-color: #f4f4f4;
+  background-color: #f7f7f7;
 }
 body main .products .products_wrap .item_list .cover_img {
   flex-grow: 1;
 }
-body main .products .products_wrap .item_list .cover_img .img {
+body main .products .products_wrap .item_list .cover_img img {
   width: 100px;
-  height: 100px;
-  background-color: #3f3f3f;
+  height: 150px;
 }
 body main .products .products_wrap .item_list .description {
   flex-grow: 17;
@@ -399,6 +397,16 @@ body main .products .products_wrap .item_list .description p {
   font-size: 11pt;
   font-weight: bold;
   color: #898989;
+}
+body main .products .products_wrap .item_list .description a {
+  font-size: 11pt;
+  font-weight: bold;
+  color: #898989;
+  text-decoration: none;
+  transition: 300ms ease color;
+}
+body main .products .products_wrap .item_list .description a:hover {
+  color: #f8ba53;
 }
 body main .products .products_wrap .item_list .options {
   flex-grow: 1;

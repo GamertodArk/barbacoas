@@ -49,7 +49,7 @@
 							</span>
 						</div>
 
-						<span class="seller">Vendedor: <a href="#"><?= $productData['seller']['username'] ?></a></span>
+						<span class="seller">Vendedor: <a href="<?= site_url('perfil/' . $productData['seller']['id']); ?>"><?= $productData['seller']['username'] ?></a></span>
 
 						<div class="cesta_share">
 							<button data-product-id="<?=$productData['product']['id']?>" id="basket_btn" class="btn">AÑADIR A LA CESTA</button>
