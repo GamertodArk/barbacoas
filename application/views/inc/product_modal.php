@@ -42,14 +42,8 @@
 
 				<button id="add_cesta_btn" class="cesta_btn">AÑADIR A LA CESTA</button>
 
-				<div id="error-msg-wrap">
-					<span onclick="this.parentNode.style.display = 'none'" id="close_btn">
-						<i class="fas fa-times"></i>
-					</span>
-
-					<p id="error-msg">Tienes que iniciar sesion para añadir productos a la cesta de compra</p>
-				</div>
-
+				<!-- Error structure -->
+				<?php include 'product_info_error_structure.php' ?>
 			</div>
 		</div>
 	</div>

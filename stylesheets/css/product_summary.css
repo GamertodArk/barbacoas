@@ -628,6 +628,19 @@ body main .wrapper .main .product_data .data .cesta_share .share .icon-wrap:hove
 body main .wrapper .main .product_data .data .cesta_share .share .icon-wrap:hover i {
   color: #fff;
 }
+body main .wrapper .main .product_data .data #PS-error-msg-wrap {
+  width: 100%;
+  padding: 1em;
+  font-size: 11pt;
+  margin-top: 1em;
+  position: relative;
+  text-align: center;
+  background-color: red;
+  display: none;
+}
+body main .wrapper .main .product_data .data #PS-error-msg-wrap #close_btn {
+  font-size: 10pt;
+}
 body main .wrapper .sidebar {
   width: 30%;
 }

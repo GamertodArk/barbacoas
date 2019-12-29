@@ -74,8 +74,6 @@ function add_to_basket(data) {
 		.then(response => response.json())
 		.then(json => {
 
-			// console.log(json);
-
 			if (json.error) {
 				if (json.code == 0) {
 					// User not logged in

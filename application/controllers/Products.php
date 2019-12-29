@@ -39,8 +39,8 @@
 				$_SESSION['products'][$data->id] = [
 					'id' => $data->id,
 					'amount' => $data->amount,
-					'title' =>  $basketData['title'],
-					'thumnail' => explode(';', $basketData['images'])[0]
+					'title' =>  $basketData['product']['title'],
+					'thumnail' => explode(';', $basketData['product']['images'])[0]
 				];
 
 				return true;
@@ -49,8 +49,9 @@
 
 		function add_product_to_basket($id)
 		{
+
 			$data = json_decode($this->input->post('data'));
-			
+						
 			try{
 				if ($this->session->logged_in) {
 

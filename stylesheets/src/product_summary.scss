@@ -117,6 +117,9 @@ body {
 								}
 							}
 						}
+
+						// Error message styles
+						@include product_info_error_styles('PS-error-msg-wrap');
 					}
 				}
 			}

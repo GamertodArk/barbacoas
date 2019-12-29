@@ -30,6 +30,27 @@
 			$this->load->view('templates/' . strtolower($page), $data);
 		}
 
+		public function product_summary($id)
+		{
+			// Get all userdata from session and pass it to view
+			if ($this->session->logged_in) { $data['session_data'] = $this->users_model->get_userdata(); }
+
+			// Get product and seller data
+			$data['productData'] = $this->products_model->get_product_data($id);
+
+			// Other products data
+			$this->db->select('id, title, images, amount');
+			$query = $this->db->get('products', 4);
+			$data['products'] = $query->result();
+
+			// Check if this product is in the favorite list
+			$favP = $this->input->cookie('fav_products', true);
+			$list_fav_p = explode(';', $favP);
+			$data['isInFav'] = in_array(intval($id), $list_fav_p) ? true : false; 
+
+
+			$this->load->view('templates/product_summary', $data);
+		}
 
 		public function profile($id)
 		{
@@ -51,7 +72,8 @@
 			if (NULL !== $data['user_data']) {
 				$this->load->view('templates/profile.php', $data);
 			}else {
-				echo 'User not found';
+				// echo 'User not found';
+				$this->load->view('templates/user_not_found.php');
 			}
 		}
 

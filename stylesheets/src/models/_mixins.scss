@@ -111,3 +111,20 @@
 		background-color: $white;
 	}
 }
+
+@mixin product_info_error_styles($id: "error-msg-wrap") {
+	##{$id} {
+		width: 100%;
+		padding: 1em; 
+		font-size: 11pt;
+		margin-top: 1em;
+		position: relative;
+		text-align: center;	
+		background-color: red;
+		display: none; // hidden by default
+
+		#close_btn {
+			font-size: 10pt;
+		}
+	}
+}

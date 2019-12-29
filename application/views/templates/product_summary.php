@@ -70,6 +70,13 @@
 								<?php endif; ?>
 							</div>
 						</div>
+
+					<!-- Error structure -->
+					<?php  
+						$PS_error_message_id = 'PS-error-msg-wrap';
+						include APPPATH . 'views/inc/product_info_error_structure.php';
+						unset($PS_error_message_id);
+					?>
 					</div>
 				</div>
 			</div>

@@ -1,3 +1,4 @@
+let PS_error_msg_wrap = __('PS-error-msg-wrap');
 let increaseA = __('increase_amount');	
 let decreaseA = __('decrease_amount');
 let amountC = __('amount_counter');
@@ -28,9 +29,9 @@ basketBtn.addEventListener('click', e => {
 			'id': id,
 			'amount': amountC.value
 		},
-		// 'message': {
-		// 	'error_msg_wrap': error_msg_wrap
-		// },
+		'message': {
+			'error_msg_wrap': PS_error_msg_wrap
+		},
 		'dom': {
 			'cesta_btn': basketBtn
 		}

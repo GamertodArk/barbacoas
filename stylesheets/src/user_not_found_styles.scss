@@ -1,0 +1,35 @@
+@import 'partials/base';
+
+html {
+	height: 100%;
+
+	body {
+		height: 100%;
+		header { @import 'partials/nav'; }
+		
+		main {
+			height: 90%;
+			@include center-flex();
+
+			.content {
+				width: 70%;
+				text-align: center;
+
+				h2 {
+					// font-size: 14pt;
+				}
+
+				a {
+					margin-top: 1em;
+					@include button();
+					text-decoration: none;
+					display: inline-block;
+				}
+			}
+
+		}
+
+		// Footer
+		@import 'partials/footer';
+	}
+}

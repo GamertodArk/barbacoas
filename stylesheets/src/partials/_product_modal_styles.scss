@@ -100,20 +100,23 @@
 					// }
 				}
 
-				#error-msg-wrap {
-					width: 100%;
-					padding: 1em; 
-					font-size: 11pt;
-					margin-top: 1em;
-					position: relative;
-					text-align: center;	
-					background-color: red;
-					display: none; // hidden by default
+				// Error styles
+				@include product_info_error_styles();
 
-					#close_btn {
-						font-size: 10pt;
-					}
-				}
+				// #error-msg-wrap {
+				// 	width: 100%;
+				// 	padding: 1em; 
+				// 	font-size: 11pt;
+				// 	margin-top: 1em;
+				// 	position: relative;
+				// 	text-align: center;	
+				// 	background-color: red;
+				// 	display: none; // hidden by default
+
+				// 	#close_btn {
+				// 		font-size: 10pt;
+				// 	}
+				// }
 
 			}
 
