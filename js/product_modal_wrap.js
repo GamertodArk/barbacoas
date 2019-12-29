@@ -7,7 +7,6 @@ let productWrap = __('product_wrap');
 
 let error_msg = __('error-msg');
 let error_msg_wrap = __('error-msg-wrap');
-// let basket_empty_msg = __('basket_empty_msg');
 
 let modalWrap = __('modal-background');
 let modalLoadingBox = __('loading-wrap')

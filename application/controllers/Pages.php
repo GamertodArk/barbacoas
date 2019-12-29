@@ -48,8 +48,13 @@
 			$list_fav_p = explode(';', $favP);
 			$data['isInFav'] = in_array(intval($id), $list_fav_p) ? true : false; 
 
+			// Check if the product existe
+			if (NULL != $data['productData']['product']) {
+				$this->load->view('templates/product_summary', $data);
+			}else {
+				$this->load->view('templates/product_not_found', $data);
+			}
 
-			$this->load->view('templates/product_summary', $data);
 		}
 
 		public function profile($id)
