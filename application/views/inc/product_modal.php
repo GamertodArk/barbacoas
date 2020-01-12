@@ -43,7 +43,7 @@
 				<button id="add_cesta_btn" class="cesta_btn">AÑADIR A LA CESTA</button>
 
 				<!-- Error structure -->
-				<?php include 'product_info_error_structure.php' ?>
+				<?php include APPPATH . 'views/inc/product_info_error_structure.php' ?>
 			</div>
 		</div>
 	</div>

@@ -59,14 +59,16 @@
 									<i class="fas fa-envelope"></i>
 								</span>
 
-								<?php if($isInFav): ?>
-									<span id="heart-disable" data-product-id="<?=$productData['product']['id']?>" class="icon-wrap heart disable">
-										<i class="fas fa-heart"></i>
-									</span>
-								<?php else: ?>
-									<span id="heart" data-product-id="<?=$productData['product']['id']?>" class="icon-wrap heart">
-										<i class="fas fa-heart"></i>
-									</span>
+								<?php if(isset($session_data)): ?>
+									<?php if($isInFav): ?>
+										<span id="heart-disable" data-product-id="<?=$productData['product']['id']?>" class="icon-wrap heart disable">
+											<i class="fas fa-heart"></i>
+										</span>
+									<?php else: ?>
+										<span id="heart" data-product-id="<?=$productData['product']['id']?>" class="icon-wrap heart">
+											<i class="fas fa-heart"></i>
+										</span>
+									<?php endif; ?>
 								<?php endif; ?>
 							</div>
 						</div>

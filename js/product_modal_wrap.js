@@ -12,6 +12,8 @@ let modalWrap = __('modal-background');
 let modalLoadingBox = __('loading-wrap')
 let viewBtns = [...document.getElementsByClassName('view_item_btn')];
 
+console.log(closeBtn);
+
 function glide_structure(div_class = 'glide', imgs = null) {
 
 	// Main div
@@ -160,6 +162,7 @@ viewBtns.forEach(elem => {
 
 // Close the product modal
 closeBtn.addEventListener('click', e => {
+	console.log('Close btn pressed');
 	modalLoadingBox.classList.remove('hide');
 	modalLoadingBox.style.display = 'flex';
 	modalWrap.style.display = 'none';

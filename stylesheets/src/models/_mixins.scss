@@ -115,7 +115,7 @@
 @mixin product_info_error_styles($id: "error-msg-wrap") {
 	##{$id} {
 		width: 100%;
-		padding: 1em; 
+		padding: 2em; 
 		font-size: 11pt;
 		margin-top: 1em;
 		position: relative;
@@ -123,8 +123,12 @@
 		background-color: red;
 		display: none; // hidden by default
 
-		#close_btn {
-			font-size: 10pt;
+		#error_close_btn {
+			top: 10px;
+			right: 10px;
+			cursor: pointer;
+			font-size: 12pt;
+			position: absolute;
 		}
 	}
 }

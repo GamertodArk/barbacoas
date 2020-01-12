@@ -759,7 +759,7 @@ body #modal-background .info-wrap .item-details div.right .cesta_btn:hover {
 }
 body #modal-background .info-wrap .item-details div.right #error-msg-wrap {
   width: 100%;
-  padding: 1em;
+  padding: 2em;
   font-size: 11pt;
   margin-top: 1em;
   position: relative;
@@ -767,8 +767,12 @@ body #modal-background .info-wrap .item-details div.right #error-msg-wrap {
   background-color: red;
   display: none;
 }
-body #modal-background .info-wrap .item-details div.right #error-msg-wrap #close_btn {
-  font-size: 10pt;
+body #modal-background .info-wrap .item-details div.right #error-msg-wrap #error_close_btn {
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 12pt;
+  position: absolute;
 }
 body #modal-background .info-wrap .item-details #close_btn {
   top: 0.7em;
