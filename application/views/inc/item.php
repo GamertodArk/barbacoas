@@ -1,5 +1,8 @@
 <?php if($products): ?>
 	<?php foreach($products as $product): ?>
+
+		<?php if (!isset($product->id)) {$product = $product[0];} ?>
+
 		<div data-product-id="<?=$product->id?>" class="item">
 			<span id="item_view" class="view view_item_btn"><i class="far fa-eye"></i></span>
 

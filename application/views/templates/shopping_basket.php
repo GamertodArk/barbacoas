@@ -19,23 +19,28 @@
 				<h2>Productos</h2>
 
 				<div class="items-wrap">
-					<?php foreach ($_SESSION['products'] as $product ): ?>
-						<div class="product">
-							<div class="left">
-								<div class="img">
-									<img src="<?=base_url() . 'img/products/' . $product['thumnail']?>" alt="">
-								</div>
+					<?php if($products_basket_amount > 0): ?>
+						<?php foreach ($_SESSION['products'] as $product ): ?>
+							<div class="product">
+								<div class="left">
+									<div class="img">
+										<img src="<?=base_url() . 'img/products/' . $product['thumnail']?>" alt="">
+									</div>
 
-								<h3><?=$product['title']?></h3>
+									<!-- <h3><?=$product['title']?></h3> -->
+									<a href="<?php echo site_url("products/review/") . $product['id'] ?>"><?=$product['title']?></a>
+								</div>
+								<div class="right">
+									<span class="amount"><?=$product['amount']?></span>
+									<span onclick="delete_from_basket(<?=$product['id']?>, this.parentNode.parentNode, true)" class="trash-icon">
+										<i class="far fa-trash-alt"></i>
+									</span>
+								</div>
 							</div>
-							<div class="right">
-								<span class="amount"><?=$product['amount']?></span>
-								<span onclick="delete_from_basket(<?=$product['id']?>, this.parentNode.parentNode, true)" class="trash-icon">
-									<i class="far fa-trash-alt"></i>
-								</span>
-							</div>
-						</div>
-					<?php endforeach; ?>
+						<?php endforeach; ?>
+					<?php else: ?>
+						<h3 class="empty">No tienes productos en la cesta</h3>
+					<?php endif; ?>
 
 				</div>
 			</div>
@@ -50,7 +55,7 @@
 
 			<div class="rent">
 				<h2>Contactar a los dueños</h2>
-				<p>Su carrito contiene 10 articulo(s)</p>
+				<p>Su carrito contiene <?=$products_basket_amount?> articulo(s)</p>
 				<a href="#">Alquilar</a>
 			</div>
 		</aside>

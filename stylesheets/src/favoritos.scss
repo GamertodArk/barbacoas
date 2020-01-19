@@ -1,0 +1,53 @@
+@import 'partials/base';
+
+html {
+	body {
+		background-color: $grey2;
+		
+		header {@import 'partials/nav';}
+
+		main {
+			padding: 2em;
+			min-height: 100vh;
+	
+			h2 {
+				color: $orange;
+				font-size: 23pt;
+				margin-bottom: 1em;
+				border-bottom: 3px solid $grey;
+			}
+
+			div.wrapper {
+				width: 100%;
+				flex-wrap: wrap;
+				@include center-flex(space-around);
+
+
+				.empty {
+					width: 100%;
+
+					h3 {
+						width: 100%;
+						text-align: center;
+						color: $darker_grey;
+					}
+
+					a {
+						margin: 2em auto;
+						display: block;
+						@include button();
+						font-weight: bold;
+						text-decoration: none;
+					}
+				}
+
+				@import 'partials/items_styles';
+			}
+		}
+
+		@import 'partials/footer';
+
+		// Import Product modal styles
+		@import "partials/product_modal_styles";
+	}
+}

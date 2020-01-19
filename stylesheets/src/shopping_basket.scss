@@ -35,6 +35,13 @@ body {
 				.items-wrap {
 					width: 100%;
 
+					h3.empty {
+						width: 100%;
+						margin-top: 2em;
+						text-align: center;
+						color: $darker_grey;
+					}
+
 					.product {
 						padding: 0.5em;
 						@include center-flex();
@@ -71,11 +78,18 @@ body {
 								}
 							}
 
-							h3 {
+							a {
 								flex-grow: 10;
 								font-size: 11pt;
-								color: $darker_grey;
+								font-weight: bold;
 								padding:0px 0.5em;
+								color: $darker_grey;
+								text-decoration: none;
+								transition: 150ms color ease;
+
+								&:hover {
+									color: $orange;
+								}
 							}
 						}
 						div.right {

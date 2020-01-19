@@ -1,0 +1,789 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", Arial, serif, sans-serif;
+}
+
+@keyframes turn {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+html body {
+  background-color: #efefef;
+}
+html body header nav {
+  top: 0;
+  z-index: 5;
+  width: 100%;
+  position: static;
+  background-color: #3f3f3f;
+}
+html body header nav a {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+}
+html body header nav .nav-content {
+  width: 100%;
+  margin: auto;
+  padding: 1em;
+  max-width: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+}
+html body header nav .nav-content .logo a {
+  font-size: 17pt;
+}
+html body header nav .nav-content .search {
+  width: 70%;
+  padding: 10px;
+}
+html body header nav .nav-content .search form {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+html body header nav .nav-content .search form input[type=text] {
+  width: 90%;
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+}
+html body header nav .nav-content .search form button {
+  padding: 10px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14pt;
+  background-color: transparent;
+}
+html body header nav .nav-content .links {
+  list-style: none;
+}
+html body header nav .nav-content .links li {
+  display: inline;
+}
+html body header nav .nav-content .links li a {
+  margin: 0px 0.5em;
+  padding: 0.5em 1em;
+  position: relative;
+}
+html body header nav .nav-content .links li a:before {
+  content: "";
+  width: 100%;
+  margin: auto;
+  display: block;
+  position: absolute;
+  border-bottom: 1px solid #fff;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 0%;
+  height: 100%;
+  transition: 0.3s linear width;
+}
+html body header nav .nav-content .links li a:hover:before {
+  width: 100%;
+}
+html body header nav .nav-content .user {
+  color: #fff;
+  list-style: none;
+  position: relative;
+}
+html body header nav .nav-content .user li {
+  margin: 0px 0.5em;
+  font-weight: bold;
+  display: inline-block;
+}
+html body header nav .nav-content .user li.user_btn {
+  font-size: 10pt;
+  cursor: pointer;
+}
+html body header nav .nav-content .user li.shopping-wrap {
+  position: relative;
+}
+html body header nav .nav-content .user li.shopping-wrap i.fa-shopping-basket {
+  cursor: pointer;
+}
+html body header nav .nav-content .user li.shopping-wrap div.triangle {
+  width: 0px;
+  height: 0px;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  border-right: 9px solid transparent;
+  border-left: 9px solid transparent;
+  border-bottom: 9px solid #fff;
+  display: none;
+}
+html body header nav .nav-content .user li.shopping-wrap div.items {
+  left: 20%;
+  height: 260px;
+  width: 450px;
+  bottom: -269px;
+  overflow-y: scroll;
+  color: #3f3f3f;
+  padding: 1em 0.5em;
+  position: absolute;
+  background-color: #fff;
+  transform: translateX(-80%);
+  display: none;
+}
+html body header nav .nav-content .user li.shopping-wrap div.items p.empty {
+  width: 100%;
+  font-size: 11pt;
+  text-align: center;
+}
+html body header nav .nav-content .user li.shopping-wrap div.items div.shopping-item {
+  width: 100%;
+  margin-bottom: 1em;
+  padding-bottom: 1em;
+  border-bottom: 1px solid #3f3f3f;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+html body header nav .nav-content .user li.shopping-wrap div.items div.shopping-item:nth-last-child(1) {
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  border-bottom: none;
+}
+html body header nav .nav-content .user li.shopping-wrap div.items div.shopping-item h3 {
+  width: 90%;
+  font-size: 10.5pt;
+}
+html body header nav .nav-content .user li.shopping-wrap div.items div.shopping-item .remove-item {
+  width: 28px;
+  height: 30px;
+  cursor: pointer;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  border: 2px solid #f8ba53;
+  transition: 0.3s ease-out background-color;
+}
+html body header nav .nav-content .user li.shopping-wrap div.items div.shopping-item .remove-item:hover {
+  background-color: #f8ba53;
+}
+html body header nav .nav-content .user li.shopping-wrap div.items div.shopping-item .remove-item:hover i {
+  color: #fff;
+}
+html body header nav .nav-content .user li.shopping-wrap div.items div.shopping-item .remove-item i {
+  font-size: 10pt;
+}
+html body header nav .nav-content .user .children {
+  left: 45%;
+  color: #000;
+  width: 150%;
+  display: none;
+  padding: 0.5em;
+  min-width: 200px;
+  margin-top: 0.5em;
+  list-style: none;
+  position: absolute;
+  background-color: #fff;
+  transform: translateX(-55%);
+  box-shadow: 3px 3px 5px #3f3f3f;
+}
+html body header nav .nav-content .user .children .triangle {
+  left: 63%;
+  top: -7px;
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  transform: translateX(-37%);
+  border-right: 7px solid transparent;
+  border-left: 7px solid transparent;
+  border-bottom: 7px solid #fff;
+}
+html body header nav .nav-content .user .children li {
+  width: 100%;
+  margin-bottom: 0.5em;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid #3f3f3f;
+}
+html body header nav .nav-content .user .children li:nth-last-child(1) {
+  border-bottom: none;
+  margin-bottom: 0px;
+}
+html body header nav .nav-content .user .children li a {
+  width: 100%;
+  display: block;
+  color: #3f3f3f;
+  text-align: center;
+}
+html body header nav .nav-content .users {
+  list-style: none;
+}
+html body header nav .nav-content .users li {
+  display: inline;
+  margin: 0px 0.5em;
+}
+html body header nav .nav-content .users li i {
+  font-size: 15pt;
+}
+html body header nav .nav-content .users li.shopping-wrap {
+  position: relative;
+}
+html body header nav .nav-content .users li.shopping-wrap i.fa-shopping-basket {
+  cursor: pointer;
+}
+html body header nav .nav-content .users li.shopping-wrap div.triangle {
+  width: 0px;
+  height: 0px;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  border-right: 9px solid transparent;
+  border-left: 9px solid transparent;
+  border-bottom: 9px solid #fff;
+  display: none;
+}
+html body header nav .nav-content .users li.shopping-wrap div.items {
+  left: 20%;
+  height: 260px;
+  width: 450px;
+  bottom: -269px;
+  overflow-y: scroll;
+  color: #3f3f3f;
+  padding: 1em 0.5em;
+  position: absolute;
+  background-color: #fff;
+  transform: translateX(-80%);
+  display: none;
+}
+html body header nav .nav-content .users li.shopping-wrap div.items p.empty {
+  width: 100%;
+  font-size: 11pt;
+  text-align: center;
+}
+html body header nav .nav-content .users li.shopping-wrap div.items div.shopping-item {
+  width: 100%;
+  margin-bottom: 1em;
+  padding-bottom: 1em;
+  border-bottom: 1px solid #3f3f3f;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+html body header nav .nav-content .users li.shopping-wrap div.items div.shopping-item:nth-last-child(1) {
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  border-bottom: none;
+}
+html body header nav .nav-content .users li.shopping-wrap div.items div.shopping-item h3 {
+  width: 90%;
+  font-size: 10.5pt;
+}
+html body header nav .nav-content .users li.shopping-wrap div.items div.shopping-item .remove-item {
+  width: 28px;
+  height: 30px;
+  cursor: pointer;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  border: 2px solid #f8ba53;
+  transition: 0.3s ease-out background-color;
+}
+html body header nav .nav-content .users li.shopping-wrap div.items div.shopping-item .remove-item:hover {
+  background-color: #f8ba53;
+}
+html body header nav .nav-content .users li.shopping-wrap div.items div.shopping-item .remove-item:hover i {
+  color: #fff;
+}
+html body header nav .nav-content .users li.shopping-wrap div.items div.shopping-item .remove-item i {
+  font-size: 10pt;
+}
+html body main {
+  padding: 2em;
+  min-height: 100vh;
+}
+html body main h2 {
+  color: #f8ba53;
+  font-size: 23pt;
+  margin-bottom: 1em;
+  border-bottom: 3px solid #ccc;
+}
+html body main div.wrapper {
+  width: 100%;
+  flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+}
+html body main div.wrapper .empty {
+  width: 100%;
+}
+html body main div.wrapper .empty h3 {
+  width: 100%;
+  text-align: center;
+  color: #898989;
+}
+html body main div.wrapper .empty a {
+  margin: 2em auto;
+  display: block;
+  width: 200px;
+  border: none;
+  padding: 1em;
+  cursor: pointer;
+  color: #3f3f3f;
+  border-radius: 5px;
+  background-color: #f8ba53;
+  transition: 0.3s ease color;
+  transition: 0.3s ease background-color;
+  font-weight: bold;
+  text-decoration: none;
+}
+html body main div.wrapper .empty a:hover {
+  color: #f8ba53;
+  background-color: #3f3f3f;
+}
+html body main div.wrapper .item {
+  margin: 1em;
+  height: 400px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  flex-direction: column;
+  width: calc(100% / 4.5);
+  align-items: flex-start;
+  justify-content: flex-end;
+  background-color: #fff;
+}
+html body main div.wrapper .item .view {
+  top: 50px;
+  left: -100px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  font-size: 15pt;
+  position: absolute;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  background-color: #fff;
+  transition: 0.2s ease color;
+  transition: 0.2s ease-in left;
+  box-shadow: 0px 5px 10px #000;
+}
+html body main div.wrapper .item .view:hover {
+  color: #f8ba53;
+}
+html body main div.wrapper .item .image-wrap {
+  height: 80%;
+  width: 100%;
+}
+html body main div.wrapper .item .image-wrap img {
+  width: 100%;
+}
+html body main div.wrapper .item .item-content {
+  height: 20%;
+  width: 100%;
+  padding: 1em;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background-color: #fff;
+}
+html body main div.wrapper .item .item-content a {
+  font-size: 11pt;
+  font-weight: bold;
+  color: #898989;
+  text-decoration: none;
+  transition: 0.3s ease color;
+}
+html body main div.wrapper .item .item-content a:hover {
+  color: #f8ba53;
+}
+html body main div.wrapper .item:hover {
+  box-shadow: 0px 2px 10px #d6d6d6;
+}
+html body main div.wrapper .item:hover .view {
+  left: 20px;
+}
+html body footer {
+  padding: 2em;
+  color: #fff;
+  background-color: #3f3f3f;
+}
+html body footer .footer-content {
+  width: 100%;
+  margin: auto;
+  max-width: 1000px;
+  text-align: center;
+}
+html body footer .footer-content h2 {
+  font-size: 30pt;
+}
+html body footer .footer-content p {
+  font-size: 11pt;
+  margin: 1em 0px;
+}
+html body footer .footer-content .social-media {
+  list-style: none;
+}
+html body footer .footer-content .social-media li {
+  margin: 0px 1em;
+  display: inline-block;
+}
+html body footer .footer-content .social-media li a {
+  width: 50px;
+  height: 50px;
+  font-size: 15pt;
+  color: #3f3f3f;
+  border-radius: 100%;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  background-color: #fff;
+}
+html body #modal-background {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 20;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none;
+}
+html body #modal-background .info-wrap {
+  width: 70%;
+  color: #000;
+  height: 460px;
+  position: relative;
+  background-color: #efefef;
+}
+html body #modal-background .info-wrap .item-details {
+  width: 100%;
+  height: 100%;
+  padding: 1em;
+  display: flex;
+  position: relative;
+}
+html body #modal-background .info-wrap .item-details div.left {
+  height: 100%;
+  width: 45%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  background-color: #fff;
+}
+html body #modal-background .info-wrap .item-details div.left .glide {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+html body #modal-background .info-wrap .item-details div.left .glide * {
+  box-sizing: inherit;
+}
+html body #modal-background .info-wrap .item-details div.left .glide__track {
+  overflow: hidden;
+}
+html body #modal-background .info-wrap .item-details div.left .glide__slides {
+  position: relative;
+  width: 100%;
+  list-style: none;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  touch-action: pan-Y;
+  overflow: hidden;
+  padding: 0;
+  white-space: nowrap;
+  display: flex;
+  flex-wrap: nowrap;
+  will-change: transform;
+}
+html body #modal-background .info-wrap .item-details div.left .glide__slides--dragging {
+  user-select: none;
+}
+html body #modal-background .info-wrap .item-details div.left .glide__slide {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  white-space: normal;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+html body #modal-background .info-wrap .item-details div.left .glide__slide a {
+  user-select: none;
+  -webkit-user-drag: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+html body #modal-background .info-wrap .item-details div.left .glide__arrows {
+  -webkit-touch-callout: none;
+  user-select: none;
+}
+html body #modal-background .info-wrap .item-details div.left .glide__bullets {
+  -webkit-touch-callout: none;
+  user-select: none;
+}
+html body #modal-background .info-wrap .item-details div.left .glide--rtl {
+  direction: rtl;
+}
+html body #modal-background .info-wrap .item-details div.left .glide__arrow {
+  position: absolute;
+  display: block;
+  top: 50%;
+  z-index: 2;
+  color: white;
+  text-transform: uppercase;
+  padding: 9px 12px;
+  background-color: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
+  box-shadow: 0 0.25em 0.5em 0 rgba(0, 0, 0, 0.1);
+  text-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.1);
+  opacity: 1;
+  cursor: pointer;
+  transition: opacity 150ms ease, border 300ms ease-in-out, color 300ms ease-in-out;
+  transform: translateY(-50%);
+  line-height: 1;
+}
+html body #modal-background .info-wrap .item-details div.left .glide__arrow:focus {
+  outline: none;
+}
+html body #modal-background .info-wrap .item-details div.left .glide__arrow:hover {
+  border-color: #f8ba53;
+  color: #f8ba53;
+}
+html body #modal-background .info-wrap .item-details div.left .glide__arrow--left {
+  left: -3em;
+  transition: left 100ms ease-in;
+}
+html body #modal-background .info-wrap .item-details div.left .glide__arrow--right {
+  right: -3em;
+  transition: right 100ms ease-in;
+}
+html body #modal-background .info-wrap .item-details div.left .glide__arrow--disabled {
+  opacity: 0.33;
+}
+html body #modal-background .info-wrap .item-details div.left .glide__bullets {
+  position: absolute;
+  z-index: 2;
+  bottom: -2em;
+  transition: bottom 100ms ease-in;
+  left: 50%;
+  display: inline-flex;
+  list-style: none;
+  transform: translateX(-50%);
+}
+html body #modal-background .info-wrap .item-details div.left .glide__bullet {
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  transition: all 300ms ease-in-out;
+  cursor: pointer;
+  line-height: 0;
+  box-shadow: 0 0.25em 0.5em 0 rgba(0, 0, 0, 0.1);
+  margin: 0 0.25em;
+}
+html body #modal-background .info-wrap .item-details div.left .glide__bullet:focus {
+  outline: none;
+}
+html body #modal-background .info-wrap .item-details div.left .glide__bullet:hover, html body #modal-background .info-wrap .item-details div.left .glide__bullet:focus {
+  border: 2px solid white;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+html body #modal-background .info-wrap .item-details div.left .glide__bullet--active {
+  background-color: white;
+}
+html body #modal-background .info-wrap .item-details div.left .glide--dragging {
+  cursor: grabbing;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
+}
+html body #modal-background .info-wrap .item-details div.left .glide {
+  height: 100%;
+}
+html body #modal-background .info-wrap .item-details div.left .glide__track {
+  height: 100%;
+}
+html body #modal-background .info-wrap .item-details div.left .glide__slides {
+  height: 100%;
+}
+html body #modal-background .info-wrap .item-details div.left .glide__slides .glide__slide img {
+  width: 100%;
+  height: 100%;
+}
+html body #modal-background .info-wrap .item-details div.left .glide__arrow {
+  border: none;
+  background-color: grey;
+}
+html body #modal-background .info-wrap .item-details div.left .glide:hover .glide__arrow--left {
+  left: 2em;
+}
+html body #modal-background .info-wrap .item-details div.left .glide:hover .glide__arrow--right {
+  right: 2em;
+}
+html body #modal-background .info-wrap .item-details div.left .glide:hover .glide__bullets {
+  bottom: 2em;
+}
+html body #modal-background .info-wrap .item-details div.right {
+  padding: 0px 1em;
+  width: 55%;
+}
+html body #modal-background .info-wrap .item-details div.right h2 {
+  color: #646464;
+  font-size: 13pt;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+html body #modal-background .info-wrap .item-details div.right .description {
+  border: 1px solid #646464;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  margin: 1.5em 0px;
+  padding: 1.5em 0px;
+  color: #646464;
+}
+html body #modal-background .info-wrap .item-details div.right .description h3 {
+  font-size: 11pt;
+}
+html body #modal-background .info-wrap .item-details div.right .description p {
+  font-size: 10pt;
+}
+html body #modal-background .info-wrap .item-details div.right .amount {
+  width: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+html body #modal-background .info-wrap .item-details div.right .amount p {
+  color: #646464;
+  font-size: 10pt;
+}
+html body #modal-background .info-wrap .item-details div.right .amount .amount_wrapper {
+  width: 150px;
+  padding: 0.5em;
+  font-size: 10pt;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  border: 1px solid #4b4b4b;
+}
+html body #modal-background .info-wrap .item-details div.right .amount .amount_wrapper .counter {
+  width: 60%;
+  border: none;
+  color: #646464;
+  font-size: 12pt;
+  text-align: center;
+}
+html body #modal-background .info-wrap .item-details div.right .amount .amount_wrapper .more, html body #modal-background .info-wrap .item-details div.right .amount .amount_wrapper .less {
+  cursor: pointer;
+}
+html body #modal-background .info-wrap .item-details div.right span.seller {
+  display: block;
+  margin: 2.5em 0px;
+  font-size: 10pt;
+}
+html body #modal-background .info-wrap .item-details div.right span.seller a {
+  color: #f8ba53;
+}
+html body #modal-background .info-wrap .item-details div.right .cesta_btn {
+  border: none;
+  padding: 1em;
+  width: 200px;
+  color: #fff;
+  font-size: 10pt;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 30px;
+  background-color: #f8ba53;
+  transition: 0.3s linear color;
+  transition: 0.3s linear background-color;
+}
+html body #modal-background .info-wrap .item-details div.right .cesta_btn:hover {
+  color: #f8ba53;
+  background-color: #fff;
+}
+html body #modal-background .info-wrap .item-details div.right #error-msg-wrap {
+  width: 100%;
+  padding: 2em;
+  font-size: 11pt;
+  margin-top: 1em;
+  position: relative;
+  text-align: center;
+  background-color: red;
+  display: none;
+}
+html body #modal-background .info-wrap .item-details div.right #error-msg-wrap #error_close_btn {
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 12pt;
+  position: absolute;
+}
+html body #modal-background .info-wrap .item-details #close_btn {
+  top: 0.7em;
+  right: 0.7em;
+  font-size: 14pt;
+  cursor: pointer;
+  position: absolute;
+}
+html body #modal-background .info-wrap .loading-wrap {
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  background-color: #efefef;
+  transition: opacity 0.5s ease 0.1s;
+}
+html body #modal-background .info-wrap .loading-wrap .loading {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  border: 20px solid purple;
+  border-top-style: groove;
+  animation-name: turn;
+  animation-duration: 0.7s;
+  animation-iteration-count: infinite;
+  border-top-color: #e600e6;
+}
+html body #modal-background .info-wrap .hide {
+  opacity: 0;
+}

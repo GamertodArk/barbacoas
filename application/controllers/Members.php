@@ -69,7 +69,7 @@
 			}
 
 			// Get all userdata from session and pass it to view
-			if ($this->session->logged_in) { $data = $this->users_model->get_userdata(); }
+			if ($this->session->logged_in) { $data['session_data'] = $this->users_model->get_userdata(); }
 
 			// Get products data
 			$this->db->select('id, title, images');
@@ -77,6 +77,13 @@
 			$data['products'] = $products->result();
 
 
+			// Get amount of products in the basket
+			$data['products_basket_amount'] = $this->products_model->get_product_amount_basket();
+
+			// Get favorites products
+			$data['favorites'] = $this->products_model->get_favorites_proudcts();
+
+			// var_dump($data['favorites'][0][0]);
 			$this->load->view('templates/' . strtolower($page), $data);
 		}
 

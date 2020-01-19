@@ -341,6 +341,12 @@ body main .wrapper .products_wrap h2 {
 body main .wrapper .products_wrap .items-wrap {
   width: 100%;
 }
+body main .wrapper .products_wrap .items-wrap h3.empty {
+  width: 100%;
+  margin-top: 2em;
+  text-align: center;
+  color: #898989;
+}
 body main .wrapper .products_wrap .items-wrap .product {
   padding: 0.5em;
   display: flex;
@@ -380,11 +386,17 @@ body main .wrapper .products_wrap .items-wrap .product div.left .img img {
   width: 70%;
   height: 100%;
 }
-body main .wrapper .products_wrap .items-wrap .product div.left h3 {
+body main .wrapper .products_wrap .items-wrap .product div.left a {
   flex-grow: 10;
   font-size: 11pt;
-  color: #898989;
+  font-weight: bold;
   padding: 0px 0.5em;
+  color: #898989;
+  text-decoration: none;
+  transition: 150ms color ease;
+}
+body main .wrapper .products_wrap .items-wrap .product div.left a:hover {
+  color: #f8ba53;
 }
 body main .wrapper .products_wrap .items-wrap .product div.right {
   width: 30%;
