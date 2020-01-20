@@ -47,6 +47,17 @@
 
 			$data = json_decode($this->input->post('data'), true);
 
+			// Remove white spaces from username and pull them all toguether
+			$splitUser = explode(' ', $data['username']);
+			$username = '';
+			foreach ($splitUser as $word) {
+				$username .= ucfirst($word);
+			}
+
+			// add the filtered username to the rest of the request data
+			$data['username'] = $username;
+
+			// Call the modal to register the username
 			$response = $this->users_model->register_user($data);
 
 			if (! $response['error']) {

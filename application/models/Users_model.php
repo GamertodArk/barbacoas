@@ -44,6 +44,9 @@
 					// Encrypt the password
 					$data['password'] = md5($data['password']);
 					
+					// Add date to the user registered
+					$data['registered_on'] = date('d/m/Y');
+
 					// Isert data to database
 					$this->db->insert('users', $data);
 

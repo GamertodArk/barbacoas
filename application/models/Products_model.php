@@ -29,17 +29,47 @@
 			return $data;
 		}
 
+		public function get_random_products($amount, $exclude_id = NULL)
+		{
+			// select max id of products
+			$this->db->select_max('id');
+			$query = $this->db->get('products');
+			$maxId = intval($query->result_array()[0]['id']);
+
+			$products = [];
+
+			for ($i = 1; $i <= $maxId ; $i++) {
+
+				if (count($products) <= ($amount - 1)) {
+
+					$random_id = mt_rand(1, $maxId);
+
+					$this->db->select('id, title, images, amount');
+					$this->db->where('id', $random_id);
+					$query = $this->db->get('products');
+					$result = $query->result();
+
+					// Check that the product is not null
+					// check that the product is not in the products array
+					// and check if the product got from the db is not already on the array
+					if (NULL != $result && !in_array($result, $products) && $result[0]->id != $exclude_id) {
+						$products[] = $query->result();
+					}else {
+						continue;
+					}
+
+				}
+			}
+
+			return $products;
+		}
+
 		public function get_favorites_proudcts()
 		{
 			if ($this->input->cookie('fav_products')) {
 
 				$products_id = explode(';', $this->input->cookie('fav_products'));
 				array_pop($products_id); // delete last element witch is always empty
-				
-				// $this->db->where('id', $products_id);
-				// $query = $this->db->get('products');
-
-				// return $query->result();
 
 				// get all products data from db
 				foreach ($products_id as $id) {
@@ -52,6 +82,28 @@
 			}else {
 				echo false;
 			}
+		}
+
+		public function check_if_is_in_favorites($id)
+		{
+			$favP = $this->input->cookie('fav_products', true);
+			$list_fav_p = explode(';', $favP);
+
+			if (in_array(intval($id), $list_fav_p)) {
+				return true;
+			}else {
+				return false;
+			}
+
+		}
+
+		public function get_specific_product_data($select_field)
+		{
+			$this->db->select($select_field);
+			$products = $this->db->get('products');
+
+			return $products->result();
+
 		}
 
 		public function get_product_data_of_seller($userId)

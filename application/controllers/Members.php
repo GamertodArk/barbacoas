@@ -12,6 +12,7 @@
 			if (! $this->session->logged_in) { redirect('users/login'); }
 		}
 
+		/**
 		function product_summary($id)
 		{
 
@@ -35,6 +36,7 @@
 			$this->load->view('templates/product_summary', $data);
 
 		}
+		*/
 
 		public function add_to_favorites($id)
 		{
@@ -72,9 +74,10 @@
 			if ($this->session->logged_in) { $data['session_data'] = $this->users_model->get_userdata(); }
 
 			// Get products data
-			$this->db->select('id, title, images');
-			$products = $this->db->get('products');
-			$data['products'] = $products->result();
+			$data['products'] = $this->products_model->get_specific_product_data('id, title, images');
+			// $this->db->select('id, title, images');
+			// $products = $this->db->get('products');
+			// $data['products'] = $products->result();
 
 
 			// Get amount of products in the basket

@@ -70,15 +70,15 @@ btn.addEventListener('click', e => {
 	if (permisos.length == 10) {
 	
 		let json = {
-					name: __("name").value,
-					lastname: __('lastname').value,
-					email: __('email').value,
-					username: __('username').value,
-					password: __('pass').value,
-					country: __('countryId').value,
-					state: __('stateId').value,
-					city: __('cityId').value
-				}
+			name: __("name").value,
+			lastname: __('lastname').value,
+			email: __('email').value,
+			username: __('username').value,
+			password: __('pass').value,
+			country: __('countryId').value,
+			state: __('stateId').value,
+			city: __('cityId').value
+		}
 
 		// Send data to server
 		fetch(`addUser`, {
@@ -90,12 +90,13 @@ btn.addEventListener('click', e => {
 		})
 			.then(response => response.json())
 			.then(json => {
+
 				if (json.error) {
 					loading_modal.style.display = 'none';
 					__(`${json.field}-error`).style.opacity = 1;
 					__(`${json.field}-error`).innerHTML = json.message;
 
-				}else { window.location = 'done' }
+				}else {window.location = 'done'}
 			})
 			.catch(error => console.log(error.message));
 

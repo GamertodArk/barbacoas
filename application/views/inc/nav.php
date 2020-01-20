@@ -29,6 +29,7 @@
 					<ul id="user_btn_children" class="children">
 						<div class="triangle"></div>
 						<li><a href="<?php echo site_url('perfil/') ?>">Perfil</a></li>
+						<li><a href="<?php echo site_url('favoritos/') ?>">Favoritos</a></li>
 						<li><a href="<?php echo site_url('members/products') ?>">Mis Barbacoas</a></li>
 						<li><a href="<?php echo site_url('members/shopping_basket') ?>">Ver la cesta de compra</a></li>
 						<li><a href="<?php echo site_url('logout') ?>">Cerrar Session</a></li>

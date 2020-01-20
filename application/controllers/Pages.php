@@ -11,7 +11,6 @@
 
 		public function view($page = 'home')
 		{
-
 			// Check if template exists
 			if (! file_exists(APPPATH . 'views/templates/' . strtolower($page) . '.php')) {
 				show_404();
@@ -21,10 +20,9 @@
 			if ($this->session->logged_in) { $data['session_data'] = $this->users_model->get_userdata(); }
 
 			// Get products data
-			$this->db->select('id, title, images, amount');
-			$products = $this->db->get('products');
+			$data['products'] = $this->products_model->get_specific_product_data('id, title, images, amount');
 
-			$data['products'] = $products->result();
+			// Set tittle with the first letter uppercase
 			$data['title'] = ucfirst($page);
 
 			$this->load->view('templates/' . strtolower($page), $data);
@@ -39,14 +37,10 @@
 			$data['productData'] = $this->products_model->get_product_data($id);
 
 			// Other products data
-			$this->db->select('id, title, images, amount');
-			$query = $this->db->get('products', 4);
-			$data['products'] = $query->result();
+			$data['products'] = $this->products_model->get_random_products(4, $id);
 
 			// Check if this product is in the favorite list
-			$favP = $this->input->cookie('fav_products', true);
-			$list_fav_p = explode(';', $favP);
-			$data['isInFav'] = in_array(intval($id), $list_fav_p) ? true : false; 
+			$data['isInFav'] = $this->products_model->check_if_is_in_favorites($id);
 
 			// Check if the product existe
 			if (NULL != $data['productData']['product']) {
