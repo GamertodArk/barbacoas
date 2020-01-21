@@ -6,7 +6,7 @@
 
 		<?php if(isset($session_data['username'])): ?>
 			<div class="search">
-				<form action="#">	
+				<form action="<?=base_url('search')?>" method="get">	
 					<input type="text" name="search" id="search" placeholder="Buscar">
 					<button role="submit"><i class="fas fa-search"></i></button>
 				</form>
@@ -30,6 +30,7 @@
 						<div class="triangle"></div>
 						<li><a href="<?php echo site_url('perfil/') ?>">Perfil</a></li>
 						<li><a href="<?php echo site_url('favoritos/') ?>">Favoritos</a></li>
+						<li><a href="<?php echo site_url('search/') ?>">Buscar</a></li>
 						<li><a href="<?php echo site_url('members/products') ?>">Mis Barbacoas</a></li>
 						<li><a href="<?php echo site_url('members/shopping_basket') ?>">Ver la cesta de compra</a></li>
 						<li><a href="<?php echo site_url('logout') ?>">Cerrar Session</a></li>

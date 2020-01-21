@@ -11,10 +11,8 @@ html {
 			min-height: 100vh;
 	
 			h2 {
-				color: $orange;
 				font-size: 23pt;
-				margin-bottom: 1em;
-				border-bottom: 3px solid $grey;
+				@include title_underline();
 			}
 
 			div.wrapper {

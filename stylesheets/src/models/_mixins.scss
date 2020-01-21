@@ -75,6 +75,13 @@
 	}
 }
 
+@mixin title_underline(){
+	color: $orange;
+	// font-size: 23pt;
+	margin-bottom: 1em;
+	border-bottom: 3px solid $grey;
+}
+
 @mixin button {
 	width: 200px;
 	border: none;

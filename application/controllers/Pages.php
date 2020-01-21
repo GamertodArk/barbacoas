@@ -51,6 +51,25 @@
 
 		}
 
+		public function search($query = null)
+		{
+
+			// Get all userdata from session and pass it to view
+			if ($this->session->logged_in) { $data['session_data'] = $this->users_model->get_userdata(); }
+
+			$query = !empty($this->input->get('search')) ? $this->input->get('search') : $query;
+
+			if (null != $query && !empty($query)) {
+				// var_dump($this->products_model->search_products($query));
+				// exit();
+
+				$data['products'] = $this->products_model->search_products($query);
+				$this->load->view('templates/search_results', $data);
+			}else {
+				$this->load->view('templates/search_template', $data);
+			}
+		}
+
 		public function profile($id)
 		{
 

@@ -318,8 +318,8 @@ html body main {
   min-height: 100vh;
 }
 html body main h2 {
-  color: #f8ba53;
   font-size: 23pt;
+  color: #f8ba53;
   margin-bottom: 1em;
   border-bottom: 3px solid #ccc;
 }

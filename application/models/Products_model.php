@@ -64,6 +64,30 @@
 			return $products;
 		}
 
+		public function search_products($query)
+		{
+			$queries = preg_split('/[\s|%20|+]+/', $query);
+
+			// foreach ($queries as $query) {
+			// 	if (empty($query) || '' == $query) {
+			// 		unset($query);
+			// 	}
+			// }
+
+			// return $queries;
+			// exit();
+
+			for ($i = 0; $i < count($queries); $i++) {
+				if (/*' ' == $queries[$i] ||*/ empty($queries[$i])) { continue; }
+
+				$this->db->or_like('title', $queries[$i]);
+				$this->db->or_like('description', $queries[$i]);				
+			}
+
+			$query = $this->db->get('products');
+			return $query->result();
+		}
+
 		public function get_favorites_proudcts()
 		{
 			if ($this->input->cookie('fav_products')) {
