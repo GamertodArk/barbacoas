@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
-	<title>Resultados de query </title>
+	<title>Resultados de <?= $query ?> </title>
 	<link rel="stylesheet" href="<?=base_url('stylesheets/css/')?>search_results.css">
 	<?php include APPPATH . 'views/inc/head.php' ?>
 </head>
@@ -12,7 +12,7 @@
 	</header>
 
 	<main>
-		<h2>Resultados de query</h2>
+		<h2>Resultados de <?= $query ?></h2>
 		<?php if($products): ?>
 			<div class="products_wrapper">
 				<?php include APPPATH . 'views/inc/item.php' ?>
@@ -25,5 +25,6 @@
 	</main>
 
 	<?php include APPPATH . 'views/inc/footer.php' ?>
+	<?php include APPPATH . 'views/inc/product_modal.php' ?>
 </body>
 </html>

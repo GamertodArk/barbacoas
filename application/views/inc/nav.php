@@ -14,7 +14,7 @@
 		<?php else: ?>
 			<ul class="links">
 				<li><a href="<?php echo base_url('home') ?>">Inicio</a></li>
-				<li><a href="#">Link #2</a></li>
+				<li><a href="<?php echo base_url('search') ?>">Buscar</a></li>
 				<li><a href="#">Link #3</a></li>
 			</ul>
 		<?php endif; ?>

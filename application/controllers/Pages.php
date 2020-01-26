@@ -55,14 +55,12 @@
 		{
 
 			// Get all userdata from session and pass it to view
-			if ($this->session->logged_in) { $data['session_data'] = $this->users_model->get_userdata(); }
+			if ($this->session->logged_in) { $data['session_data'] = $this->users_model->get_userdata(); }else {$data['session_data'] = false;}
 
 			$query = !empty($this->input->get('search')) ? $this->input->get('search') : $query;
 
 			if (null != $query && !empty($query)) {
-				// var_dump($this->products_model->search_products($query));
-				// exit();
-
+				$data['query'] = strip_tags($query);
 				$data['products'] = $this->products_model->search_products($query);
 				$this->load->view('templates/search_results', $data);
 			}else {

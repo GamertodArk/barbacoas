@@ -99,6 +99,7 @@ html body header nav .nav-content .links li a:hover:before {
   width: 100%;
 }
 html body header nav .nav-content .user {
+  z-index: 5;
   color: #fff;
   list-style: none;
   position: relative;
