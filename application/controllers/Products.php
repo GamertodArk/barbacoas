@@ -39,6 +39,7 @@
 				$_SESSION['products'][$data->id] = [
 					'id' => $data->id,
 					'amount' => $data->amount,
+					'days' => $data->days,
 					'title' =>  $basketData['product']['title'],
 					'thumnail' => explode(';', $basketData['product']['images'])[0]
 				];
@@ -51,7 +52,9 @@
 		{
 
 			$data = json_decode($this->input->post('data'));
-						
+			// var_dump($data);
+			// exit();
+
 			try{
 				if ($this->session->logged_in) {
 

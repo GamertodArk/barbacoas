@@ -1,6 +1,10 @@
 .amount {
-	width: 250px;
-	@include center-flex(space-between);
+	// width: 250px;
+	width: 100%;
+	padding-top: 1em;
+	// margin: 0px 0.5em;
+	// border-bottom: 1px solid $grey;
+	@include center-flex(flex-start);
 
 	p {
 		color: $grey3;
@@ -11,6 +15,7 @@
 		width: 150px;
 		padding: 0.5em;
 		font-size: 10pt;
+		margin: 0px 0.5em;
 		background-color: $white;
 		@include center-flex(space-between);
 		border: 1px solid darken($grey3, 10%);

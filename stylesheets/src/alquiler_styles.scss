@@ -1,0 +1,60 @@
+@import 'partials/base';
+
+body {
+	background-color: $grey2;
+
+	header {
+		@import 'partials/nav';
+	}
+
+	main {
+		min-height: 100vh;
+		@include center-flex();
+
+		.wrap {
+			width: 70%;
+
+			ul {
+				list-style: none;
+				margin-bottom: 0.5em;
+				padding-bottom: 0.5em;
+				border-bottom: 1px solid $orange;
+				@include center-flex(center, column);
+
+				li {
+					color: $dark_grey;
+					font-weight: bold;
+					margin: 0.3em 0px;
+				}
+			}
+
+			.total {
+				width: 100%;
+				font-size: 15pt;
+				color: $dark_grey;
+				// margin: 0.5em 0px;
+				text-align: center;
+				font-weight: bold;
+			}
+
+			.buttons {
+				margin-top: 1em;
+				@include center-flex();
+
+				a {
+					margin: 0px 0.5em;
+					font-weight: bold;
+					@include button();
+					text-align: center;
+					text-decoration: none;
+				}
+
+				a.cancel {
+					background-color: $darker_grey;
+				}
+			}
+		}
+	}
+
+	@import 'partials/footer';
+}

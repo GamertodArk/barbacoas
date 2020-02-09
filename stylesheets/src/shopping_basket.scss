@@ -24,12 +24,28 @@ body {
 			.products_wrap {
 				margin-top: 1em;
 
-				h2 {
+				.title {
 					width: 100%;
-					text-align: left;
-					color: $darker_grey;
 					padding-bottom: 0.5em;
+					@include center-flex();
 					border-bottom: 2px solid $white;
+
+					h2 {
+						width: 70%;
+						text-align: left;
+						color: $darker_grey;
+					}
+
+					ul {
+						width: 30%;
+						list-style: none;
+						@include center-flex();
+
+						li {
+							flex-grow: 1;
+							// text-align: center;
+						}
+					}
 				}
 
 				.items-wrap {

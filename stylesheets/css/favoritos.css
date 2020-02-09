@@ -682,10 +682,11 @@ html body #modal-background .info-wrap .item-details div.right .description p {
   font-size: 10pt;
 }
 html body #modal-background .info-wrap .item-details div.right .amount {
-  width: 250px;
+  width: 100%;
+  padding-top: 1em;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-direction: row;
 }
 html body #modal-background .info-wrap .item-details div.right .amount p {
@@ -696,6 +697,7 @@ html body #modal-background .info-wrap .item-details div.right .amount .amount_w
   width: 150px;
   padding: 0.5em;
   font-size: 10pt;
+  margin: 0px 0.5em;
   background-color: #fff;
   display: flex;
   align-items: center;

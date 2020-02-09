@@ -33,6 +33,31 @@
 							<p><?=$productData['product']['description']?></p>
 						</div>
 
+						<div class="pricing">
+							<p>Precio:</p>
+							<p class="price">23 $</p>
+							<strong>|</strong>
+							<p>Dia</p>
+						</div>
+
+						<div class="days_amount">
+							<p>Dias:</p>
+
+							<span class="amount_wrapper">
+								<span id="increase_days" class="more">
+									<i class="fas fa-plus"></i>
+								</span>
+
+								<input type="text" class="days" name="days" id="amount_days" value="1" placeholder="1">
+
+								<span id="decrease_days" class="less">
+									<i class="fas fa-minus"></i>
+								</span>
+							</span>
+
+							<!-- <p>Dias</p> -->
+						</div>
+
 						<div class="amount">
 							<p>Cantidad:</p>
 
@@ -48,6 +73,7 @@
 								</span>
 							</span>
 						</div>
+
 
 						<span class="seller">Vendedor: <a href="<?= site_url('perfil/' . $productData['seller']['id']); ?>"><?= $productData['seller']['username'] ?></a></span>
 

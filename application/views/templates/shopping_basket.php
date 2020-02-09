@@ -16,7 +16,13 @@
 			<h1>Carrito de compras</h1>
 
 			<div class="products_wrap">
-				<h2>Productos</h2>
+				<div class="title">
+					<h2>Productos</h2>
+					<ul>
+						<li>Dias</li>
+						<li>Cantidad</li>
+					</ul>
+				</div>
 
 				<div class="items-wrap">
 					<?php if($products_basket_amount > 0): ?>
@@ -31,6 +37,7 @@
 									<a href="<?php echo site_url("products/review/") . $product['id'] ?>"><?=$product['title']?></a>
 								</div>
 								<div class="right">
+									<span class="amount"><?=$product['days']?></span>
 									<span class="amount"><?=$product['amount']?></span>
 									<span onclick="delete_from_basket(<?=$product['id']?>, this.parentNode.parentNode, true)" class="trash-icon">
 										<i class="far fa-trash-alt"></i>
@@ -56,7 +63,7 @@
 			<div class="rent">
 				<h2>Contactar a los dueños</h2>
 				<p>Su carrito contiene <?=$products_basket_amount?> articulo(s)</p>
-				<a href="#">Alquilar</a>
+				<a href="<?=site_url('members/alquilar')?>">Alquilar</a>
 			</div>
 		</aside>
 	</main>

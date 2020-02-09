@@ -1,9 +1,29 @@
 let PS_error_msg_wrap = __('PS-error-msg-wrap');
 let increaseA = __('increase_amount');	
 let decreaseA = __('decrease_amount');
+
+let increaseD = __('increase_days');	
+let decreaseD = __('decrease_days');
+let amountD = __('amount_days');
+
+
 let amountC = __('amount_counter');
 let basketBtn = __('basket_btn');
 let fav = __('heart');
+
+increaseD.addEventListener('click', e => {
+	let value = amountD.value != '' ? parseInt(amountD.value) : 0;
+	if (value < 29) {
+		amountD.value = (value + 1);
+	}
+});
+
+decreaseD.addEventListener('click', e => {
+	let value = amountD.value != '' ? parseInt(amountD.value) : 0;
+	if (value != 0) {
+		amountD.value = (value - 1);
+	}
+});
 
 increaseA.addEventListener('click', e => {
 	// increase_product_amount
@@ -27,7 +47,8 @@ basketBtn.addEventListener('click', e => {
 	let data = {
 		'product': {
 			'id': id,
-			'amount': amountC.value
+			'amount': amountC.value,
+			'days': amountD.value
 		},
 		'message': {
 			'error_msg_wrap': PS_error_msg_wrap

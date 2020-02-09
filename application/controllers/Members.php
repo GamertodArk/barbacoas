@@ -75,10 +75,6 @@
 
 			// Get products data
 			$data['products'] = $this->products_model->get_specific_product_data('id, title, images');
-			// $this->db->select('id, title, images');
-			// $products = $this->db->get('products');
-			// $data['products'] = $products->result();
-
 
 			// Get amount of products in the basket
 			$data['products_basket_amount'] = $this->products_model->get_product_amount_basket();
@@ -86,9 +82,13 @@
 			// Get favorites products
 			$data['favorites'] = $this->products_model->get_favorites_proudcts();
 
-			// var_dump($data['favorites'][0][0]);
 			$this->load->view('templates/' . strtolower($page), $data);
 		}
+
+		// public function alquilar()
+		// {
+		// 	$this->load->view('templates/renting');
+		// }
 
 		public function register_product()
 		{

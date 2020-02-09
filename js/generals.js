@@ -59,6 +59,7 @@ function add_to_basket(data) {
 
 	let productData = {
 		'id': data.product.id,
+		'days': data.product.days,
 		'amount': data.product.amount
 	};
 
@@ -73,6 +74,7 @@ function add_to_basket(data) {
 	fetch(url, fetchInit)
 		.then(response => response.json())
 		.then(json => {
+			// console.log(json);
 
 			if (json.error) {
 				if (json.code == 0) {
