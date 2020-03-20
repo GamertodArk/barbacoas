@@ -59,8 +59,11 @@ function add_to_basket(data) {
 
 	let productData = {
 		'id': data.product.id,
-		'days': data.product.days,
-		'amount': data.product.amount
+		'amount': data.product.amount,
+		'time': {
+			'time_lapse': data.product.time.time_lapse,
+			'time_lapse_amount': data.product.time.time_lapse_amount
+		}
 	};
 
 	let fetchInit = {
@@ -86,7 +89,7 @@ function add_to_basket(data) {
 					// Some unknown error
 					console.log(json.error_msg);
 					data.message.error_msg_wrap.style.display = 'block';
-					error_msg.innerHTML = 'Ocurrio un error, intente de nuevo';					
+					error_msg.innerHTML = 'Ocurrio un error, intente de nuevo';
 				}
 			}else {
 				if (json.code == 2) {
@@ -96,7 +99,7 @@ function add_to_basket(data) {
 					data.dom.cesta_btn.innerHTML = 'Producto Añadido a la cesta';
 				}else {
 					// Product aready in basket
-					data.dom.cesta_btn.innerHTML = 'Producto ya esta en la cesta';					
+					data.dom.cesta_btn.innerHTML = 'Producto ya esta en la cesta';
 				}
 			}
 		})

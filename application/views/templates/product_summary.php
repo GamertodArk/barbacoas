@@ -1,3 +1,4 @@
+<?php var_dump($productData); ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,7 +7,7 @@
 	<link rel="stylesheet" href="<?php echo base_url('stylesheets/css/')?>product_summary.css">
 	<?php include APPPATH . 'views/inc/head.php' ?>
 </head>
-<body>	
+<body>
 	<header>
 		<?php include APPPATH . 'views/inc/nav.php'; ?>
 	</header>
@@ -26,21 +27,21 @@
 						<?php include APPPATH . 'views/inc/product_preview_gallery.php' ?>
 					</div>
 					<div class="data">
-						<h2><?=$productData['product']['title']?></h2>
+						<h2><?=$productData['product']['title']?> <span class="price"><?=$productData['product']['price']?>$ / Dia</span></h2>
 
 						<div class="description">
 							<h3>Descripcion</h3>
 							<p><?=$productData['product']['description']?></p>
 						</div>
 
-						<div class="pricing">
+						<!-- <div class="pricing">
 							<p>Precio:</p>
 							<p class="price">23 $</p>
 							<strong>|</strong>
 							<p>Dia</p>
-						</div>
+						</div> -->
 
-						<div class="days_amount">
+						<!-- <div class="days_amount">
 							<p>Dias:</p>
 
 							<span class="amount_wrapper">
@@ -55,7 +56,17 @@
 								</span>
 							</span>
 
-							<!-- <p>Dias</p> -->
+						</div> -->
+
+						<div role="form" class="time-wrap">
+
+							<select id="time-lapse" class="time-lapse" name="time-lapse">
+								<option value="days">Dias</option>
+								<option value="weeks">Semanas</option>
+								<option value="months">Meses</option>
+							</select>
+
+							<input type="text" id="time-lapse-amount" name="amount" value="1" placeholder="1">
 						</div>
 
 						<div class="amount">
@@ -80,7 +91,7 @@
 						<div class="cesta_share">
 							<button data-product-id="<?=$productData['product']['id']?>" id="basket_btn" class="btn">AÑADIR A LA CESTA</button>
 
-							<div class="share">							
+							<div class="share">
 								<span class="icon-wrap email">
 									<i class="fas fa-envelope"></i>
 								</span>
@@ -100,7 +111,7 @@
 						</div>
 
 					<!-- Error structure -->
-					<?php  
+					<?php
 						$PS_error_message_id = 'PS-error-msg-wrap';
 						include APPPATH . 'views/inc/product_info_error_structure.php';
 						unset($PS_error_message_id);
@@ -111,21 +122,21 @@
 
 			<div class="sidebar">
 				<div class="feature feature-1">
-					<div class="feature-content">						
+					<div class="feature-content">
 						<i class="fas fa-hand-holding-usd"></i>
 						<h3>ALQUILER PARA NO COMPRAR</h3>
 					</div>
 				</div>
 
 				<div class="feature feature-1">
-					<div class="feature-content">						
+					<div class="feature-content">
 						<i class="fas fa-utensils"></i>
 						<h3>DEVOLUCIÓN DE LA VAJILLA SIN LAVAR</h3>
 					</div>
 				</div>
 
 				<div class="feature feature-1">
-					<div class="feature-content">						
+					<div class="feature-content">
 						<i class="fas fa-truck"></i>
 						<h3>ENTREGAS EN TODA EUROPA</h3>
 					</div>
@@ -157,10 +168,10 @@
 		</div>
 	</main>
 	<?php include APPPATH . 'views/inc/footer.php' ?>
- 	<?php include APPPATH . "views/inc/product_modal.php" ?> 
+ 	<?php include APPPATH . "views/inc/product_modal.php" ?>
 	<script src="<?=base_url()?>js/product_summary.js"></script>
 	<script>
-	
+
 		let options = {
 			slider: 'static--slider',
 			carousel: 'static--carousel',

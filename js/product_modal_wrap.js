@@ -8,11 +8,35 @@ let productWrap = __('product_wrap');
 let error_msg = __('error-msg');
 let error_msg_wrap = __('error-msg-wrap');
 
+let time_lapse = __('time-lapse-m');
+let time_lapse_amount = __('time-lapse-amount-m');
+
+// let increaseDM = __('increase_days_model');
+// let decreaseDM = __('decrease_days_model');
+// let amountDM = __('amount_days_model');
+
+
 let modalWrap = __('modal-background');
 let modalLoadingBox = __('loading-wrap')
 let viewBtns = [...document.getElementsByClassName('view_item_btn')];
 
-console.log(closeBtn);
+// Increase days amount
+// increaseDM.addEventListener('click', e => {
+// 	let value = amountDM.value != '' ? parseInt(amountDM.value) : 0;
+// 	if (value < 29) {
+// 		amountDM.value = (value + 1);
+// 	}
+// });
+//
+// // Decrease days amount
+// decreaseDM.addEventListener('click', e => {
+// 	let value = amountDM.value != '' ? parseInt(amountDM.value) : 0;
+// 	if (value != 0) {
+// 		amountDM.value = (value - 1);
+// 	}
+// });
+
+// console.log(closeBtn);
 
 function glide_structure(div_class = 'glide', imgs = null) {
 
@@ -43,7 +67,7 @@ function glide_structure(div_class = 'glide', imgs = null) {
 
 	let icons_arrow_right = document.createElement('i');
 	icons_arrow_right.classList.add('fas');
-	icons_arrow_right.classList.add('fa-arrow-right');	
+	icons_arrow_right.classList.add('fa-arrow-right');
 
 	// Bullets
 	let bullets = document.createElement('div');
@@ -105,11 +129,22 @@ function insert_data_to_modal(data) {
 	let moreBtnMaxAmount = __('more_btn');
 	let seller_btn = __('product_modal_seller_link');
 
+	// Create span element with price
+	let price = document.createTextNode(data.product.price + "$ / Dia");
+	let span = document.createElement('span');
+	span.classList.add('price');
+	span.appendChild(price);
+
+	// Insert title to dom
+	productTitle.innerHTML = " "; // Clean the title, this way the old title won't be appended to the new one
+	let titleText = document.createTextNode(data.product.title);
+	productTitle.appendChild(titleText);
+	productTitle.appendChild(span);
+
 
 	seller_btn.innerHTML = data.seller.username;
 	seller_btn.setAttribute('href', `${site_url}perfil/${data.seller.id}`);
-	
-	productTitle.innerHTML = data.product.title;
+
 	productDesc.innerHTML = data.product.description;
 	cestaBtn.setAttribute('data-product-id', data.product.id);
 	moreBtnMaxAmount.setAttribute('data-max-amount', data.product.amount);
@@ -142,9 +177,6 @@ viewBtns.forEach(elem => {
 		fetch(url, fetchInit)
 			.then(response => response.json())
 			.then(json => {
-
-				// console.log(json);
-
 				// Updata data in modal
 				insert_data_to_modal(json);
 
@@ -192,7 +224,11 @@ cestaBtn.addEventListener('click', function (e) {
 	let data = {
 		'product': {
 			'id': id,
-			'amount': counter.value
+			'amount': counter.value,
+			'time': {
+				'time_lapse': time_lapse.value,
+				'time_lapse_amount': (time_lapse_amount.value == 0) ? 1 : parseInt(time_lapse_amount.value)
+			}
 		},
 		'message': {
 			'error_msg_wrap': error_msg_wrap
@@ -202,5 +238,6 @@ cestaBtn.addEventListener('click', function (e) {
 		}
 	}
 
+	// console.log(data);
 	add_to_basket(data);
 });

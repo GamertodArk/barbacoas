@@ -51,6 +51,36 @@ body {
 							text-align: left;
 							color: $darker_grey;
 							font-weight: lighter;
+							@include center-flex(space-between);
+
+							.price {
+								font-weight: bold;
+
+							}
+						}
+
+						.time-wrap{
+							// border: 1px solid #000;
+
+							.time-lapse {
+								border:none;
+								margin: 0px;
+								height: 35px;
+								width: 120px;
+								padding: 0px 10px;
+								text-align: center;
+								color: $darker_grey;
+								background-color: $grey2;
+								border-bottom: 1px solid $darker_grey;
+							}
+
+							input[type="text"] {
+								width: 50px;
+								height: 35px;
+								color: $dark_grey;
+								font-weight: bold;
+								text-align: center;
+							}
 						}
 
 						.description {
@@ -127,7 +157,7 @@ body {
 								 }
 
 								 .more, .less { cursor: pointer; color: $darker_grey;}
-							}	
+							}
 
 						}
 
@@ -145,7 +175,7 @@ body {
 							// margin-top: 3em;
 							@include center-flex(space-around);
 
-							.btn { 
+							.btn {
 								width: 200px;
 								@include add_to_basket_btn;
 							}
@@ -217,7 +247,7 @@ body {
 					.icon-wrap {
 						@extend %icon-styles;
 						border: 1px solid $dark_grey;
-	
+
 						i {
 							color: $dark_grey;
 						}

@@ -37,7 +37,11 @@
 									<a href="<?php echo site_url("products/review/") . $product['id'] ?>"><?=$product['title']?></a>
 								</div>
 								<div class="right">
-									<span class="amount"><?=$product['days']?></span>
+									<span class="time_lapse">Durante <strong><?php echo $product['time']['time_lapse_amount'] . ' ' . $product['time']['time_lapse'] ?></strong>	</span>
+									<!-- <span class="amount"><?=$product['time']['time_lapse']?></span>
+									<span class="amount"><?=$product['time']['time_lapse_amount']?></span> -->
+
+
 									<span class="amount"><?=$product['amount']?></span>
 									<span onclick="delete_from_basket(<?=$product['id']?>, this.parentNode.parentNode, true)" class="trash-icon">
 										<i class="far fa-trash-alt"></i>

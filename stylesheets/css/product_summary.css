@@ -524,6 +524,31 @@ body main .wrapper .main .product_data .data h2 {
   text-align: left;
   color: #898989;
   font-weight: lighter;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+body main .wrapper .main .product_data .data h2 .price {
+  font-weight: bold;
+}
+body main .wrapper .main .product_data .data .time-wrap .time-lapse {
+  border: none;
+  margin: 0px;
+  height: 35px;
+  width: 120px;
+  padding: 0px 10px;
+  text-align: center;
+  color: #898989;
+  background-color: #efefef;
+  border-bottom: 1px solid #898989;
+}
+body main .wrapper .main .product_data .data .time-wrap input[type=text] {
+  width: 50px;
+  height: 35px;
+  color: #3f3f3f;
+  font-weight: bold;
+  text-align: center;
 }
 body main .wrapper .main .product_data .data .description {
   margin: 1em 0px;
@@ -1096,6 +1121,31 @@ body #modal-background .info-wrap .item-details div.right h2 {
   font-size: 13pt;
   font-weight: bold;
   text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+body #modal-background .info-wrap .item-details div.right h2 .price {
+  font-weight: bold;
+}
+body #modal-background .info-wrap .item-details div.right .time-wrap .time-lapse {
+  border: none;
+  margin: 0px;
+  height: 35px;
+  width: 120px;
+  padding: 0px 10px;
+  text-align: center;
+  color: #898989;
+  background-color: #efefef;
+  border-bottom: 1px solid #898989;
+}
+body #modal-background .info-wrap .item-details div.right .time-wrap input[type=text] {
+  width: 50px;
+  height: 35px;
+  color: #3f3f3f;
+  font-weight: bold;
+  text-align: center;
 }
 body #modal-background .info-wrap .item-details div.right .description {
   border: 1px solid #646464;
@@ -1144,6 +1194,63 @@ body #modal-background .info-wrap .item-details div.right .amount .amount_wrappe
 }
 body #modal-background .info-wrap .item-details div.right .amount .amount_wrapper .more, body #modal-background .info-wrap .item-details div.right .amount .amount_wrapper .less {
   cursor: pointer;
+}
+body #modal-background .info-wrap .item-details div.right .pricing {
+  font-size: 10pt;
+  margin: 1.5em 0px;
+  color: #3f3f3f;
+  padding-bottom: 1em;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+}
+body #modal-background .info-wrap .item-details div.right .pricing .price {
+  margin: 0px 0.5em;
+  padding: 0.3em 0.5em;
+  border: 1px solid #898989;
+  background-color: #fff;
+}
+body #modal-background .info-wrap .item-details div.right .pricing strong {
+  margin: 0px 0.5em;
+  font-size: 13pt;
+}
+body #modal-background .info-wrap .item-details div.right .days_amount {
+  width: 100%;
+  padding-bottom: 1em;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+}
+body #modal-background .info-wrap .item-details div.right .days_amount p {
+  color: #646464;
+  font-size: 10pt;
+}
+body #modal-background .info-wrap .item-details div.right .days_amount .amount_wrapper {
+  width: 90px;
+  padding: 0.2em;
+  font-size: 9pt;
+  margin: 0px 0.5em;
+  background-color: #fff;
+  border: 1px solid #898989;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+body #modal-background .info-wrap .item-details div.right .days_amount .amount_wrapper .days {
+  width: 60%;
+  border: none;
+  color: #646464;
+  font-size: 12pt;
+  text-align: center;
+}
+body #modal-background .info-wrap .item-details div.right .days_amount .amount_wrapper .more, body #modal-background .info-wrap .item-details div.right .days_amount .amount_wrapper .less {
+  cursor: pointer;
+  color: #898989;
 }
 body #modal-background .info-wrap .item-details div.right span.seller {
   display: block;

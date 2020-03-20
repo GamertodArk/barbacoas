@@ -14,17 +14,13 @@
 	<main>
 		<div class="wrap">
 			<ul>
-				<?php 
-					foreach ($_SESSION['products'] as $product) {
-						var_dump($product);
-						// echo "<li>$product['title'] - </li>";
+				<?php
+					foreach ($products as $product) {
+						echo "<li> " . $product['title'] . " - ". $product['price'] ."$ x " . $product['amount'] . " durante " . $product['time']['time_lapse_amount'] . " " . $product['time']['time_lapse'];
 					}
 				?>
-				<!-- <li>Producto 1 - 23$ x 3 durante 10 dias</li> -->
-				<!-- <li>Producto 1 - 23$ x 3 durante 10 dias</li> -->
-				<!-- <li>Producto 1 - 23$ x 3 durante 10 dias</li> -->
 			</ul>
-			<p class="total">Total: XXX$</p>
+			<p class="total">Total: <?=$total_price?>$</p>
 			<div class="buttons">
 				<a class="cancel" href="#">Cancelar</a>
 				<a class="buy" href="#">Pagar</a>

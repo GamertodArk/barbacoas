@@ -1,7 +1,7 @@
 
 <div id="modal-background">
 	<div class="info-wrap">
-		
+
 		<div id="loading-wrap" class="loading-wrap">
 			<div class="loading"></div>
 		</div>
@@ -10,17 +10,53 @@
 			 <span id="close_btn">
 				<i class="fas fa-times"></i>
 			</span>
-			
+
 			<div id="product_modal_left_data" class="left">
 				<!-- <?php include APPPATH . 'views/inc/product_preview_gallery.php' ?> -->
 			</div>
 
 			<div class="right">
-				<h2 id="product_title">Lorem ipsum dolor.</h2>
+				<h2 id="product_title"></h2> <!--Title-->
+
 				<div class="description">
 					<h3>Descripcion</h3>
-					<p id="product_desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat quibusdam, hic cumque deserunt porro expedita voluptatibus, sed similique sit praesentium.</p>
-				</div>	
+					<p id="product_desc"></p> <!-- Description -->
+				</div>
+
+				<!-- <div class="pricing">
+					<p>Precio:</p>
+					<p class="price">23 $</p>
+					<strong>|</strong>
+					<p>Dia</p>
+				</div> -->
+
+				<!-- <div class="days_amount">
+					<p>Dias:</p>
+
+					<span class="amount_wrapper">
+						<span id="increase_days_model" class="more">
+							<i class="fas fa-plus"></i>
+						</span>
+
+						<input type="text" class="days" name="days" id="amount_days_model" value="1" placeholder="1">
+
+						<span id="decrease_days_model" class="less">
+							<i class="fas fa-minus"></i>
+						</span>
+					</span>
+
+				</div> -->
+
+				<div role="form" class="time-wrap">
+
+					<select id="time-lapse-m" class="time-lapse" name="time-lapse">
+						<option value="days">Dias</option>
+						<option value="weeks">Semanas</option>
+						<option value="months">Meses</option>
+					</select>
+
+					<input type="text" id="time-lapse-amount-m" name="amount" value="1" placeholder="1">
+				</div>
 
 				<div class="amount">
 					<p>Cantidad:</p>

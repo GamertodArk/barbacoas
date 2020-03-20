@@ -1,4 +1,4 @@
-<?php  
+<?php
 	class Products_model extends CI_Model {
 		public function __construct()
 		{
@@ -8,7 +8,7 @@
 
 		public function add_product($product)
 		{
-			$product['user_id'] = $this->session->id; 
+			$product['user_id'] = $this->session->id;
 			$product['created_on'] = date('d/m/Y');
 			$this->db->insert('products', $product);
 		}
@@ -81,7 +81,7 @@
 				if (/*' ' == $queries[$i] ||*/ empty($queries[$i])) { continue; }
 
 				$this->db->or_like('title', $queries[$i]);
-				$this->db->or_like('description', $queries[$i]);				
+				$this->db->or_like('description', $queries[$i]);
 			}
 
 			$query = $this->db->get('products');

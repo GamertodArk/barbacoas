@@ -1,4 +1,4 @@
-<?php  
+<?php
 	class Products extends CI_Controller {
 		function __construct()
 		{
@@ -30,7 +30,7 @@
 
 		private function add_to_basket($data)
 		{
-			
+
 			if (array_key_exists($data->id, $_SESSION['products'])) {
 				return false;
 			}else {
@@ -39,9 +39,13 @@
 				$_SESSION['products'][$data->id] = [
 					'id' => $data->id,
 					'amount' => $data->amount,
-					'days' => $data->days,
+					// 'days' => $data->days,
 					'title' =>  $basketData['product']['title'],
-					'thumnail' => explode(';', $basketData['product']['images'])[0]
+					'thumnail' => explode(';', $basketData['product']['images'])[0],
+					'time' => [
+						'time_lapse' => $data->time->time_lapse,
+						'time_lapse_amount' => $data->time->time_lapse_amount
+					]
 				];
 
 				return true;
@@ -59,9 +63,9 @@
 				if ($this->session->logged_in) {
 
 					if ($this->add_to_basket($data)) {
-	
+
 						$json = [
-							'error' => false, 
+							'error' => false,
 							'code' => 2,
 							'product_id' => $_SESSION['products'][$id]['id'],
 							'product_title' => $_SESSION['products'][$id]['title'],
@@ -80,7 +84,7 @@
 				}
 			}catch (Exception $e) {
 					$json = ['error' => 'true', 'code' => 1, 'error_msg' => $e->getMessage()];
-					echo json_encode($json);				
+					echo json_encode($json);
 			}
 		}
 

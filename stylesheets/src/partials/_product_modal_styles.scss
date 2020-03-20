@@ -17,7 +17,7 @@
 		height: 460px;
 		position: relative;
 		background-color: $grey2;
-		
+
 		.item-details {
 			width: 100%;
 			height: 100%;
@@ -25,7 +25,7 @@
 			display: flex;
 			position: relative;
 
-			div { 
+			div {
 				// flex: 1;
 			}
 
@@ -48,6 +48,35 @@
 					font-size: 13pt;
 					font-weight: bold;
 					text-transform: uppercase;
+					@include center-flex(space-between);
+
+					.price {
+						font-weight: bold;
+					}
+				}
+
+				.time-wrap{
+					// border: 1px solid #000;
+
+					.time-lapse {
+						border:none;
+						margin: 0px;
+						height: 35px;
+						width: 120px;
+						padding: 0px 10px;
+						text-align: center;
+						color: $darker_grey;
+						background-color: $grey2;
+						border-bottom: 1px solid $darker_grey;
+					}
+
+					input[type="text"] {
+						width: 50px;
+						height: 35px;
+						color: $dark_grey;
+						font-weight: bold;
+						text-align: center;
+					}
 				}
 
 				.description {
@@ -69,6 +98,62 @@
 
 				// Amount controls styles
 				@import 'amount_controls_styles';
+
+				.pricing {
+					font-size: 10pt;
+					margin: 1.5em 0px;
+					color: $dark_grey;
+					padding-bottom: 1em;
+					border-bottom: 1px solid $grey;
+					@include center-flex(flex-start);
+
+
+					.price {
+						margin: 0px 0.5em;
+						padding: 0.3em 0.5em;
+						border: 1px solid $darker_grey;
+						background-color: $white;
+					}
+
+					strong {
+						margin: 0px 0.5em;
+						font-size: 13pt;
+					}
+				}
+
+				.days_amount {
+					width: 100%;
+					// width: 200px;
+					padding-bottom: 1em;
+					border-bottom: 1px solid $grey;
+					@include center-flex(flex-start);
+
+					p {
+						color: $grey3;
+						font-size: 10pt;
+					}
+
+					.amount_wrapper {
+						width: 90px;
+						padding: 0.2em;
+						font-size: 9pt;
+						margin: 0px 0.5em;
+						background-color: $white;
+						border: 1px solid $darker_grey;
+						@include center-flex(space-between);
+						// border: 1px solid darken($grey3, 10%);
+
+						.days {
+							width: 60%;
+							border: none;
+							color: $grey3;
+							font-size: 12pt;
+							text-align: center;
+						 }
+
+						 .more, .less { cursor: pointer; color: $darker_grey;}
+					}
+				}
 
 				span.seller {
 					display: block;
@@ -105,11 +190,11 @@
 
 				// #error-msg-wrap {
 				// 	width: 100%;
-				// 	padding: 1em; 
+				// 	padding: 1em;
 				// 	font-size: 11pt;
 				// 	margin-top: 1em;
 				// 	position: relative;
-				// 	text-align: center;	
+				// 	text-align: center;
 				// 	background-color: red;
 				// 	display: none; // hidden by default
 

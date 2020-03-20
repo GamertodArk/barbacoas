@@ -1,4 +1,4 @@
-<?php  
+<?php
 	class Members extends CI_Controller {
 		public function __construct()
 		{
@@ -30,7 +30,7 @@
 			// Check if this product is in the favorite list
 			$favP = $this->input->cookie('fav_products', true);
 			$list_fav_p = explode(';', $favP);
-			$data['isInFav'] = in_array(intval($id), $list_fav_p) ? true : false; 
+			$data['isInFav'] = in_array(intval($id), $list_fav_p) ? true : false;
 
 
 			$this->load->view('templates/product_summary', $data);
@@ -85,10 +85,54 @@
 			$this->load->view('templates/' . strtolower($page), $data);
 		}
 
-		// public function alquilar()
-		// {
-		// 	$this->load->view('templates/renting');
-		// }
+		public function alquilar()
+		{
+			$basket_products = [];
+			$total_price = 0;
+
+			// Get all userdata from session and pass it to view
+			if ($this->session->logged_in) { $data['session_data'] = $this->users_model->get_userdata(); }
+
+			// Redirect the user if there's no products in the shopping basket
+			if ($this->products_model->get_product_amount_basket() <= 0) { redirect('members/shopping_basket'); }
+
+			// Add price to every product
+			foreach ($_SESSION['products'] as $product) {
+				$price = $this->products_model->get_product_data($product['id'])['product']['price']; // Get price from database
+				$product['price'] = $price; // Add the price to rest of the product data
+				$basket_products[] = $product;
+			}
+
+			// Calculate total price
+			foreach ($basket_products as $product) {
+				$price = intval($product['price']); // Get the price as String
+				$amount = intval($product['amount']); // Get the amount of the same product as a String
+				$time_amount = intval($product['time']['time_lapse_amount']); // Get the amount of days/weeks/months as String
+
+				// Getting the amount of days that the product will be rented
+				switch ($product['time']['time_lapse']) {
+					case 'days':
+						$time_lapse = 1;
+						break;
+
+					case 'weeks':
+						$time_lapse = 7;
+						break;
+
+					case 'months':
+						$time_lapse = 30;
+						break;
+				}
+
+				// Calculate the whole cost of a product
+				$total_price += $price * $amount * $time_lapse * $time_amount;
+
+			}
+
+			$data['products'] = $basket_products;
+			$data['total_price'] = $total_price;
+			$this->load->view('templates/alquilar', $data);
+		}
 
 		public function register_product()
 		{
@@ -114,7 +158,7 @@
 					$errors[] = [
 						'field' => $field,
 						'msg' => "The $field is too big"
-					];		
+					];
 				}
 			}
 
@@ -128,14 +172,14 @@
 			$file_count = count($_FILES['file']['name']);
 			$file_keys = array_keys($_FILES['file']);
 
-			for ($i = 0; $i < $file_count; $i++) { 
+			for ($i = 0; $i < $file_count; $i++) {
 				foreach ($file_keys as $key) {
 					$file_ary[$i][$key] = $_FILES['file'][$key][$i];
 				}
 			}
 
 			// Start uploading files to server
-			for ($i = 0; $i < count($file_ary) ; $i++) { 
+			for ($i = 0; $i < count($file_ary) ; $i++) {
 
 				// var_dump($file_ary[0]);
 			/*
@@ -154,7 +198,7 @@
 
 					// Check Image size
 					if ($file_ary[$i]['size'] != 0 || $file_ary[$i]['size'] < 5000000) {
-						
+
 						// Move file to server and hold image name to push it to database
 						$image_name = $this->session->id . '-' . md5(time()) . '.' . $ext[0];
 						// $image_path = __DIR__ . '/../../img/products/';

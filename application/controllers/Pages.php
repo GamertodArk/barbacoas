@@ -1,4 +1,4 @@
-<?php  
+<?php
 	class Pages extends CI_Controller {
 
 		public function __construct()
@@ -71,8 +71,8 @@
 		public function profile($id)
 		{
 
-			// If no ID is passed while the user is logged in, use the logged user id 
-			if (empty($id) && $this->session->logged_in) {				
+			// If no ID is passed while the user is logged in, use the logged user id
+			if (empty($id) && $this->session->logged_in) {
 				$id = $this->users_model->get_userdata()['id'];
 			}
 
@@ -80,7 +80,7 @@
 			$data['user_data'] = $this->users_model->get_userdata_from_db($id);
 
 			// Get products from user
-			$data['product_data'] = $this->products_model->get_product_data_of_seller($id); 
+			$data['product_data'] = $this->products_model->get_product_data_of_seller($id);
 
 			// Get all userdata from session and pass it to view
 			if ($this->session->logged_in) { $data['session_data'] = $this->users_model->get_userdata(); }
