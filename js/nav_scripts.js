@@ -4,8 +4,26 @@ let user_btn_buttons = __('user_btn_children');
 let shoppingBasket = __('shopping-basket');
 let basketTriangle = __('basket_triangle');
 let basketItemsWrap = __('basket_items_wrap');
+let shoppingBasket_counter = __('shopping_basket_counter');
 let hidden = true;
 let hidden2 = true;
+
+
+// Update amount counter in shopping basket icon
+function update_shopping_basket_icon_counter(action) {
+	if (action == 'decrease') {
+		let counter_amount = shoppingBasket_counter.getAttribute('data-basket-counter'); // Get products amount
+
+		// If there's only one product in the shopping basket, hide the counter before updating the dom
+		if (counter_amount == 1) {
+			shoppingBasket_counter.classList.add('hide');
+		}
+
+		counter_amount--; // Decrease the amount counter by one
+		shoppingBasket_counter.setAttribute('data-basket-counter', counter_amount); // Update the data attribute
+		shoppingBasket_counter.innerHTML = counter_amount; // Put the new amount in dom
+	}
+}
 
 function hide_another(content) {
 	if (content == 'shopping_basket') {
@@ -66,11 +84,14 @@ function delete_from_basket(id, item, icon) {
 		.then(text => {
 			item.parentNode.removeChild(item);
 
-			if (icon) {				
+			if (icon) {
 				let items = document.getElementsByClassName('shopping-item');
 				for (var i = items.length - 1; i >= 0; i--) {
 					items[i].getAttribute('data-product-id') == id ? items[i].parentNode.removeChild(items[i]) : '';
 				}
 			}
+
+			// Reduce the number in the shopping basket icon in the nav
+			update_shopping_basket_icon_counter('decrease');
 		})
 }

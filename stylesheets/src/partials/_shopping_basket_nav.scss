@@ -2,6 +2,23 @@ li.shopping-wrap {
 	// display: none;
 	position: relative;
 
+	span#shopping_basket_counter.hide {
+		display: none;
+	}
+
+	span#shopping_basket_counter {
+		top: -15px;
+		left: -15px;
+		padding: 0.3em;
+		font-size: 10pt;
+		min-width: 25px;
+		min-height: 20px;
+		position: absolute;
+		border-radius: 100%;
+		background-color: red;
+		@include center-flex();
+	}
+
 	i.fa-shopping-basket {
 		// color: #000;
 		cursor: pointer;
@@ -52,7 +69,7 @@ li.shopping-wrap {
 			&:nth-last-child(1) {
 				margin-bottom: 0px;
 				padding-bottom: 0px;
-				border-bottom: none;							
+				border-bottom: none;
 			}
 
 			h3 {

@@ -116,6 +116,24 @@ body header nav .nav-content .user li.user_btn {
 body header nav .nav-content .user li.shopping-wrap {
   position: relative;
 }
+body header nav .nav-content .user li.shopping-wrap span#shopping_basket_counter.hide {
+  display: none;
+}
+body header nav .nav-content .user li.shopping-wrap span#shopping_basket_counter {
+  top: -15px;
+  left: -15px;
+  padding: 0.3em;
+  font-size: 10pt;
+  min-width: 25px;
+  min-height: 20px;
+  position: absolute;
+  border-radius: 100%;
+  background-color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
 body header nav .nav-content .user li.shopping-wrap i.fa-shopping-basket {
   cursor: pointer;
 }
@@ -241,6 +259,24 @@ body header nav .nav-content .users li i {
 }
 body header nav .nav-content .users li.shopping-wrap {
   position: relative;
+}
+body header nav .nav-content .users li.shopping-wrap span#shopping_basket_counter.hide {
+  display: none;
+}
+body header nav .nav-content .users li.shopping-wrap span#shopping_basket_counter {
+  top: -15px;
+  left: -15px;
+  padding: 0.3em;
+  font-size: 10pt;
+  min-width: 25px;
+  min-height: 20px;
+  position: absolute;
+  border-radius: 100%;
+  background-color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
 }
 body header nav .nav-content .users li.shopping-wrap i.fa-shopping-basket {
   cursor: pointer;

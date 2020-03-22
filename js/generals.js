@@ -41,6 +41,7 @@ function insert_product_to_basket_dom(data) {
 
 	span.classList.add('remove-item');
 	span.setAttribute('onclick', 'delete_from_basket(this)');
+	span.setAttribute('onclick', `delete_from_basket(${data.product_id}, this.parentNode)`);
 
 	i.classList.add('fas');
 	i.classList.add('fa-times');
@@ -51,6 +52,15 @@ function insert_product_to_basket_dom(data) {
 	div.appendChild(span);
 
 	wrapper.appendChild(div);
+
+
+	/*** Update the notification counter in the shopping basket icon ***/
+	let counter = __('shopping_basket_counter'); // Get dom element
+	let counter_amount = counter.getAttribute('data-basket-counter'); // Get products amount
+	counter_amount++; // Increase the amount counter by one
+	counter.setAttribute('data-basket-counter', counter_amount); // Update the data attribute
+	counter.innerHTML = counter_amount; // Put the new amount in dom
+	counter.classList.remove('hide'); // Show dom element if it's hidden
 }
 
 function add_to_basket(data) {

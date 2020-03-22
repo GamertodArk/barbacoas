@@ -1,6 +1,12 @@
 <li id="shopping-basket" class="shopping-wrap">
 	<i id="shopping-basket-icon" class="fas fa-shopping-basket"></i>
 
+	<?php if(count($_SESSION['products']) > 0): ?>
+		<span id="shopping_basket_counter" data-basket-counter="<?=count($_SESSION['products'])?>"><?=count($_SESSION['products'])?></span>
+	<?php else: ?>
+		<span class="hide" id="shopping_basket_counter" data-basket-counter="0">0</span>
+	<?php endif; ?>
+
 	<div id="basket_triangle" class="triangle"></div>
 
 	<div id="basket_items_wrap" class="items">
