@@ -106,17 +106,115 @@ body header nav .nav-content .user li {
   font-weight: bold;
   display: inline-block;
 }
-body header nav .nav-content .user li.user_btn {
-  font-size: 10pt;
-  cursor: pointer;
+body header nav .nav-content .user span.wrap {
+  width: 50%;
 }
-body header nav .nav-content .user li.shopping-wrap {
+body header nav .nav-content .user span.wrap li.bell-notification {
   position: relative;
 }
-body header nav .nav-content .user li.shopping-wrap span#shopping_basket_counter.hide {
+body header nav .nav-content .user span.wrap li.bell-notification i {
+  cursor: pointer;
+}
+body header nav .nav-content .user span.wrap li.bell-notification div.triangle {
+  width: 0px;
+  height: 0px;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  border-right: 9px solid transparent;
+  border-left: 9px solid transparent;
+  border-bottom: 9px solid #fff;
   display: none;
 }
-body header nav .nav-content .user li.shopping-wrap span#shopping_basket_counter {
+body header nav .nav-content .user span.wrap li.bell-notification #notification-items {
+  top: 27px;
+  right: 50%;
+  width: 420px;
+  color: #3f3f3f;
+  position: absolute;
+  transform: translateX(50%);
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  display: none;
+}
+body header nav .nav-content .user span.wrap li.bell-notification #notification-items .items-wrap.empty {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+body header nav .nav-content .user span.wrap li.bell-notification #notification-items .items-wrap.empty h2 {
+  font-size: 13pt;
+}
+body header nav .nav-content .user span.wrap li.bell-notification #notification-items .items-wrap {
+  width: 100%;
+  height: 260px;
+  overflow-y: scroll;
+  border-bottom: 1px solid #ccc;
+}
+body header nav .nav-content .user span.wrap li.bell-notification #notification-items .items-wrap .item {
+  width: 100%;
+  padding: 0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+body header nav .nav-content .user span.wrap li.bell-notification #notification-items .items-wrap .item:hover {
+  background-color: #efefef;
+}
+body header nav .nav-content .user span.wrap li.bell-notification #notification-items .items-wrap .item .img {
+  width: 60px;
+  height: 60px;
+  background-color: #3f3f3f;
+}
+body header nav .nav-content .user span.wrap li.bell-notification #notification-items .items-wrap .item .data a {
+  margin: 5px 0px;
+}
+body header nav .nav-content .user span.wrap li.bell-notification #notification-items .items-wrap .item .remove-item {
+  width: 28px;
+  height: 30px;
+  cursor: pointer;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  border: 2px solid #f8ba53;
+  transition: 0.3s ease-out background-color;
+}
+body header nav .nav-content .user span.wrap li.bell-notification #notification-items .items-wrap .item .remove-item:hover {
+  background-color: #f8ba53;
+}
+body header nav .nav-content .user span.wrap li.bell-notification #notification-items .items-wrap .item .remove-item:hover i {
+  color: #fff;
+}
+body header nav .nav-content .user span.wrap li.bell-notification #notification-items .items-wrap .item .remove-item i {
+  font-size: 10pt;
+}
+body header nav .nav-content .user span.wrap li.bell-notification #notification-items a {
+  color: #f8ba53;
+  font-size: 13px;
+  display: block;
+  margin: 1em 0px;
+  text-align: center;
+  text-decoration: underline;
+  transition: 100ms color linear;
+}
+body header nav .nav-content .user span.wrap li.bell-notification #notification-items a:hover {
+  color: #3f3f3f;
+}
+body header nav .nav-content .user span.wrap li.shopping-wrap {
+  position: relative;
+}
+body header nav .nav-content .user span.wrap li.shopping-wrap span#shopping_basket_counter.hide {
+  display: none;
+}
+body header nav .nav-content .user span.wrap li.shopping-wrap span#shopping_basket_counter {
   top: -15px;
   left: -15px;
   padding: 0.3em;
@@ -131,10 +229,10 @@ body header nav .nav-content .user li.shopping-wrap span#shopping_basket_counter
   justify-content: center;
   flex-direction: row;
 }
-body header nav .nav-content .user li.shopping-wrap i.fa-shopping-basket {
+body header nav .nav-content .user span.wrap li.shopping-wrap i.fa-shopping-basket {
   cursor: pointer;
 }
-body header nav .nav-content .user li.shopping-wrap div.triangle {
+body header nav .nav-content .user span.wrap li.shopping-wrap div.triangle {
   width: 0px;
   height: 0px;
   left: 50%;
@@ -145,7 +243,7 @@ body header nav .nav-content .user li.shopping-wrap div.triangle {
   border-bottom: 9px solid #fff;
   display: none;
 }
-body header nav .nav-content .user li.shopping-wrap div.items {
+body header nav .nav-content .user span.wrap li.shopping-wrap div.items {
   left: 20%;
   height: 260px;
   width: 450px;
@@ -158,12 +256,12 @@ body header nav .nav-content .user li.shopping-wrap div.items {
   transform: translateX(-80%);
   display: none;
 }
-body header nav .nav-content .user li.shopping-wrap div.items p.empty {
+body header nav .nav-content .user span.wrap li.shopping-wrap div.items p.empty {
   width: 100%;
   font-size: 11pt;
   text-align: center;
 }
-body header nav .nav-content .user li.shopping-wrap div.items div.shopping-item {
+body header nav .nav-content .user span.wrap li.shopping-wrap div.items div.shopping-item {
   width: 100%;
   margin-bottom: 1em;
   padding-bottom: 1em;
@@ -173,16 +271,16 @@ body header nav .nav-content .user li.shopping-wrap div.items div.shopping-item 
   justify-content: space-between;
   flex-direction: row;
 }
-body header nav .nav-content .user li.shopping-wrap div.items div.shopping-item:nth-last-child(1) {
+body header nav .nav-content .user span.wrap li.shopping-wrap div.items div.shopping-item:nth-last-child(1) {
   margin-bottom: 0px;
   padding-bottom: 0px;
   border-bottom: none;
 }
-body header nav .nav-content .user li.shopping-wrap div.items div.shopping-item h3 {
+body header nav .nav-content .user span.wrap li.shopping-wrap div.items div.shopping-item h3 {
   width: 90%;
   font-size: 10.5pt;
 }
-body header nav .nav-content .user li.shopping-wrap div.items div.shopping-item .remove-item {
+body header nav .nav-content .user span.wrap li.shopping-wrap div.items div.shopping-item .remove-item {
   width: 28px;
   height: 30px;
   cursor: pointer;
@@ -194,16 +292,21 @@ body header nav .nav-content .user li.shopping-wrap div.items div.shopping-item 
   border: 2px solid #f8ba53;
   transition: 0.3s ease-out background-color;
 }
-body header nav .nav-content .user li.shopping-wrap div.items div.shopping-item .remove-item:hover {
+body header nav .nav-content .user span.wrap li.shopping-wrap div.items div.shopping-item .remove-item:hover {
   background-color: #f8ba53;
 }
-body header nav .nav-content .user li.shopping-wrap div.items div.shopping-item .remove-item:hover i {
+body header nav .nav-content .user span.wrap li.shopping-wrap div.items div.shopping-item .remove-item:hover i {
   color: #fff;
 }
-body header nav .nav-content .user li.shopping-wrap div.items div.shopping-item .remove-item i {
+body header nav .nav-content .user span.wrap li.shopping-wrap div.items div.shopping-item .remove-item i {
   font-size: 10pt;
 }
-body header nav .nav-content .user .children {
+body header nav .nav-content .user li.user_btn {
+  width: 50%;
+  font-size: 10pt;
+  cursor: pointer;
+}
+body header nav .nav-content .user li.user_btn .children {
   left: 45%;
   color: #000;
   width: 150%;
@@ -217,7 +320,7 @@ body header nav .nav-content .user .children {
   transform: translateX(-55%);
   box-shadow: 3px 3px 5px #3f3f3f;
 }
-body header nav .nav-content .user .children .triangle {
+body header nav .nav-content .user li.user_btn .children .triangle {
   left: 63%;
   top: -7px;
   width: 0px;
@@ -228,17 +331,17 @@ body header nav .nav-content .user .children .triangle {
   border-left: 7px solid transparent;
   border-bottom: 7px solid #fff;
 }
-body header nav .nav-content .user .children li {
+body header nav .nav-content .user li.user_btn .children li {
   width: 100%;
   margin-bottom: 0.5em;
   padding-bottom: 0.5em;
   border-bottom: 1px solid #3f3f3f;
 }
-body header nav .nav-content .user .children li:nth-last-child(1) {
+body header nav .nav-content .user li.user_btn .children li:nth-last-child(1) {
   border-bottom: none;
   margin-bottom: 0px;
 }
-body header nav .nav-content .user .children li a {
+body header nav .nav-content .user li.user_btn .children li a {
   width: 100%;
   display: block;
   color: #3f3f3f;

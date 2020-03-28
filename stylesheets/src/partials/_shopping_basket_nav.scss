@@ -24,19 +24,21 @@ li.shopping-wrap {
 		cursor: pointer;
 	}
 
-	div.triangle {
-		width: 0px;
-		height: 0px;
-		// z-index: 20;
-		left: 50%;
-		// top: -5px;
-		position: absolute;
-		transform: translateX(-50%);
-		border-right: 9px solid transparent;
-		border-left: 9px solid transparent;
-		border-bottom: 9px solid $white;
-		display: none; // Hidden by default
-	}
+	@import 'triangle_dropdown.scss';
+
+	// div.triangle {
+	// 	width: 0px;
+	// 	height: 0px;
+	// 	// z-index: 20;
+	// 	left: 50%;
+	// 	// top: -5px;
+	// 	position: absolute;
+	// 	transform: translateX(-50%);
+	// 	border-right: 9px solid transparent;
+	// 	border-left: 9px solid transparent;
+	// 	border-bottom: 9px solid $white;
+	// 	display: none; // Hidden by default
+	// }
 
 	div.items {
 		left: 20%;

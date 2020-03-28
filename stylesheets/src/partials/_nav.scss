@@ -5,7 +5,7 @@ nav {
 	// position: absolute;
 	position: static;
 	background-color: $dark_grey;
-	
+
 	a {
 		color: $white;
 		font-weight: bold;
@@ -25,7 +25,7 @@ nav {
 			}
 		}
 
-	
+
 		.search {
 			width: 70%;
 			padding: 10px;
@@ -50,7 +50,7 @@ nav {
 					background-color: transparent;
 				}
 			}
-		}		
+		}
 
 
 		.links {
@@ -103,56 +103,61 @@ nav {
 				display: inline-block;
 			}
 
-			li.user_btn {
-				font-size: 10pt;
-				cursor: pointer;
+			span.wrap {
+				width: 50%;
+				@import 'notifications_nav';
+				@import 'shopping_basket_nav';
 			}
 
-			@import 'shopping_basket_nav';
+			li.user_btn {
+				width: 50%;
+				font-size: 10pt;
+				cursor: pointer;
 
-			.children {
-				left: 45%;
-				color: #000;
-				width: 150%;
-				display: none;
-				padding: 0.5em;
-				min-width: 200px;
-				margin-top: 0.5em;
-				list-style: none;
-				position: absolute;
-				background-color: $white;
-				transform: translateX(-55%);
-				box-shadow: 3px 3px 5px $dark_grey;
-
-				.triangle {
-					left: 63%;
-					top: -7px;
-					width: 0px;
-					height: 0px;
+				.children {
+					left: 45%;
+					color: #000;
+					width: 150%;
+					display: none;
+					padding: 0.5em;
+					min-width: 200px;
+					margin-top: 0.5em;
+					list-style: none;
 					position: absolute;
-					transform: translateX(-37%);
-					border-right: 7px solid transparent;
-					border-left: 7px solid transparent;
-					border-bottom: 7px solid $white;
-				}
+					background-color: $white;
+					transform: translateX(-55%);
+					box-shadow: 3px 3px 5px $dark_grey;
 
-
-				li {
-					width: 100%;
-					margin-bottom: 0.5em;
-					padding-bottom: 0.5em;
-					border-bottom: 1px solid $dark_grey;
-
-					&:nth-last-child(1) {
-						border-bottom: none;
-						margin-bottom: 0px;
+					.triangle {
+						left: 63%;
+						top: -7px;
+						width: 0px;
+						height: 0px;
+						position: absolute;
+						transform: translateX(-37%);
+						border-right: 7px solid transparent;
+						border-left: 7px solid transparent;
+						border-bottom: 7px solid $white;
 					}
 
-					a {
+
+					li {
 						width: 100%;
-						display: block;
-						color: $dark_grey;
-						text-align: center;
+						margin-bottom: 0.5em;
+						padding-bottom: 0.5em;
+						border-bottom: 1px solid $dark_grey;
+
+						&:nth-last-child(1) {
+							border-bottom: none;
+							margin-bottom: 0px;
+						}
+
+						a {
+							width: 100%;
+							display: block;
+							color: $dark_grey;
+							text-align: center;
+						}
 					}
 				}
 			}

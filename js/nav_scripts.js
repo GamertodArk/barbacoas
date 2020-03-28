@@ -5,8 +5,15 @@ let shoppingBasket = __('shopping-basket');
 let basketTriangle = __('basket_triangle');
 let basketItemsWrap = __('basket_items_wrap');
 let shoppingBasket_counter = __('shopping_basket_counter');
+
 let hidden = true;
-let hidden2 = true;
+let hidden_user_btns = true;
+
+// Notification variables
+let notificationsTriangle = __('notifications-triangle');
+let notificationsWrap = __('notification-items');
+let notificationIcon = __('notification-icon-nav');
+let hidden_notification = true;
 
 
 // Update amount counter in shopping basket icon
@@ -25,13 +32,52 @@ function update_shopping_basket_icon_counter(action) {
 	}
 }
 
+/*
+* This funtion hide the others list when you click in a hidden one.
+* This function takes as argument the name of witch list event handler was called.
+*/
+function hide_others(source) {
+	if (source == 'shopping_basket') { // Hide notifications and user_btns lists
+
+		// User btns
+		hidden_user_btns = true;
+		user_btn_buttons.style.display = 'none';
+
+		// Notitications
+		hidden_notification = true;
+		notificationsTriangle.style.display = 'none';
+		notificationsWrap.style.display = 'none';
+	}else if(source == 'user_btns') { // Hide shopping basket and notifications lists
+
+		// Notitications
+		hidden_notification = true;
+		notificationsTriangle.style.display = 'none';
+		notificationsWrap.style.display = 'none';
+
+		// Shopping basket
+		hidden = true;
+		basketTriangle.style.display = 'none';
+		basketItemsWrap.style.display = 'none';
+	}else if(source == 'notifications') {// Hide shopping basket and user btns lists
+		// Shopping basket
+		hidden = true;
+		basketTriangle.style.display = 'none';
+		basketItemsWrap.style.display = 'none';
+
+		// User btns
+		hidden_user_btns = true;
+		user_btn_buttons.style.display = 'none';
+	}
+}
+
+
 function hide_another(content) {
 	if (content == 'shopping_basket') {
 		hidden = true;
 		basketTriangle.style.display = 'none';
 		basketItemsWrap.style.display = 'none';
 	}else if(content == 'user_btns') {
-		hidden2 = true;
+		hidden_user_btns = true;
 		user_btn_buttons.style.display = 'none';
 	}
 }
@@ -39,8 +85,8 @@ function hide_another(content) {
 // Hide/Show shopping basket list in nav
 shoppingBasket.addEventListener('click', e => {
 
-	// Hide the user btn when the user clicks the shopping basket icon
-	hide_another('user_btns');
+	// Hide other open lists
+	hide_others('shopping_basket');
 
 	if (hidden) {
 		hidden = false;
@@ -53,17 +99,35 @@ shoppingBasket.addEventListener('click', e => {
 	}
 });
 
+// Hide show notificaion list in nav
+notificationIcon.addEventListener('click', e => {
 
+	// Hide other open lists
+	hide_others('notifications');
+
+	if (hidden_notification) {
+		hidden_notification = false;
+		notificationsTriangle.style.display = 'block';
+		notificationsWrap.style.display = 'block';
+	}else if(e.target.id == 'notification-icon-nav' && !hidden_notification) {
+		hidden_notification = true;
+		notificationsTriangle.style.display = 'none';
+		notificationsWrap.style.display = 'none';
+	}
+
+});
+
+// Hide show user btn lists
 user_btn.addEventListener('click', e => {
 
-	// Hide the shopping basket dropdown when user click the user btn
-	hide_another('shopping_basket');
+	// Hide other open lists
+	hide_others('user_btns');
 
-	if (hidden2) {
-		hidden2 = false;
+	if (hidden_user_btns) {
+		hidden_user_btns = false;
 		user_btn_buttons.style.display = 'block';
 	}else {
-		hidden2 = true;
+		hidden_user_btns = true;
 		user_btn_buttons.style.display = 'none';
 	}
 });

@@ -1,16 +1,16 @@
 <nav>
-	<div class="nav-content">			
+	<div class="nav-content">
 		<div class="logo">
 			<a href="<?php echo base_url('home') ?>">Barbacoas</a>
 		</div>
 
 		<?php if(isset($session_data['username'])): ?>
 			<div class="search">
-				<form action="<?=base_url('search')?>" method="get">	
+				<form action="<?=base_url('search')?>" method="get">
 					<input type="text" name="search" id="search" placeholder="Buscar">
 					<button role="submit"><i class="fas fa-search"></i></button>
 				</form>
-			</div>		
+			</div>
 		<?php else: ?>
 			<ul class="links">
 				<li><a href="<?php echo base_url('home') ?>">Inicio</a></li>
@@ -18,11 +18,16 @@
 				<li><a href="#">Link #3</a></li>
 			</ul>
 		<?php endif; ?>
-	
+
 
 		<?php if(isset($session_data['username'])): ?>
 			<ul class="user username">
-				<?php include 'shoping_basket_nav.php'; ?>
+
+				<span class="wrap">
+					<?php include 'shoping_basket_nav.php'; ?>
+
+					<?php include 'notifications_nav.php'; ?>
+				</span>
 
 				<li id="user_btn" class="user_btn">
 					<?=$session_data['username']?>
@@ -44,7 +49,7 @@
 				</a></li>
 				<li title="Registrarse"><a href="<?php echo base_url('users/signup') ?>">
 					<i class="fas fa-user-plus"></i>
-				</a></li>				
+				</a></li>
 			</ul>
 		<?php endif; ?>
 
