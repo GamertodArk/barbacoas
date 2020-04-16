@@ -1,9 +1,15 @@
 <?php
 	class Products extends CI_Controller {
+
+		private $builder;
+
 		function __construct()
 		{
 			parent::__construct();
 			$this->load->model('products_model');
+
+			// $db      = \Config\Database::connect();
+			// $this->builder = $db->table('notifications');
 
 			// Only accept post requests
 			if (! $_POST) {
@@ -93,5 +99,16 @@
 			unset($_SESSION['products'][$id]);
 			echo $id;
 		}
+
+		// function set_read_notification($id)
+		// {
+		// 	$id = intval($id);
+		// 	$data = ['readed' => 1];
+		// 	$this->builder->where('id', $id);
+		// 	$this->builder->update($data);
+		// 	// $this->db->table('notifications')->where('id', $id)->update($data);
+		// 	echo "done";
+		// 	// echo 'got here';
+		// }
 	}
 ?>

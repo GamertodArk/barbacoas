@@ -1,12 +1,20 @@
 <?php
 	class Pages extends CI_Controller {
 
+		private $data;
+
 		public function __construct()
 		{
 			parent::__construct();
 			$this->load->helper('url');
 			$this->load->model('users_model');
 			$this->load->model('products_model');
+
+			// Get information from session and unread notifications
+			if ($this->session->logged_in) {
+				$this->data = $this->users_model->user_metadata($_SESSION['id']);
+			}
+
 		}
 
 		public function view($page = 'home')
@@ -16,39 +24,32 @@
 				show_404();
 			}
 
-			// Get all userdata from session and pass it to view
-			if ($this->session->logged_in) { $data['session_data'] = $this->users_model->get_userdata(); }
-
 			// Get products data
-			$data['products'] = $this->products_model->get_specific_product_data('id, title, images, amount');
+			$this->data['products'] = $this->products_model->get_specific_product_data('id, title, images, amount');
 
 			// Set tittle with the first letter uppercase
-			$data['title'] = ucfirst($page);
+			$this->data['title'] = ucfirst($page);
 
-			$this->load->view('templates/' . strtolower($page), $data);
+			$this->load->view('templates/' . strtolower($page), $this->data);
 		}
 
 		public function product_summary($id)
 		{
-			// Get all userdata from session and pass it to view
-			if ($this->session->logged_in) { $data['session_data'] = $this->users_model->get_userdata(); }
-
 			// Get product and seller data
-			$data['productData'] = $this->products_model->get_product_data($id);
+			$this->data['productData'] = $this->products_model->get_product_data($id);
 
 			// Other products data
-			$data['products'] = $this->products_model->get_random_products(4, $id);
+			$this->data['products'] = $this->products_model->get_random_products(4, $id);
 
 			// Check if this product is in the favorite list
-			$data['isInFav'] = $this->products_model->check_if_is_in_favorites($id);
+			$this->data['isInFav'] = $this->products_model->check_if_is_in_favorites($id);
 
 			// Check if the product existe
-			if (NULL != $data['productData']['product']) {
-				$this->load->view('templates/product_summary', $data);
+			if (NULL != $this->data['productData']['product']) {
+				$this->load->view('templates/product_summary', $this->data);
 			}else {
-				$this->load->view('templates/product_not_found', $data);
+				$this->load->view('templates/product_not_found', $this->data);
 			}
-
 		}
 
 		public function search($query = null)
@@ -60,11 +61,11 @@
 			$query = !empty($this->input->get('search')) ? $this->input->get('search') : $query;
 
 			if (null != $query && !empty($query)) {
-				$data['query'] = strip_tags($query);
-				$data['products'] = $this->products_model->search_products($query);
-				$this->load->view('templates/search_results', $data);
+				$this->data['query'] = strip_tags($query);
+				$this->data['products'] = $this->products_model->search_products($query);
+				$this->load->view('templates/search_results', $this->data);
 			}else {
-				$this->load->view('templates/search_template', $data);
+				$this->load->view('templates/search_template', $this->data);
 			}
 		}
 
@@ -77,19 +78,16 @@
 			}
 
 			// Get user data from database
-			$data['user_data'] = $this->users_model->get_userdata_from_db($id);
+			$this->data['user_data'] = $this->users_model->get_userdata_from_db($id);
 
 			// Get products from user
-			$data['product_data'] = $this->products_model->get_product_data_of_seller($id);
+			$this->data['product_data'] = $this->products_model->get_product_data_of_seller($id);
 
-			// Get all userdata from session and pass it to view
-			if ($this->session->logged_in) { $data['session_data'] = $this->users_model->get_userdata(); }
-
-			if (NULL !== $data['user_data']) {
-				$this->load->view('templates/profile.php', $data);
+			if (NULL !== $this->data['user_data']) {
+				$this->load->view('templates/profile.php', $this->data);
 			}else {
 				// echo 'User not found';
-				$this->load->view('templates/user_not_found.php');
+				$this->load->view('templates/user_not_found.php', $this->data);
 			}
 		}
 

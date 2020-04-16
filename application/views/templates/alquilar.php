@@ -22,8 +22,8 @@
 			</ul>
 			<p class="total">Total: <?=$total_price?>$</p>
 			<div class="buttons">
-				<a class="cancel" href="#">Cancelar</a>
-				<a class="buy" href="#">Pagar</a>
+				<a class="cancel" href="<?=site_url("members/shopping_basket")?>">Cancelar</a>
+				<a class="buy" href="<?=site_url("members/process_products_payment")?>">Pagar</a>
 			</div>
 		</div>
 	</main>

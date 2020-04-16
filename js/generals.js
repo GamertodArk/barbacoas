@@ -30,31 +30,45 @@ function increase_product_amount(btn, counter) {
 
 function insert_product_to_basket_dom(data) {
 	let i = document.createElement('i');
-	let h3 = document.createElement('h3');
+	let p = document.createElement('p');
+	let a = document.createElement('a');
+	let img = document.createElement('div');
 	let div = document.createElement('div');
+	let divData = document.createElement('div');
 	let span = document.createElement('span');
-	let wrapper = document.getElementById('basket_items_wrap');
-	let product_title = document.createTextNode(data.product_title);
+	let wrapper = document.getElementById('items_basket');
+	let product_title = document.createTextNode('Producto añadido a la cesta');
+	// let product_title = document.createTextNode(data.product_title);
 
+	img.classList.add('img');
+	div.appendChild(img);
+
+	a.innerHTML = 'Ver producto';
+	a.setAttribute('href', "");
+
+	divData.classList.add('data');
 	div.classList.add('shopping-item');
 	div.setAttribute('data-product-id', data.product_id);
 
 	span.classList.add('remove-item');
-	span.setAttribute('onclick', 'delete_from_basket(this)');
+	// span.setAttribute('onclick', 'delete_from_basket(this)');
 	span.setAttribute('onclick', `delete_from_basket(${data.product_id}, this.parentNode)`);
 
 	i.classList.add('fas');
 	i.classList.add('fa-times');
 
+	p.appendChild(product_title);
+	divData.appendChild(p);
+	divData.appendChild(a);
+	div.appendChild(divData);
+
 	span.appendChild(i);
-	h3.appendChild(product_title);
-	div.appendChild(h3);
 	div.appendChild(span);
 
 	wrapper.appendChild(div);
 
 
-	/*** Update the notification counter in the shopping basket icon ***/
+	/*** items_basket the notification counter in the shopping basket icon ***/
 	let counter = __('shopping_basket_counter'); // Get dom element
 	let counter_amount = counter.getAttribute('data-basket-counter'); // Get products amount
 	counter_amount++; // Increase the amount counter by one
@@ -113,4 +127,22 @@ function add_to_basket(data) {
 				}
 			}
 		})
+}
+
+function reduce_notifications_nav_counter(counter) {
+	let currentAmount = parseInt(counter.getAttribute('data-notifi-counter'));
+
+	if (currentAmount > 0) {
+
+		let newAmount = currentAmount - 1;
+		if (newAmount > 0) {
+			// If there are still notifications, update the counter
+			counter.setAttribute('data-notifi-counter', newAmount);
+			// counter.innerHTML = newAmount;
+		}else {
+			// If there are not more notifications, hide the counter
+			counter.classList.add('hide');
+		}
+
+	}
 }

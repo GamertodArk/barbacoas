@@ -1,4 +1,3 @@
-<?php var_dump($productData); ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -33,30 +32,6 @@
 							<h3>Descripcion</h3>
 							<p><?=$productData['product']['description']?></p>
 						</div>
-
-						<!-- <div class="pricing">
-							<p>Precio:</p>
-							<p class="price">23 $</p>
-							<strong>|</strong>
-							<p>Dia</p>
-						</div> -->
-
-						<!-- <div class="days_amount">
-							<p>Dias:</p>
-
-							<span class="amount_wrapper">
-								<span id="increase_days" class="more">
-									<i class="fas fa-plus"></i>
-								</span>
-
-								<input type="text" class="days" name="days" id="amount_days" value="1" placeholder="1">
-
-								<span id="decrease_days" class="less">
-									<i class="fas fa-minus"></i>
-								</span>
-							</span>
-
-						</div> -->
 
 						<div role="form" class="time-wrap">
 

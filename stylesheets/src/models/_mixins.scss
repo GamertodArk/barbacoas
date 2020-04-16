@@ -1,5 +1,5 @@
 
-// This funtion centers one or more elements 
+// This funtion centers one or more elements
 @mixin center-flex($align: center, $direction: row) {
 	display: flex;
 	align-items: center;
@@ -57,7 +57,7 @@
 	animation-name: turn;
 	animation-duration: 0.7s;
 	animation-iteration-count: infinite;
-	border-top-color: lighten(purple, 20%);	
+	border-top-color: lighten(purple, 20%);
 }
 
 @mixin img($w: 100px, $h: 100px) {
@@ -122,11 +122,11 @@
 @mixin product_info_error_styles($id: "error-msg-wrap") {
 	##{$id} {
 		width: 100%;
-		padding: 2em; 
+		padding: 2em;
 		font-size: 11pt;
 		margin-top: 1em;
 		position: relative;
-		text-align: center;	
+		text-align: center;
 		background-color: red;
 		display: none; // hidden by default
 
@@ -140,3 +140,19 @@
 	}
 }
 
+@mixin notification_counter() {
+	top: -15px;
+	left: -15px;
+	padding: 0.3em;
+	font-size: 10pt;
+	min-width: 25px;
+	min-height: 20px;
+	position: absolute;
+	border-radius: 100%;
+	background-color: red;
+	@include center-flex();
+
+	&.hide {
+		display: none;
+	}
+}

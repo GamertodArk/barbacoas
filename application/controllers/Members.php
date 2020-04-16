@@ -1,5 +1,8 @@
 <?php
 	class Members extends CI_Controller {
+
+		private $data;
+
 		public function __construct()
 		{
 			parent::__construct();
@@ -10,33 +13,17 @@
 
 			// Check for sessions
 			if (! $this->session->logged_in) { redirect('users/login'); }
+
+			// Get information from session and unread notifications
+			if ($this->session->logged_in) {
+				$this->data = $this->users_model->user_metadata($_SESSION['id']);
+			}
 		}
 
-		/**
-		function product_summary($id)
+		public function set_read_notification($id)
 		{
-
-			// Get all userdata from session and pass it to view
-			if ($this->session->logged_in) { $data['session_data'] = $this->users_model->get_userdata(); }
-
-			// Get product and seller data
-			$data['productData'] = $this->products_model->get_product_data($id);
-
-			// Other products data
-			$this->db->select('id, title, images, amount');
-			$query = $this->db->get('products', 4);
-			$data['products'] = $query->result();
-
-			// Check if this product is in the favorite list
-			$favP = $this->input->cookie('fav_products', true);
-			$list_fav_p = explode(';', $favP);
-			$data['isInFav'] = in_array(intval($id), $list_fav_p) ? true : false;
-
-
-			$this->load->view('templates/product_summary', $data);
-
+			$this->users_model->set_read_notification($id);
 		}
-		*/
 
 		public function add_to_favorites($id)
 		{
@@ -70,19 +57,16 @@
 				show_404();
 			}
 
-			// Get all userdata from session and pass it to view
-			if ($this->session->logged_in) { $data['session_data'] = $this->users_model->get_userdata(); }
-
 			// Get products data
-			$data['products'] = $this->products_model->get_specific_product_data('id, title, images');
+			$this->data['products'] = $this->products_model->get_specific_product_data('id, title, images');
 
 			// Get amount of products in the basket
-			$data['products_basket_amount'] = $this->products_model->get_product_amount_basket();
+			$this->data['products_basket_amount'] = $this->products_model->get_product_amount_basket();
 
 			// Get favorites products
-			$data['favorites'] = $this->products_model->get_favorites_proudcts();
+			$this->data['favorites'] = $this->products_model->get_favorites_proudcts();
 
-			$this->load->view('templates/' . strtolower($page), $data);
+			$this->load->view('templates/' . strtolower($page), $this->data);
 		}
 
 		public function alquilar()
@@ -91,7 +75,7 @@
 			$total_price = 0;
 
 			// Get all userdata from session and pass it to view
-			if ($this->session->logged_in) { $data['session_data'] = $this->users_model->get_userdata(); }
+			// if ($this->session->logged_in) { $data['session_data'] = $this->users_model->get_userdata(); }
 
 			// Redirect the user if there's no products in the shopping basket
 			if ($this->products_model->get_product_amount_basket() <= 0) { redirect('members/shopping_basket'); }
@@ -129,9 +113,77 @@
 
 			}
 
-			$data['products'] = $basket_products;
-			$data['total_price'] = $total_price;
-			$this->load->view('templates/alquilar', $data);
+			/* Set this the total price as a global data so we can access it in the process payment handler */
+			$_SESSION['products_total_price'] = $total_price;
+
+			$this->data['products'] = $basket_products;
+			$this->data['total_price'] = $total_price;
+			$this->load->view('templates/alquilar', $this->data);
+		}
+
+		/*
+		* THIS FUNCTION IS INCOMPLETED
+		* Right now this whole application does not have a payment handler like Paypal or Payzaa
+		* Because of that all this funtion does is get the whole price of everything the user requested
+		* and send all the notifications to the products owners.
+		*
+		* If any payment API is implemented should be here
+		*/
+		public function process_products_payment()
+		{
+			// $amount = $_SESSION['products_total_price'];
+
+			// Get all userdata from session and pass it to view
+			// if ($this->session->logged_in) { $data['session_data'] = $this->users_model->get_userdata(); }
+
+			// Redirect the user if there's no products in the shopping basket
+			if ($this->products_model->get_product_amount_basket() <= 0) { redirect('members/shopping_basket'); }
+
+			// Upload the rentings to the database
+			foreach ($_SESSION['products'] as $product) {
+				$product_id = $product['id'];
+				$user_product_lessee = $_SESSION['id'];
+				$products_amount = $product['amount'];
+				$time_amount = $product['time']['time_lapse_amount'] . ' ' . $product['time']['time_lapse'];
+				$user_product_owner = $this->products_model->get_product_data($product['id'])['seller']['id'];
+
+				$date = date('d/m/Y');
+				$date_end = date('d/m/Y', strtotime('+' . $time_amount));
+
+				$data = [
+					'date' => $date,
+					'date_end' => $date_end,
+					'product_id' => $product_id,
+					'time_amount' => $time_amount,
+					'products_amount' => $products_amount,
+					'user_product_owner' => $user_product_owner,
+					'user_product_lessee' => $user_product_lessee
+
+				];
+
+				$this->db->insert('rentings', $data);
+			}
+
+			// Upload notifications to the database
+			foreach ($_SESSION['products'] as $product) {
+				$product_id = $product['id'];
+				$user_sender = $_SESSION['id'];
+				$user_receiver = $this->products_model->get_product_data($product['id'])['seller']['id'];
+
+				$data = [
+					'product_id' => $product_id,
+					'user_sender' => $user_sender,
+					'user_receiver' => $user_receiver
+				];
+
+				$this->db->insert('notifications', $data);
+			}
+
+			// Clean shopping basket
+			$_SESSION['products'] = [];
+
+			// Redirect to the shopping basket
+			redirect("members/shopping_basket");
 		}
 
 		public function register_product()

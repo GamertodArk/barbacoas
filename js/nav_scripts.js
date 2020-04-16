@@ -134,7 +134,7 @@ user_btn.addEventListener('click', e => {
 
 function delete_from_basket(id, item, icon) {
 
-	let url = `http://127.0.0.1/barbacoas/products/delete_from_basket/${id}`;
+	let url = `${site_url}products/delete_from_basket/${id}`;
 	let fetchInit = {
 		method: 'POST',
 		body: 'data=test',
@@ -158,4 +158,29 @@ function delete_from_basket(id, item, icon) {
 			// Reduce the number in the shopping basket icon in the nav
 			update_shopping_basket_icon_counter('decrease');
 		})
+}
+
+function delete_notification(element) {
+	let id = parseInt(element.getAttribute('data-notification-id'));
+	let url = `${site_url}members/set_read_notification/${id}`;
+	let notificationsCounter = __('notifications_counter');
+
+	let fetchInit = {
+		method: 'POST',
+		body: 'data=test',
+		headers:{
+			'Content-Type': 'application/x-www-form-urlencoded'
+		}
+	}
+
+
+	fetch(url, fetchInit)
+		.then(response => response.text())
+		.then(text => {
+			text == 'done' ? '' : console.log(text);
+
+			element.parentNode.removeChild(element); // remove from notifications dropdown
+			reduce_notifications_nav_counter(__('notifications_counter'));
+ 		});
+
 }

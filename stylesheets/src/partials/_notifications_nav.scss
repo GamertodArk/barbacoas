@@ -5,11 +5,13 @@ li.bell-notification {
 
     @import 'triangle_dropdown.scss';
 
+    span#notifications_counter { @include notification_counter(); }
+
+
     #notification-items {
         top: 27px;
         right: 50%;
         width: 420px;
-        // padding: 1em;
         color: $dark_grey;
         position: absolute;
         transform: translateX(50%);
@@ -41,7 +43,7 @@ li.bell-notification {
                     background-color: $grey2;
                 }
 
-                .img {
+                img {
                     width: 60px;
                     height: 60px;
                     background-color: $dark_grey;
